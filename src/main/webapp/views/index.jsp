@@ -147,7 +147,7 @@
           <div class="col-sm-4 col-lg-3 text-center text-sm-start">
             <div class="main-logo">
               <a href="/">
-                <img src="/images/logo.png" alt="logo" class="img-fluid">
+                <img src="/images/logo.png" alt="Petshop Logo" width="200" height="100" class="img-fluid">
               </a>
             </div>
           </div>
@@ -205,7 +205,7 @@
             <div class="cart text-end d-none d-lg-block dropdown">
               <button class="border-0 bg-transparent d-flex flex-column gap-2 lh-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                 <span class="fs-6 text-muted dropdown-toggle">Your Cart</span>
-                <span class="cart-total fs-5 fw-bold">$1290.00</span>
+                <span class="cart-total fs-5 fw-bold">1000000원</span>
               </button>
             </div>
           </div>
@@ -2237,29 +2237,6 @@
       </div>
     </section>
 
-    <section class="py-5 my-5">
-      <div class="container-fluid">
-
-        <div class="bg-warning py-5 rounded-5" style="background-image: url('images/bg-pattern-2.png') no-repeat;">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-4">
-                <img src="images/phone.png" alt="phone" class="image-float img-fluid">
-              </div>
-              <div class="col-md-8">
-                <h2 class="my-5">Shop faster with foodmart App</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sed ptibus liberolectus nonet psryroin. Amet sed lorem posuere sit iaculis amet, ac urna. Adipiscing fames semper erat ac in suspendisse iaculis. Amet blandit tortor praesent ante vitae. A, enim pretiummi senectus magna. Sagittis sed ptibus liberolectus non et psryroin.</p>
-                <div class="d-flex gap-2 flex-wrap">
-                  <img src="images/app-store.jpg" alt="app-store">
-                  <img src="images/google-play.jpg" alt="google-play">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
 
     <section class="py-5">
       <div class="container-fluid">
@@ -2373,7 +2350,7 @@
 
           <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="footer-menu">
-              <img src="images/logo.png" alt="logo">
+              <img src="images/logo.png" alt="Petshop Logo" width="200" height="70">
               <div class="social-links mt-5">
                 <ul class="d-flex list-unstyled gap-2">
                   <li>
