@@ -12,6 +12,6 @@ public class MainController {
 
     @GetMapping("/")
     public String index() {
-        return "index"; // index.jsp 호출
+        return "index";
     }
 }

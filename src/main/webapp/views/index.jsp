@@ -15,8 +15,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/vendor.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="/css/vendor.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -117,12 +117,12 @@
               <strong>$20</strong>
             </li>
           </ul>
-  
+
           <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
         </div>
       </div>
     </div>
-    
+
     <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasSearch" aria-labelledby="Search">
       <div class="offcanvas-header justify-content-center">
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -143,15 +143,15 @@
     <header>
       <div class="container-fluid">
         <div class="row py-3 border-bottom">
-          
+
           <div class="col-sm-4 col-lg-3 text-center text-sm-start">
             <div class="main-logo">
-              <a href="index.jsp">
+              <a href="/">
                 <img src="/images/logo.png" alt="logo" class="img-fluid">
               </a>
             </div>
           </div>
-          
+
           <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-5 d-none d-lg-block">
             <div class="search-bar row bg-light p-2 my-2 rounded-4">
               <div class="col-md-4 d-none d-md-block">
@@ -172,7 +172,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
             <div class="support-box text-end d-none d-xl-block">
               <span class="fs-6 text-muted">For Support?</span>
@@ -229,14 +229,14 @@
                 </div>
 
                 <div class="offcanvas-body">
-              
+
                   <select class="filter-categories border-0 mb-0 me-5">
                     <option>Shop by Departments</option>
                     <option>Groceries</option>
                     <option>Drinks</option>
                     <option>Chocolates</option>
                   </select>
-              
+
                   <ul class="navbar-nav justify-content-end menu-list list-unstyled d-flex gap-md-3 mb-0">
                     <li class="nav-item active">
                       <a href="#women" class="nav-link">Women</a>
@@ -277,7 +277,7 @@
                       <a href="#blog" class="nav-link">Blog</a>
                     </li>
                   </ul>
-                
+
                 </div>
 
               </div>
@@ -285,19 +285,19 @@
         </div>
       </div>
     </header>
-    
-    <section class="py-3" style="background-image: url('images/background-pattern.jpg');background-repeat: no-repeat;background-size: cover;">
+
+    <section class="py-3" style="background-image: url('/images/background-pattern.jpg');background-repeat: no-repeat;background-size: cover;">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
 
             <div class="banner-blocks">
-            
+
               <div class="banner-ad large bg-info block-1">
 
                 <div class="swiper main-swiper">
                   <div class="swiper-wrapper">
-                    
+
                     <div class="swiper-slide">
                       <div class="row banner-content p-5">
                         <div class="content-wrapper col-md-7">
@@ -311,7 +311,7 @@
                         </div>
                       </div>
                     </div>
-                    
+
                     <div class="swiper-slide">
                       <div class="row banner-content p-5">
                         <div class="content-wrapper col-md-7">
@@ -325,7 +325,7 @@
                         </div>
                       </div>
                     </div>
-                    
+
                     <div class="swiper-slide">
                       <div class="row banner-content p-5">
                         <div class="content-wrapper col-md-7">
@@ -340,12 +340,12 @@
                       </div>
                     </div>
                   </div>
-                  
+
                   <div class="swiper-pagination"></div>
 
                 </div>
               </div>
-              
+
               <div class="banner-ad bg-success-subtle block-2" style="background:url('images/ad-image-1.png') no-repeat;background-position: right bottom">
                 <div class="row banner-content p-5">
 
@@ -372,7 +372,7 @@
 
             </div>
             <!-- / Banner Blocks -->
-              
+
           </div>
         </div>
       </div>
@@ -394,7 +394,7 @@
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
         <div class="row">
@@ -450,7 +450,7 @@
                   <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
                   <h3 class="category-title">Fruits & Veges</h3>
                 </a>
-                
+
               </div>
             </div>
 
@@ -466,7 +466,7 @@
           <div class="col-md-12">
 
             <div class="section-header d-flex flex-wrap flex-wrap justify-content-between mb-5">
-              
+
               <h2 class="section-title">Newly Arrived Brands</h2>
 
               <div class="d-flex align-items-center">
@@ -474,10 +474,10 @@
                 <div class="swiper-buttons">
                   <button class="swiper-prev brand-carousel-prev btn btn-yellow">❮</button>
                   <button class="swiper-next brand-carousel-next btn btn-yellow">❯</button>
-                </div>  
+                </div>
               </div>
             </div>
-            
+
           </div>
         </div>
         <div class="row">
@@ -485,7 +485,7 @@
 
             <div class="brand-carousel swiper">
               <div class="swiper-wrapper">
-                
+
                 <div class="swiper-slide">
                   <div class="card mb-3 p-3 rounded-4 shadow border-0">
                     <div class="row g-0">
@@ -576,7 +576,7 @@
                     </div>
                   </div>
                 </div>
-                
+
               </div>
             </div>
 
@@ -588,7 +588,7 @@
 
     <section class="py-5">
       <div class="container-fluid">
-        
+
         <div class="row">
           <div class="col-md-12">
 
@@ -607,7 +607,7 @@
                 <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
 
                   <div class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-                  
+
                     <div class="col">
                       <div class="product-item">
                         <span class="badge bg-success position-absolute m-3">-30%</span>
@@ -912,11 +912,11 @@
 
                   </div>
                   <!-- / product-grid -->
-                  
+
                 </div>
 
                 <div class="tab-pane fade" id="nav-fruits" role="tabpanel" aria-labelledby="nav-fruits-tab">
-                  
+
                   <div class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
 
                     <div class="col">
@@ -980,7 +980,7 @@
                         </div>
                       </div>
                     </div>
-                  
+
                     <div class="col">
                       <div class="product-item">
                         <span class="badge bg-success position-absolute m-3">-30%</span>
@@ -1169,7 +1169,7 @@
                         </div>
                       </div>
                     </div>
-                  
+
                     <div class="col">
                       <div class="product-item">
                         <a href="#" class="btn-wishlist"><svg width="24" height="24"><use xlink:href="#heart"></use></svg></a>
@@ -1292,9 +1292,9 @@
 
                   </div>
                   <!-- / product-grid -->
-                  
+
                 </div>
-                
+
               </div>
             </div>
 
@@ -1306,7 +1306,7 @@
     <section class="py-5">
       <div class="container-fluid">
         <div class="row">
-          
+
           <div class="col-md-6">
             <div class="banner-ad bg-danger mb-3" style="background: url('images/ad-image-3.png');background-repeat: no-repeat;background-position: right bottom;">
               <div class="banner-content p-5">
@@ -1317,7 +1317,7 @@
                 <a href="#" class="btn btn-dark text-uppercase">Show Now</a>
 
               </div>
-            
+
             </div>
           </div>
           <div class="col-md-6">
@@ -1330,10 +1330,10 @@
                 <a href="#" class="btn btn-dark text-uppercase">Show Now</a>
 
               </div>
-            
+
             </div>
           </div>
-             
+
         </div>
       </div>
     </section>
@@ -1344,7 +1344,7 @@
           <div class="col-md-12">
 
             <div class="section-header d-flex flex-wrap justify-content-between my-5">
-              
+
               <h2 class="section-title">Best selling products</h2>
 
               <div class="d-flex align-items-center">
@@ -1352,10 +1352,10 @@
                 <div class="swiper-buttons">
                   <button class="swiper-prev products-carousel-prev btn btn-primary">❮</button>
                   <button class="swiper-next products-carousel-next btn btn-primary">❯</button>
-                </div>  
+                </div>
               </div>
             </div>
-            
+
           </div>
         </div>
         <div class="row">
@@ -1363,7 +1363,7 @@
 
             <div class="products-carousel swiper">
               <div class="swiper-wrapper">
-                
+
                 <div class="product-item swiper-slide">
                   <span class="badge bg-success position-absolute m-3">-15%</span>
                   <a href="#" class="btn-wishlist"><svg width="24" height="24"><use xlink:href="#heart"></use></svg></a>
@@ -1590,7 +1590,7 @@
                     <a href="#" class="nav-link">Add to Cart <iconify-icon icon="uil:shopping-cart"></a>
                   </div>
                 </div>
-                
+
               </div>
             </div>
             <!-- / products-carousel -->
@@ -1632,14 +1632,14 @@
                     <button type="submit" class="btn btn-dark btn-lg">Submit</button>
                   </div>
                 </form>
-                
+
               </div>
-              
+
             </div>
-            
+
           </div>
         </div>
-        
+
       </div>
     </section>
 
@@ -1649,7 +1649,7 @@
           <div class="col-md-12">
 
             <div class="section-header d-flex justify-content-between">
-              
+
               <h2 class="section-title">Most popular products</h2>
 
               <div class="d-flex align-items-center">
@@ -1657,10 +1657,10 @@
                 <div class="swiper-buttons">
                   <button class="swiper-prev products-carousel-prev btn btn-primary">❮</button>
                   <button class="swiper-next products-carousel-next btn btn-primary">❯</button>
-                </div>  
+                </div>
               </div>
             </div>
-            
+
           </div>
         </div>
         <div class="row">
@@ -1668,7 +1668,7 @@
 
             <div class="products-carousel swiper">
               <div class="swiper-wrapper">
-                
+
                 <div class="product-item swiper-slide">
                   <a href="#" class="btn-wishlist"><svg width="24" height="24"><use xlink:href="#heart"></use></svg></a>
                   <figure>
@@ -1891,7 +1891,7 @@
                     <a href="#" class="nav-link">Add to Cart <iconify-icon icon="uil:shopping-cart"></a>
                   </div>
                 </div>
-                
+
               </div>
             </div>
             <!-- / products-carousel -->
@@ -1907,7 +1907,7 @@
           <div class="col-md-12">
 
             <div class="section-header d-flex justify-content-between">
-              
+
               <h2 class="section-title">Just arrived</h2>
 
               <div class="d-flex align-items-center">
@@ -1915,10 +1915,10 @@
                 <div class="swiper-buttons">
                   <button class="swiper-prev products-carousel-prev btn btn-primary">❮</button>
                   <button class="swiper-next products-carousel-next btn btn-primary">❯</button>
-                </div>  
+                </div>
               </div>
             </div>
-            
+
           </div>
         </div>
         <div class="row">
@@ -1926,7 +1926,7 @@
 
             <div class="products-carousel swiper">
               <div class="swiper-wrapper">
-                
+
                 <div class="product-item swiper-slide">
                   <a href="#" class="btn-wishlist"><svg width="24" height="24"><use xlink:href="#heart"></use></svg></a>
                   <figure>
@@ -2149,7 +2149,7 @@
                     <a href="#" class="nav-link">Add to Cart <iconify-icon icon="uil:shopping-cart"></a>
                   </div>
                 </div>
-                
+
               </div>
             </div>
             <!-- / products-carousel -->
@@ -2257,7 +2257,7 @@
             </div>
           </div>
         </div>
-        
+
       </div>
     </section>
 
@@ -2491,7 +2491,7 @@
               </form>
             </div>
           </div>
-          
+
         </div>
       </div>
     </footer>
@@ -2507,10 +2507,10 @@
         </div>
       </div>
     </div>
-    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="/js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/script.js"></script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/script.js"></script>
   </body>
 </html>
