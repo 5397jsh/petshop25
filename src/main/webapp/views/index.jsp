@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
   <head>
     <title>FoodMart - Free eCommerce Grocery Store HTML Website Template</title>
     <meta charset="utf-8">
@@ -176,7 +176,7 @@
           <div class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
             <div class="support-box text-end d-none d-xl-block">
               <span class="fs-6 text-muted">For Support?</span>
-              <h5 class="mb-0">+980-34984089</h5>
+              <h5 class="mb-0">010-8920-3471</h5>
             </div>
 
             <ul class="d-flex justify-content-end list-unstyled m-0">
@@ -230,46 +230,43 @@
 
                 <div class="offcanvas-body">
 
-                  <select class="filter-categories border-0 mb-0 me-5">
-                    <option>Shop by Departments</option>
-                    <option>Groceries</option>
-                    <option>Drinks</option>
-                    <option>Chocolates</option>
-                  </select>
+
 
                   <ul class="navbar-nav justify-content-end menu-list list-unstyled d-flex gap-md-3 mb-0">
+
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+                      <a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">고양이</a>
                       <ul class="dropdown-menu" aria-labelledby="pages">
-                        <li><a href="index.html" class="dropdown-item">About Us </a></li>
-                        <li><a href="index.html" class="dropdown-item">Shop </a></li>
-                        <li><a href="index.html" class="dropdown-item">Single Product </a></li>
-                        <li><a href="index.html" class="dropdown-item">Cart </a></li>
-                        <li><a href="index.html" class="dropdown-item">Checkout </a></li>
-                        <li><a href="index.html" class="dropdown-item">Blog </a></li>
-                        <li><a href="index.html" class="dropdown-item">Single Post </a></li>
-                        <li><a href="index.html" class="dropdown-item">Styles </a></li>
-                        <li><a href="index.html" class="dropdown-item">Contact </a></li>
-                        <li><a href="index.html" class="dropdown-item">Thank You </a></li>
-                        <li><a href="index.html" class="dropdown-item">My Account </a></li>
-                        <li><a href="index.html" class="dropdown-item">404 Error </a></li>
+                        <li><a href="index.html" class="dropdown-item">사료 </a></li>
+                        <li><a href="index.html" class="dropdown-item">간식 </a></li>
+                        <li><a href="index.html" class="dropdown-item">모래</a></li>
+                        <li><a href="index.html" class="dropdown-item">화장실 </a></li>
+                        <li><a href="index.html" class="dropdown-item">장난감 </a></li>
+                        <li><a href="index.html" class="dropdown-item">하우스/방석 </a></li>
+                      </ul>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">강아지</a>
+                      <ul class="dropdown-menu" aria-labelledby="pages">
+                        <li><a href="index.html" class="dropdown-item">사료  </a></li>
+                        <li><a href="index.html" class="dropdown-item">간식 </a></li>
+                        <li><a href="index.html" class="dropdown-item">목욕/미용 </a></li>
+                        <li><a href="index.html" class="dropdown-item">애견줄 </a></li>
+                        <li><a href="index.html" class="dropdown-item">장난감 </a></li>
+                        <li><a href="index.html" class="dropdown-item">하우스/방석 </a></li>
                       </ul>
                     </li>
                     <li class="nav-item">
-                      <a href="#brand" class="nav-link">Brand</a>
+                      <a href="#New" class="nav-link">신상품</a>
                     </li>
                     <li class="nav-item">
-                      <a href="#sale" class="nav-link">Sale</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#blog" class="nav-link">Blog</a>
+                      <a href="#Best" class="nav-link">베스트상품</a>
                     </li>
                   </ul>
 
                 </div>
 
               </div>
-              </nav>
+            </nav>
           </div>
         </div>
       </div>
@@ -2148,83 +2145,6 @@
       </div>
     </section>
 
-    <section id="latest-blog" class="py-5">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="section-header d-flex align-items-center justify-content-between my-5">
-            <h2 class="section-title">Our Recent Blog</h2>
-            <div class="btn-wrap align-right">
-              <a href="#" class="d-flex align-items-center nav-link">Read All Articles <svg width="24" height="24"><use xlink:href="#arrow-right"></use></svg></a>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <article class="post-item card border-0 shadow-sm p-3">
-              <div class="image-holder zoom-effect">
-                <a href="#">
-                  <img src="images/post-thumb-1.jpg" alt="post" class="card-img-top">
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">
-                  <div class="meta-date"><svg width="16" height="16"><use xlink:href="#calendar"></use></svg>22 Aug 2021</div>
-                  <div class="meta-categories"><svg width="16" height="16"><use xlink:href="#category"></use></svg>tips & tricks</div>
-                </div>
-                <div class="post-header">
-                  <h3 class="post-title">
-                    <a href="#" class="text-decoration-none">Top 10 casual look ideas to dress up your kids</a>
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipi elit. Aliquet eleifend viverra enim tincidunt donec quam. A in arcu, hendrerit neque dolor morbi...</p>
-                </div>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-4">
-            <article class="post-item card border-0 shadow-sm p-3">
-              <div class="image-holder zoom-effect">
-                <a href="#">
-                  <img src="images/post-thumb-2.jpg" alt="post" class="card-img-top">
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">
-                  <div class="meta-date"><svg width="16" height="16"><use xlink:href="#calendar"></use></svg>25 Aug 2021</div>
-                  <div class="meta-categories"><svg width="16" height="16"><use xlink:href="#category"></use></svg>trending</div>
-                </div>
-                <div class="post-header">
-                  <h3 class="post-title">
-                    <a href="#" class="text-decoration-none">Latest trends of wearing street wears supremely</a>
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipi elit. Aliquet eleifend viverra enim tincidunt donec quam. A in arcu, hendrerit neque dolor morbi...</p>
-                </div>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-4">
-            <article class="post-item card border-0 shadow-sm p-3">
-              <div class="image-holder zoom-effect">
-                <a href="#">
-                  <img src="images/post-thumb-3.jpg" alt="post" class="card-img-top">
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">
-                  <div class="meta-date"><svg width="16" height="16"><use xlink:href="#calendar"></use></svg>28 Aug 2021</div>
-                  <div class="meta-categories"><svg width="16" height="16"><use xlink:href="#category"></use></svg>inspiration</div>
-                </div>
-                <div class="post-header">
-                  <h3 class="post-title">
-                    <a href="#" class="text-decoration-none">10 Different Types of comfortable clothes ideas for women</a>
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipi elit. Aliquet eleifend viverra enim tincidunt donec quam. A in arcu, hendrerit neque dolor morbi...</p>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
 
 
     <section class="py-5">
