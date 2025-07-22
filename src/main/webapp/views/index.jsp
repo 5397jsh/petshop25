@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <title>FoodMart - Free eCommerce Grocery Store HTML Website Template</title>
     <meta charset="utf-8">
