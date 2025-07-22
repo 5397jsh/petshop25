@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <title>FoodMart - Free eCommerce Grocery Store HTML Website Template</title>
     <meta charset="utf-8">
@@ -238,18 +238,6 @@
                   </select>
 
                   <ul class="navbar-nav justify-content-end menu-list list-unstyled d-flex gap-md-3 mb-0">
-                    <li class="nav-item active">
-                      <a href="#women" class="nav-link">Women</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a href="#men" class="nav-link">Men</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#kids" class="nav-link">Kids</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#accessories" class="nav-link">Accessories</a>
-                    </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
                       <ul class="dropdown-menu" aria-labelledby="pages">
