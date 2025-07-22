@@ -239,7 +239,7 @@
                       <ul class="dropdown-menu" aria-labelledby="pages">
                         <li><a href="index.html" class="dropdown-item">사료 </a></li>
                         <li><a href="index.html" class="dropdown-item">간식 </a></li>
-                        <li><a href="index.html" class="dropdown-item">모래</a></li>
+                        <li><a href="/cat/sand" class="dropdown-item">모래</a></li>
                         <li><a href="index.html" class="dropdown-item">화장실 </a></li>
                         <li><a href="index.html" class="dropdown-item">장난감 </a></li>
                         <li><a href="index.html" class="dropdown-item">하우스/방석 </a></li>
