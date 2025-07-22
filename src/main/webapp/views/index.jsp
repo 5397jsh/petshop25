@@ -3,7 +3,7 @@
 
 
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
   <head>
     <title>ONLYPETS - 귀여운 애기들에게 완벽한 쇼핑몰 </title>
 
