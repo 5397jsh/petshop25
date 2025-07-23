@@ -1,0 +1,15 @@
+package edu.sm.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/dog")
+public class DogController {
+
+    @GetMapping("/food")
+    public String showFoodPage() {
+        return "dog/food"; // src/main/webapp/views/dog/food.jsp
+    }
+}
