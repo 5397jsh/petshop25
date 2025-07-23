@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/cat")
 public class CatController {
 
+    @GetMapping("/food")
+    public String showFoodPage() {
+        return "cat/food";
+    }
+
     @GetMapping("/snack")
     public String showSnackPage() {
         return "cat/snack"; // src/main/webapp/views/cat/snack.jsp
