@@ -91,12 +91,12 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">강아지</a>
                   <ul class="dropdown-menu" aria-labelledby="pages">
-                    <li><a href="index.html" class="dropdown-item">사료  </a></li>
-                    <li><a href="index.html" class="dropdown-item">간식 </a></li>
-                    <li><a href="index.html" class="dropdown-item">목욕/미용 </a></li>
-                    <li><a href="index.html" class="dropdown-item">애견줄 </a></li>
-                    <li><a href="index.html" class="dropdown-item">장난감 </a></li>
-                    <li><a href="index.html" class="dropdown-item">하우스/방석 </a></li>
+                    <li><a href="/dog/food" class="dropdown-item">사료  </a></li>
+                    <li><a href="/dog/snack" class="dropdown-item">간식 </a></li>
+                    <li><a href="/dog/bathitem" class="dropdown-item">목욕/미용 </a></li>
+                    <li><a href="/dog/rope" class="dropdown-item">애견줄 </a></li>
+                    <li><a href="/dog/toy" class="dropdown-item">장난감 </a></li>
+                    <li><a href="/dog/house" class="dropdown-item">하우스/방석 </a></li>
                   </ul>
                 </li>
                 <li class="nav-item">

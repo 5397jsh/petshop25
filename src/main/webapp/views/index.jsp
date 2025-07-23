@@ -161,12 +161,12 @@
                       <div class="row banner-content p-5">
                         <div class="content-wrapper col-md-7">
                           <div class="categories my-3">100% natural</div>
-                          <h3 class="display-4">Fresh Smoothie & Summer Juice</h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa diam elementum.</p>
+                          <h3 class="display-4">고양이들을 위한 맛있는 사료 & 건강한 사료</h3>
+                          <p>야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹</p>
                           <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">Shop Now</a>
                         </div>
                         <div class="img-wrapper col-md-5">
-                          <img src="images/product-thumb-1.png" class="img-fluid">
+                          <img src="images/cat-food-01.png" class="img-fluid">
                         </div>
                       </div>
                     </div>
@@ -175,12 +175,12 @@
                       <div class="row banner-content p-5">
                         <div class="content-wrapper col-md-7">
                           <div class="categories mb-3 pb-3">100% natural</div>
-                          <h3 class="banner-title">Fresh Smoothie & Summer Juice</h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa diam elementum.</p>
+                          <h3 class="banner-title">강아지들을 위한 맛있고 건강한 사료</h3>
+                          <p>월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월</p>
                           <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">Shop Collection</a>
                         </div>
                         <div class="img-wrapper col-md-5">
-                          <img src="images/product-thumb-1.png" class="img-fluid">
+                          <img src="images/dog-food-01.png" class="img-fluid">
                         </div>
                       </div>
                     </div>
@@ -189,12 +189,12 @@
                       <div class="row banner-content p-5">
                         <div class="content-wrapper col-md-7">
                           <div class="categories mb-3 pb-3">100% natural</div>
-                          <h3 class="banner-title">Heinz Tomato Ketchup</h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa diam elementum.</p>
+                          <h3 class="banner-title">귀여운 고양이에게 황홀한 맛의 경험을 주는 츄츄츄츄츄르</h3>
+                          <p>츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르</p>
                           <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">Shop Collection</a>
                         </div>
                         <div class="img-wrapper col-md-5">
-                          <img src="images/product-thumb-2.png" class="img-fluid">
+                          <img src="images/cat-treat-03.png" class="img-fluid">
                         </div>
                       </div>
                     </div>
@@ -231,87 +231,6 @@
 
             </div>
             <!-- / Banner Blocks -->
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-5 overflow-hidden">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
-
-            <div class="section-header d-flex flex-wrap justify-content-between mb-5">
-              <h2 class="section-title">Category</h2>
-
-              <div class="d-flex align-items-center">
-                <a href="#" class="btn-link text-decoration-none">View All Categories →</a>
-                <div class="swiper-buttons">
-                  <button class="swiper-prev category-carousel-prev btn btn-yellow">❮</button>
-                  <button class="swiper-next category-carousel-next btn btn-yellow">❯</button>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-
-            <div class="category-carousel swiper">
-              <div class="swiper-wrapper">
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                  <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                  <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                  <img src="images/icon-bread-baguette.png" alt="Category Thumbnail">
-                  <h3 class="category-title">Breads & Sweets</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                  <img src="images/icon-soft-drinks-bottle.png" alt="Category Thumbnail">
-                  <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                  <img src="images/icon-wine-glass-bottle.png" alt="Category Thumbnail">
-                  <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                  <img src="images/icon-animal-products-drumsticks.png" alt="Category Thumbnail">
-                  <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                  <img src="images/icon-bread-herb-flour.png" alt="Category Thumbnail">
-                  <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                  <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                  <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                  <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                  <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                  <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                  <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                  <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                  <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                  <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                  <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                  <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                  <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-
-              </div>
-            </div>
 
           </div>
         </div>
@@ -1198,6 +1117,9 @@
     </section>
 
 
+
+
+
     <section class="py-5">
       <div class="container-fluid">
         <div class="row row-cols-1 row-cols-sm-3 row-cols-lg-5">
@@ -1209,8 +1131,8 @@
                 </div>
                 <div class="col-md-10">
                   <div class="card-body p-0">
-                    <h5>Free delivery</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
+                    <h5>구민우</h5>
+                    <p class="card-text">키173.8cm 몸무게 95.6kg  다리 최대길이 13cm</p>
                   </div>
                 </div>
               </div>
@@ -1224,8 +1146,8 @@
                 </div>
                 <div class="col-md-10">
                   <div class="card-body p-0">
-                    <h5>100% secure payment</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
+                    <h5>정승혁</h5>
+                    <p class="card-text">키186cm 몸무게 134.6kg 다리 최대길이 23cm</p>
                   </div>
                 </div>
               </div>
@@ -1239,8 +1161,8 @@
                 </div>
                 <div class="col-md-10">
                   <div class="card-body p-0">
-                    <h5>Quality guarantee</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
+                    <h5>김우성 </h5>
+                    <p class="card-text">키 169.6 몸무게 78.4kg  다리 최대길이 6cm</p>
                   </div>
                 </div>
               </div>
