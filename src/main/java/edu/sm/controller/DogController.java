@@ -8,8 +8,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/dog")
 public class DogController {
 
+    @GetMapping("/bathitem")
+    public String showBathroomPage() {
+        return "dog/bathitem";
+    }
+
+    @GetMapping("/house")
+    public String showHousePage() {
+        return "dog/house";
+    }
+
     @GetMapping("/food")
     public String showFoodPage() {
-        return "dog/food"; // src/main/webapp/views/dog/food.jsp
+        return "dog/food";
+    }
+
+    @GetMapping("/snack")
+    public String showSnackPage() {
+        return "dog/snack"; // src/main/webapp/views/dog/snack.jsp
+    }
+
+    @GetMapping("/toy")
+    public String showToyPage() {
+        return "dog/toy";
+    }
+
+    @GetMapping("/rope")
+    public String showSandPage() {
+        return "dog/rope";
     }
 }

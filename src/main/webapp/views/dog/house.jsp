@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>강아지 사료</title>
+    <title>강아지 하우스</title>
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/css/vendor.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
@@ -64,8 +64,8 @@
 <%@ include file="../header.jsp" %>
 
 <main class="container">
-    <h1>강아지 사료 페이지</h1>
-    <p>여기에 사료 상품들을 나열하면 됩니다.</p>
+    <h1>강아지 하우스 페이지</h1>
+    <p>여기에 하우스 상품들을 나열하면 됩니다.</p>
 </main>
 <%-- 상단 메뉴바를 눌렀을때 작동하게 되는 script --%>
 <script src="/js/jquery-1.11.0.min.js"></script>
