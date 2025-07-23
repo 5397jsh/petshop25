@@ -67,6 +67,8 @@
     <h1>강아지 하우스 페이지</h1>
     <p>여기에 하우스 상품들을 나열하면 됩니다.</p>
 </main>
+
+<%@ include file="../footer.jsp" %>
 <%-- 상단 메뉴바를 눌렀을때 작동하게 되는 script --%>
 <script src="/js/jquery-1.11.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
