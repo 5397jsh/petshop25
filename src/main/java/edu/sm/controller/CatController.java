@@ -19,5 +19,6 @@ public class CatController {
     public String html(Model model) {
         model.addAttribute("sand",dir+"sand"); //cat/sand.jsp
         return "index";
+
     }
 }
