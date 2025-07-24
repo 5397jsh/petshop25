@@ -19,8 +19,8 @@
 
       <div class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
         <div class="support-box text-end d-none d-xl-block">
-          <span class="fs-6 text-muted">고객센터</span>
-          <h5 class="mb-0">031-XXX-XXXX</h5>
+          <span class="fs-6 text-muted">감정쓰레기통</span>
+          <h5 class="mb-0">010-8920-3471</h5>
         </div>
 
         <ul class="d-flex justify-content-end list-unstyled m-0">
@@ -92,6 +92,7 @@
                     <li><a href="/dog/rope" class="dropdown-item">애견줄 </a></li>
                     <li><a href="/dog/toy" class="dropdown-item">장난감 </a></li>
                     <li><a href="/dog/house" class="dropdown-item">하우스/방석 </a></li>
+                    <li><a href="/dog/house" class="dropdown-item"></a></li>
                   </ul>
                 </li>
                 <li class="nav-item">
@@ -99,6 +100,9 @@
                 </li>
                 <li class="nav-item">
                   <a href="/best" class="nav-link">베스트상품</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/allproduct" class="nav-link">전체상품</a>
                 </li>
               </ul>
 
