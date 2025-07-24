@@ -3,11 +3,12 @@ package edu.sm.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
 
 @Controller
 @RequestMapping("/cat")
 public class CatController {
-
+    String dir = "cat/";
     @GetMapping("/bathroom")
     public String showBathroomPage() {
         return "cat/bathroom";
@@ -24,10 +25,11 @@ public class CatController {
     }
 
     @GetMapping("/snack")
-    public String showSnackPage() {
-        return "cat/snack"; // src/main/webapp/views/cat/snack.jsp
+    public String snack(Model model) {
+        model.addAttribute("title", "고양이 간식");
+        model.addAttribute("center", dir + "snack.jsp");
+        return "layout";
     }
-
     @GetMapping("/toy")
     public String showToyPage() {
         return "cat/toy";
@@ -37,4 +39,5 @@ public class CatController {
     public String showSandPage() {
         return "cat/sand";
     }
+
 }
