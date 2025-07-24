@@ -240,7 +240,7 @@
                     <div class="col">
                       <div class="product-item">
                         <span class="badge bg-success position-absolute m-3">-30%</span>
-                        <a href="#" class="btn-wishlist"><svg width="24" height="24"><use xlink:href="#cart"></use></svg></a>
+                        <a href="#cart" class="btn-wishlist"><svg width="24" height="24"><use xlink:href="#cart"></use></svg></a>
                         <figure>
                           <a href="index.html" title="Product Title">
                             <img src="images/thumb-bananas.png"  class="tab-image">
