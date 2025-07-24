@@ -31,7 +31,7 @@
           </li>
           <li>
             <a href="#" class="rounded-circle bg-light p-2 mx-1">
-              <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#heart"></use></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>
             </a>
           </li>
           <li class="d-lg-none">
@@ -45,13 +45,6 @@
             </a>
           </li>
         </ul>
-
-        <div class="cart text-end d-none d-lg-block dropdown">
-          <button class="border-0 bg-transparent d-flex flex-column gap-2 lh-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
-            <span class="fs-6 text-muted dropdown-toggle">장바구니</span>
-            <span class="cart-total fs-5 fw-bold">1000000원</span>
-          </button>
-        </div>
       </div>
 
     </div>
