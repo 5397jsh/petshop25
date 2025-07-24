@@ -100,10 +100,10 @@
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a href="#New" class="nav-link">신상품</a>
+                  <a href="/new" class="nav-link">신상품</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#Best" class="nav-link">베스트상품</a>
+                  <a href="/best" class="nav-link">베스트상품</a>
                 </li>
               </ul>
 
