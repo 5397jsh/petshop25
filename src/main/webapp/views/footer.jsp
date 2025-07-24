@@ -60,7 +60,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 copyright">
-                <p> 2025 onlyPETS All rights reserved.</p>
+                <p>2025 onlyPETS. All rights reserved.</p>
             </div>
         </div>
     </div>
