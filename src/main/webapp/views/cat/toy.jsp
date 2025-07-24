@@ -68,6 +68,8 @@
     <p>여기에 장난감 상품들을 나열하면 됩니다.</p>
 </main>
 
+<%@ include file="../footer.jsp" %>
+
 <%-- 상단 메뉴바 작동하게 하는 스크립트 --%>
 <script src="/js/jquery-1.11.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
