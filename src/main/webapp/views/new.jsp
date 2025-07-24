@@ -4,9 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <title>!!신상품!!</title>
-  <link rel="stylesheet" href="/style.css">
-  <link rel="stylesheet" href="/css/vendor.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/vendor.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
 
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <defs>
