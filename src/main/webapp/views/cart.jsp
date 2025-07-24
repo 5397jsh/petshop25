@@ -3,10 +3,12 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <title>장바구니</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/vendor.css">
     <link rel="stylesheet" type="text/css" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
 
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <defs>
@@ -64,47 +66,9 @@
 <%@ include file="./header.jsp" %>
 
 <main class="container">
-    <h1>로그인 페이지</h1>
-
+    <h1>장바구니 페이지</h1>
+    <p>여기에 장바구니에 들어간 물품들을 나열하면 됩니다.</p>
 </main>
-<%-- Login Page --%>
-<div class="container">
-
-  <h5>Input ID, Password</h5>
-  <div class="row">
-    <div class="col-sm-5" >
-      <form action="/loginimpl" method="post">
-        <div class="form-group" style="margin-bottom: 10px;">
-          <label for="id">Id:</label>
-          <input type="text" class="form-control" placeholder="Enter id" id="id" name="id">
-        </div>
-        <div class="form-group" style="margin-bottom: 50px;">
-          <label for="pwd">Password:</label>
-          <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="pwd">
-        </div>
-        <button type="submit" class="btn btn-primary">LOGIN</button>
-      </form>
-    </div>
-    <div class="col-sm-4" >
-      <c:choose>
-        <c:when test="${loginstate == 'fail'}">
-          <h3>로그인 실패!</h3>
-        </c:when>
-        <c:otherwise>
-          <h3>ID와 PWD를 입력 하세요</h3>
-        </c:otherwise>
-      </c:choose>
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
 <%-- 상단 메뉴바를 눌렀을때 작동하게 되는 script --%>
 <script src="/js/jquery-1.11.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>

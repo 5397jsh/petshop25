@@ -31,7 +31,7 @@ public class LoginController {
     }
 
     // 로그인 처리
-    @PostMapping("/login")
+    @PostMapping("/loginimpl")
     public String loginImpl(@RequestParam("id") String id,
                             @RequestParam("pwd") String pwd,
                             HttpSession session,
