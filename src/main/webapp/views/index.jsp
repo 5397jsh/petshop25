@@ -163,7 +163,7 @@
                           <div class="categories my-3">100% natural</div>
                           <h3 class="display-4">고양이들을 위한 맛있는 사료 & 건강한 사료</h3>
                           <p>야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹</p>
-                          <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">Shop Now</a>
+                          <a href="/cat/food" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">Shop Now</a>
                         </div>
                         <div class="img-wrapper col-md-5">
                           <img src="images/cat-food-01.png" class="img-fluid">
@@ -177,7 +177,7 @@
                           <div class="categories mb-3 pb-3">100% natural</div>
                           <h3 class="banner-title">강아지들을 위한 맛있고 건강한 사료</h3>
                           <p>월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월</p>
-                          <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">Shop Collection</a>
+                          <a href="/dog/food" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">Shop Collection</a>
                         </div>
                         <div class="img-wrapper col-md-5">
                           <img src="images/dog-food-01.png" class="img-fluid">
@@ -191,7 +191,7 @@
                           <div class="categories mb-3 pb-3">100% natural</div>
                           <h3 class="banner-title">귀여운 고양이에게 황홀한 맛의 경험을 주는 츄츄츄츄츄르</h3>
                           <p>츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르</p>
-                          <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">Shop Collection</a>
+                          <a href="/cat/snack" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">Shop Collection</a>
                         </div>
                         <div class="img-wrapper col-md-5">
                           <img src="images/cat-treat-03.png" class="img-fluid">
@@ -233,6 +233,45 @@
             <!-- / Banner Blocks -->
 
           </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="py-5">
+      <div class="container-fluid">
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="banner-ad bg-danger mb-3" style="background: url('images/ad-image-3.png') no-repeat right center;
+            background-size: contain;
+            background-color: #fdf4f2;
+            height: 285px;">
+              <div class="banner-content p-5">
+
+                <div class="categories text-primary fs-3 fw-bold">Upto 25% Off</div>
+                <h3 class="banner-title">Luxa Dark Chocolate</h3>
+                <p>Very tasty & creamy vanilla flavour creamy muffins.</p>
+                <a href="/cat/food" class="btn btn-dark text-uppercase">Show Now</a>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="banner-ad bg-info" style="background: url('images/ad-image-4.png');background-repeat: no-repeat;background-position: right bottom;">
+              <div class="banner-content p-5">
+
+                <div class="categories text-primary fs-3 fw-bold">Upto 25% Off</div>
+                <h3 class="banner-title">Creamy Muffins</h3>
+                <p>Very tasty & creamy vanilla flavour creamy muffins.</p>
+                <a href="/dog/food" class="btn btn-dark text-uppercase">Show Now</a>
+
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -950,41 +989,6 @@
             </div>
 
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-5">
-      <div class="container-fluid">
-        <div class="row">
-
-          <div class="col-md-6">
-            <div class="banner-ad bg-danger mb-3" style="background: url('images/ad-image-3.png');background-repeat: no-repeat;background-position: right bottom;">
-              <div class="banner-content p-5">
-
-                <div class="categories text-primary fs-3 fw-bold">Upto 25% Off</div>
-                <h3 class="banner-title">Luxa Dark Chocolate</h3>
-                <p>Very tasty & creamy vanilla flavour creamy muffins.</p>
-                <a href="#" class="btn btn-dark text-uppercase">Show Now</a>
-
-              </div>
-
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="banner-ad bg-info" style="background: url('images/ad-image-4.png');background-repeat: no-repeat;background-position: right bottom;">
-              <div class="banner-content p-5">
-
-                <div class="categories text-primary fs-3 fw-bold">Upto 25% Off</div>
-                <h3 class="banner-title">Creamy Muffins</h3>
-                <p>Very tasty & creamy vanilla flavour creamy muffins.</p>
-                <a href="#" class="btn btn-dark text-uppercase">Show Now</a>
-
-              </div>
-
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
