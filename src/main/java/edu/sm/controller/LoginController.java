@@ -30,8 +30,8 @@ public class LoginController {
 
     @RequestMapping("/logout")
     public String logout(HttpSession session) {
-        if (session != null) session.invalidate();
-        return "redirect:/login";
+        session.invalidate();
+        return "redirect:/";
     }
 
     @RequestMapping("/loginimpl")
