@@ -64,8 +64,42 @@
 <%@ include file="./header.jsp" %>
 
 <main class="container">
-    <h1>로그인 페이지</h1>
+  <h1>로그인 페이지</h1>
 
+  <div class="row">
+    <div class="col-sm-5">
+      <form action="/loginimpl" method="post">
+        <div class="form-group">
+          <label for="id">아이디</label>
+          <input type="text" name="id" class="form-control" placeholder="아이디 입력">
+        </div>
+        <div class="form-group">
+          <label for="pwd">비밀번호</label>
+          <input type="password" name="pwd" class="form-control" placeholder="비밀번호 입력">
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">로그인</button>
+      </form>
+        <div class="container signin" style="margin-top: 20px; text-align: center;">
+            <p>계정이 없으신가요?
+                <a href="/register" style="color: #007bff; font-weight: bold; text-decoration: none;">
+                    회원가입
+                </a>
+            </p>
+        </div>
+
+    </div>
+
+    <div class="col-sm-4">
+      <c:choose>
+        <c:when test="${loginstate == 'fail'}">
+          <div class="alert alert-danger mt-3">아이디 또는 비밀번호가 틀렸습니다.</div>
+        </c:when>
+        <c:otherwise>
+          <div class="alert alert-secondary mt-3">아이디와 비밀번호를 입력해주세요.</div>
+        </c:otherwise>
+      </c:choose>
+    </div>
+  </div>
 </main>
 <%-- Login Page --%>
 <div class="container">
@@ -98,6 +132,7 @@
     </div>
   </div>
 </div>
+
 
 
 
