@@ -91,7 +91,7 @@
                   <a href="/best" class="nav-link">베스트상품</a>
                 </li>
                 <li class="nav-item">
-                  <a href="/allproduct" class="nav-link">전체상품</a>
+                  <a href="/product" class="nav-link">전체상품</a>
                 </li>
               </ul>
 
