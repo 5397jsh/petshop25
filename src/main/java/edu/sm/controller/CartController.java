@@ -23,7 +23,7 @@ public class CartController {
     @RequestMapping("")
     public String cart(HttpSession session, Model model) throws Exception {
         // 로그인한 고객 객체 가져오기
-        Cust cust = (Cust) session.getAttribute("loginCust");
+        Cust cust = (Cust) session.getAttribute("logincust");
 
         // 로그인 안 했으면 로그인 페이지로 리다이렉트
         if (cust == null) {
@@ -38,6 +38,6 @@ public class CartController {
         model.addAttribute("carts", list);
         model.addAttribute("center", "cart/cart"); // 예: WEB-INF/views/cart/cart.jsp
 
-        return "index"; // 템플릿 메인
+        return "cart"; // 템플릿 메인
     }
 }
