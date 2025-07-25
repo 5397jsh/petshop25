@@ -49,7 +49,7 @@
             </c:choose>
           </li>
           <li>
-            <a href="cart" class="rounded-circle bg-light p-2">
+            <a href="/cart" class="rounded-circle bg-light p-2">
               <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>
             </a>
           </li>
@@ -110,6 +110,9 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="/best" class="nav-link">베스트상품</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/product" class="nav-link">전체상품</a>
                                 </li>
 
                             </ul>
