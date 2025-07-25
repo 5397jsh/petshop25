@@ -29,18 +29,27 @@
         <!-- 고객센터 -->
         <div class="text-end">
           <span class="fs-6 text-muted">고객센터</span>
-          <h5 class="mb-0">031-XXX-XXXX</h5>
+          <h5 class="mb-0">010-8099-3471</h5>
         </div>
 
         <!-- 아이콘 -->
         <ul class="d-flex list-unstyled m-0 gap-2">
           <li>
-            <a href="/login" class="rounded-circle bg-light p-2">
-              <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#user"></use></svg>
-            </a>
+            <c:choose>
+               <c:when test="${not empty sessionScope.logincust}">
+                <a href="/mypage" class="rounded-circle bg-light p-2 mx-1">
+                  <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#user"></use></svg>
+                </a>
+               </c:when>
+            <c:otherwise>
+              <a href="/login" class="rounded-circle bg-light p-2 mx-1">
+               <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#user"></use></svg>
+              </a>
+            </c:otherwise>
+            </c:choose>
           </li>
           <li>
-            <a href="#" class="rounded-circle bg-light p-2">
+            <a href="cart" class="rounded-circle bg-light p-2">
               <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>
             </a>
           </li>
