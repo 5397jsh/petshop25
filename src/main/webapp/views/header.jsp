@@ -25,9 +25,19 @@
 
         <ul class="d-flex justify-content-end list-unstyled m-0">
           <li>
-            <a href="/login" class="rounded-circle bg-light p-2 mx-1">
-              <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#user"></use></svg>
-            </a>
+            <c:choose>
+               <c:when test="${not empty sessionScope.logincust}">
+                <a href="/mypage" class="rounded-circle bg-light p-2 mx-1">
+                  <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#user"></use></svg>
+                </a>
+               </c:when>
+            <c:otherwise>
+              <a href="/login" class="rounded-circle bg-light p-2 mx-1">
+               <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#user"></use></svg>
+              </a>
+            </c:otherwise>
+            </c:choose>
+
           </li>
           <li>
             <a href="/cart" class="rounded-circle bg-light p-2 mx-1">
@@ -91,7 +101,7 @@
                   <a href="/best" class="nav-link">베스트상품</a>
                 </li>
                 <li class="nav-item">
-                  <a href="/allproduct" class="nav-link">전체상품</a>
+                  <a href="/product" class="nav-link">전체상품</a>
                 </li>
               </ul>
 

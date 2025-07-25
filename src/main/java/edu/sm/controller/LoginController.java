@@ -65,7 +65,7 @@ public class LoginController {
         try {
             custService.register(cust);
             session.setAttribute("logincust", cust);
-            return "redirect:/";
+            return "redirect:/mypage";
         } catch (Exception e) {
             return "redirect:/register";
         }
