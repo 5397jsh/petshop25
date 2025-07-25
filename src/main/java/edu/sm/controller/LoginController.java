@@ -71,15 +71,5 @@ public class LoginController {
         }
     }
 
-    @RequestMapping("/registertestimpl")
-    public String registertestimpl(@RequestParam("hobby") List<String> hobbys,
-                                   @RequestParam("gender") String gender,
-                                   @RequestParam("car") String car,
-                                   @RequestParam("range") int range,
-                                   @RequestParam("date") String date,
-                                   Model model) {
-        log.info("Hobby:{}, Gender:{}, Car:{}, Range:{}, Date:{}", hobbys, gender, car, range, date);
-        return "login"; // 테스트 끝나고 로그인으로 이동
-    }
 }
 

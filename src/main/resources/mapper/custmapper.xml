@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.sm.day02.repository.CustRepository">
+<mapper namespace="edu.sm.repository.CustRepository">
 
     <select id="select" parameterType="String" resultType="Cust">
         SELECT * FROM cust WHERE cust_id=#{custId}
@@ -11,7 +11,7 @@
         SELECT * FROM cust
     </select>
     <insert id="insert" parameterType="Cust">
-        INSERT INTO cust VALUES (#{custId},#{custPwd},#{custName}, NOW(), NOW())
+        INSERT INTO cust VALUES (#{custId}, #{custPwd}, #{custMail}, #{custName}, #{custPhone}, NOW(), NOW())
     </insert>
     <update id="update" parameterType="Cust">
         UPDATE cust SET cust_pwd=#{custPwd},cust_name=#{custName}, cust_update=NOW() WHERE cust_id=#{custId}
