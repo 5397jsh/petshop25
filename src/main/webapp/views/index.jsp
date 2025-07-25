@@ -148,9 +148,9 @@
                 <div class="row banner-content p-5">
 
                   <div class="content-wrapper col-md-7">
-                    <div class="categories sale mb-3 pb-3">20% off</div>
-                    <h3 class="banner-title">Fruits & Vegetables</h3>
-                    <a href="#" class="d-flex align-items-center nav-link">Shop Collection <svg width="24" height="24"><use xlink:href="#arrow-right"></use></svg></a>
+                    <div class="categories sale mb-3 pb-3">귀여운 친구들</div>
+                    <h3 class="banner-title">고양이 & 강아지</h3>
+                    <a href="/allproduct" class="d-flex align-items-center nav-link">전체 상품 <svg width="24" height="24"><use xlink:href="#arrow-right"></use></svg></a>
                   </div>
 
                 </div>
@@ -188,23 +188,26 @@
             height: 285px;">
               <div class="banner-content p-5">
 
-                <div class="categories text-primary fs-3 fw-bold">Upto 25% Off</div>
-                <h3 class="banner-title">Luxa Dark Chocolate</h3>
-                <p>Very tasty & creamy vanilla flavour creamy muffins.</p>
-                <a href="/cat/food" class="btn btn-dark text-uppercase">Show Now</a>
+                <div class="categories text-primary fs-3 fw-bold">신상품</div>
+                <h3 class="banner-title">고양이 & 강아지</h3>
+                <p>부드러운 츄르& 담백한 강아지용 닭가슴살.</p>
+                <a href="/new" class="btn btn-dark text-uppercase">보러가자멍</a>
 
               </div>
 
             </div>
           </div>
           <div class="col-md-6">
-            <div class="banner-ad bg-info" style="background: url('images/ad-image-4.png');background-repeat: no-repeat;background-position: right bottom;">
-              <div class="banner-content p-5">
+            <div class="banner-ad bg-info" style="background: url('images/ad-image-4.png') no-repeat right center;
+            background-size: contain;
+            background-color: #fdf4f2;
+            height: 285px;">
+            <div class="banner-content p-5">
 
-                <div class="categories text-primary fs-3 fw-bold">Upto 25% Off</div>
-                <h3 class="banner-title">Creamy Muffins</h3>
-                <p>Very tasty & creamy vanilla flavour creamy muffins.</p>
-                <a href="/dog/food" class="btn btn-dark text-uppercase">Show Now</a>
+                <div class="categories text-primary fs-3 fw-bold">베스트 상품</div>
+                <h3 class="banner-title">목재 캣타워</h3>
+                <p>튼튼한 목재 기둥과 고양이들이 좋아하는 특제 목재</p>
+                <a href="/best" class="btn btn-dark text-uppercase">보러가자냥</a>
 
               </div>
 
