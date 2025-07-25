@@ -2,21 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<!-- 상단에 사용자 아이콘 표시 -->
-<%--<div style="text-align: right; margin-bottom: 10px;">--%>
-<%--  <c:choose>--%>
-<%--    <c:when test="${not empty sessionScope.logincust}">--%>
-<%--      <a href="/mypage">--%>
-<%--        <img src="/img/user.png" width="30px" alt="마이페이지">--%>
-<%--      </a>--%>
-<%--    </c:when>--%>
-<%--    <c:otherwise>--%>
-<%--      <a href="/login">--%>
-<%--        <img src="/img/user.png" width="30px" alt="로그인">--%>
-<%--      </a>--%>
-<%--    </c:otherwise>--%>
-<%--  </c:choose>--%>
-<%--</div>--%>
+
 <!-- 마이페이지 본문 -->
 <html>
 <head>
@@ -88,9 +74,10 @@
   <p><strong>이름:</strong> ${logincust.custName}</p>
   <p><strong>이메일:</strong> ${logincust.custMail}</p>
   <p><strong>전화번호:</strong> ${logincust.custPhone}</p>
-<p><strong>가입일:</strong>
-  <fmt:formatDate value="${logincust.custRegdate}" pattern="yyyy/MM/dd HH:mm:ss" />
-</p>
+  <p><strong>가입일: <fmt:formatDate value="${logincust.custRegdate}" pattern="yyyy-MM-dd"/></strong>
+
+
+  </p>
 
 </main>
 <%-- 상단 메뉴바를 눌렀을때 작동하게 되는 script --%>
