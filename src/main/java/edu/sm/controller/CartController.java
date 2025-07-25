@@ -31,7 +31,7 @@ public class CartController {
         }
 
         // 고객 ID 추출
-        String id = cust.getCust_id();
+        String id = cust.getCustId();
 
         // 장바구니 조회
         List<Cart> list = cartService.findByCustId(id);
