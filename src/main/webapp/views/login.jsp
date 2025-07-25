@@ -101,37 +101,7 @@
     </div>
   </div>
 </main>
-<%-- Login Page --%>
-<div class="container">
 
-  <h5>Input ID, Password</h5>
-  <div class="row">
-    <div class="col-sm-5" >
-      <form action="/loginimpl" method="post">
-        <div class="form-group" style="margin-bottom: 10px;">
-          <label for="id">Id:</label>
-          <input type="text" class="form-control" placeholder="Enter id" id="id" name="id">
-        </div>
-        <div class="form-group" style="margin-bottom: 50px;">
-          <label for="pwd">Password:</label>
-          <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="pwd">
-        </div>
-        <button type="submit" class="btn btn-primary">LOGIN</button>
-      </form>
-    </div>
-    <div class="col-sm-4" >
-      <c:choose>
-        <c:when test="${loginstate == 'fail'}">
-          <h3>로그인 실패!</h3>
-        </c:when>
-        <c:otherwise>
-          <h3>ID와 PWD를 입력 하세요</h3>
-        </c:otherwise>
-      </c:choose>
-
-    </div>
-  </div>
-</div>
 
 
 

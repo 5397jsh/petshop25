@@ -7,55 +7,78 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @Controller
+@Slf4j
+@RequiredArgsConstructor
 public class LoginController {
 
     final CustService custService;
 
-    public LoginController(CustService custService) {
-        this.custService = custService;
+    @RequestMapping("/")
+    public String home() {
+        return "index"; // index.jsp 직접 보여줌
     }
 
-    // 로그인 페이지로 이동
-    @GetMapping("/login")
+    @RequestMapping("/login")
     public String login() {
-        return "login"; // login.jsp를 반환
+        return "login"; // login.jsp 직접 이동
     }
 
-    // 로그인 처리
-    @PostMapping("/login")
-    public String loginImpl(@RequestParam("id") String id,
+    @RequestMapping("/logout")
+    public String logout(HttpSession session) {
+        if (session != null) session.invalidate();
+        return "redirect:/login";
+    }
+
+    @RequestMapping("/loginimpl")
+    public String loginimpl(@RequestParam("id") String id,
                             @RequestParam("pwd") String pwd,
                             HttpSession session,
                             Model model) {
+        log.info("ID:{}, PWD:{}", id, pwd);
+
         try {
-            Cust cust = custService.get(id);
-            if (cust != null && cust.getCust_pwd().equals(pwd)) {
-                session.setAttribute("loginCust", cust);
-                return "redirect:/"; // 로그인 성공 시 메인으로
-            } else {
-                model.addAttribute("msg", "아이디 또는 비밀번호가 틀렸습니다.");
-                return "login";
+            Cust dbCust = custService.get(id);
+            if (dbCust != null && dbCust.getCustPwd().equals(pwd)) {
+                session.setAttribute("logincust", dbCust);
+                return "redirect:/";
             }
         } catch (Exception e) {
-            model.addAttribute("msg", "로그인 중 오류 발생");
-            return "login";
+            e.printStackTrace();
+        }
+
+        model.addAttribute("loginstate", "fail");
+        return "login"; // 실패 시 다시 로그인 페이지
+    }
+
+    @RequestMapping("/register")
+    public String register() {
+        return "register"; // register.jsp 직접 이동
+    }
+
+    @RequestMapping("/mainregisterimpl")
+    public String mainregisterimpl(Cust cust, HttpSession session) {
+        try {
+            custService.register(cust);
+            session.setAttribute("logincust", cust);
+            return "redirect:/";
+        } catch (Exception e) {
+            return "redirect:/register";
         }
     }
 
-    // 로그아웃
-    @GetMapping("/logout")
-    public String logout(HttpSession session) {
-        session.invalidate();
-        return "redirect:/";
+    @RequestMapping("/registertestimpl")
+    public String registertestimpl(@RequestParam("hobby") List<String> hobbys,
+                                   @RequestParam("gender") String gender,
+                                   @RequestParam("car") String car,
+                                   @RequestParam("range") int range,
+                                   @RequestParam("date") String date,
+                                   Model model) {
+        log.info("Hobby:{}, Gender:{}, Car:{}, Range:{}, Date:{}", hobbys, gender, car, range, date);
+        return "login"; // 테스트 끝나고 로그인으로 이동
     }
 }
-
