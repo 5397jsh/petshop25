@@ -67,7 +67,7 @@
   <h1>로그인 페이지</h1>
 
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-5">
       <form action="/loginimpl" method="post">
         <div class="form-group">
           <label for="id">아이디</label>
@@ -79,6 +79,14 @@
         </div>
         <button type="submit" class="btn btn-primary mt-3">로그인</button>
       </form>
+        <div class="container signin" style="margin-top: 20px; text-align: center;">
+            <p>계정이 없으신가요?
+                <a href="/register" style="color: #007bff; font-weight: bold; text-decoration: none;">
+                    회원가입
+                </a>
+            </p>
+        </div>
+
     </div>
 
     <div class="col-sm-4">

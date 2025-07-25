@@ -28,6 +28,7 @@
   </head>
   <body>
   <jsp:include page="header.jsp" />
+
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
       <defs>
         <symbol xmlns="http://www.w3.org/2000/svg" id="link" viewBox="0 0 24 24">
@@ -932,10 +933,6 @@
       </div>
     </section>
 
-
-
-
-
     <section class="py-5">
       <div class="container-fluid">
         <div class="row row-cols-1 row-cols-sm-3 row-cols-lg-5">
@@ -1017,6 +1014,7 @@
         </div>
       </div>
     </section>
+
 
     <%@ include file="/views/footer.jsp" %>
 
