@@ -30,8 +30,8 @@ public class LoginController {
 
     @RequestMapping("/logout")
     public String logout(HttpSession session) {
-        if (session != null) session.invalidate();
-        return "redirect:/login";
+        session.invalidate();
+        return "redirect:/";
     }
 
     @RequestMapping("/loginimpl")
@@ -65,7 +65,7 @@ public class LoginController {
         try {
             custService.register(cust);
             session.setAttribute("logincust", cust);
-            return "redirect:/";
+            return "redirect:/mypage";
         } catch (Exception e) {
             return "redirect:/register";
         }

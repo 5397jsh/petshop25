@@ -68,6 +68,7 @@
 <main class="container">
     <h1>고양이 사료 페이지</h1>
     <p>여기에 사료 상품들을 나열하면 됩니다.</p>
+
 </main>
 
 <%@ include file="../footer.jsp" %>

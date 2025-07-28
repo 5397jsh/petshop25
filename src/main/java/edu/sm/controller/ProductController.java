@@ -1,25 +1,18 @@
 package edu.sm.controller;
 
-import edu.sm.dto.Product;
-import edu.sm.service.ProductService;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.List;
 
 @Controller
-@Slf4j
-@RequestMapping("/product")
-@RequiredArgsConstructor
 public class ProductController {
 
-    final ProductService productService;
+    @GetMapping("/product")
+    public String showAllProducts(Model model) {
+        // 여기에 신상품 목록 불러오는 로직 작성
+        // 예: List<Product> newProducts = productService.getNewProducts();
+        // model.addAttribute("newProducts", newProducts);
 
-    @GetMapping("")
-    public String productMain() { return "product/product"; }
+        return "product";  // /WEB-INF/views/new.jsp 로 forward됨
     }
+}
