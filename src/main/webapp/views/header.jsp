@@ -114,7 +114,14 @@
                                 <li class="nav-item">
                                     <a href="/product" class="nav-link">전체상품</a>
                                 </li>
-
+                                <c:if test="${sessionScope.logincust.custId == 'admin'}">
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="/cust">Cust</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="/productadd">ProductAdd</a>
+                                  </li>
+                                </c:if>
                             </ul>
                         </div>
 
