@@ -18,7 +18,7 @@ public class MyPageController {
             return "redirect:/login";
         }
         model.addAttribute("cust", cust);
-        return "mypage";  // WEB-INF/views/mypage.jsp
+        return "cust/mypage";
     }
 
 }
