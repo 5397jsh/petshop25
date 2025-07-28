@@ -46,5 +46,22 @@
         DELETE FROM product
         WHERE product_id = #{productId}
     </delete>
+    <!-- 카테고리별 상품 담기 -->
+    <select id="selectByCateId" parameterType="int" resultType="Product">
+        SELECT
+            p.product_id AS productId,
+            p.product_name AS productName,
+            p.product_price AS productPrice,
+            p.discount_rate AS discountRate,
+            p.product_img AS productImg,
+            p.product_regdate AS productRegdate,
+            p.product_update AS productUpdate,
+            p.cate_id AS cateId,
+            c.cate_down AS cateName
+        FROM product p
+                 LEFT JOIN cate c ON p.cate_id = c.cate_id
+        WHERE p.cate_id = #{cateId}
+    </select>
+
 
 </mapper>

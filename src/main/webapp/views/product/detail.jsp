@@ -32,7 +32,11 @@
         <h2>${product.productName}</h2>
         <p><strong>가격:</strong> ${product.productPrice}원</p>
         <p><strong>할인율:</strong> ${product.discountRate}%</p>
+        <c:if test="${sessionScope.logincust.custId == 'admin'}">
         <p><strong>카테고리 ID:</strong> ${product.cateId}</p>
+        </c:if>
+
+
 
         <!-- 장바구니 추가 폼 -->
         <form action="/cart/add" method="post">
