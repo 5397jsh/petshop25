@@ -104,19 +104,20 @@
                   <div class="content-wrapper col-md-7">
                     <div class="categories sale mb-3 pb-3">귀여운 친구들</div>
                     <h3 class="banner-title">고양이 & 강아지</h3>
-                    <a href="/allproduct" class="d-flex align-items-center nav-link">전체 상품 <svg width="24" height="24"><use xlink:href="#arrow-right"></use></svg></a>
+                    <a href="/product" class="d-flex align-items-center nav-link">전체 상품 <svg width="24" height="24"><use xlink:href="#arrow-right"></use></svg></a>
                   </div>
 
                 </div>
               </div>
 
-              <div class="banner-ad bg-danger block-3" style="background:url('images/ad-image-2.png') no-repeat;background-position: right bottom">
+              <div class="banner-ad bg-danger block-3" style="background: url('images/cat-house-main.png') no-repeat;background-position: right bottom;background-size: 260px auto;">  <!-- 이미지 크기 조절 -->
+
                 <div class="row banner-content p-5">
 
                   <div class="content-wrapper col-md-7">
-                    <div class="categories sale mb-3 pb-3">15% off</div>
-                    <h3 class="item-title">Baked Products</h3>
-                    <a href="#" class="d-flex align-items-center nav-link">Shop Collection <svg width="24" height="24"><use xlink:href="#arrow-right"></use></svg></a>
+                    <div class="categories sale mb-3 pb-3">고양이들의 쉼터</div>
+                    <h3 class="item-title">고양이 하우스/방석 보러가기</h3>
+                    <a href="/cat/house" class="d-flex align-items-center nav-link">고양이의 쉼터 <svg width="24" height="24"><use xlink:href="#arrow-right"></use></svg></a>
                   </div>
 
                 </div>
@@ -145,7 +146,7 @@
                 <div class="categories text-primary fs-3 fw-bold">신상품</div>
                 <h3 class="banner-title">고양이 & 강아지</h3>
                 <p>부드러운 츄르& 담백한 강아지용 닭가슴살.</p>
-                <a href="/new" class="btn btn-dark text-uppercase">보러가자멍</a>
+                <a href="/product/new" class="btn btn-dark text-uppercase">보러가자멍</a>
 
               </div>
 
@@ -161,7 +162,7 @@
                 <div class="categories text-primary fs-3 fw-bold">베스트 상품</div>
                 <h3 class="banner-title">목재 캣타워</h3>
                 <p>튼튼한 목재 기둥과 고양이들이 좋아하는 특제 목재</p>
-                <a href="/best" class="btn btn-dark text-uppercase">보러가자냥</a>
+                <a href="/product/best" class="btn btn-dark text-uppercase">보러가자냥</a>
 
               </div>
 
