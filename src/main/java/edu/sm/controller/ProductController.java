@@ -66,5 +66,12 @@ public class ProductController {
         productService.remove(id);
         return "redirect:/product";
     }
+    // 상품 상세보기 (고객용)
+    @GetMapping("/detail")
+    public String detailPage(@RequestParam("id") int id, Model model) throws Exception {
+        Product product = productService.get(id);
+        model.addAttribute("product", product);
+        return "product/detail"; // detail.jsp
+    }
 
 }

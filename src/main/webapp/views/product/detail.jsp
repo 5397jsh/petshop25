@@ -1,87 +1,66 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>강아지 화장실</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/vendor.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-<script>
-  let product_detail = {
-    init:function(){
-      $('#update_btn').click(()=>{
-        let c = confirm('수정 하시겠습니까 ?');
-        if(c == true){
-          $('#product_update_form').attr('method', 'post');
-          $('#product_update_form').attr('action','/product/updateimpl');
-          $('#product_update_form').attr('enctype','multipart/form-data');
-          $('#product_update_form').submit();
-        }
-      });
-      $('#delete_btn').click(()=>{
-        let c = confirm('삭제 하시겠습니까 ?');
-        if(c == true){
-          location.href='/product/delete?id=${product.productId}';
-        }
-      });
-    }
-  }
-  $().ready(()=>{
-    product_detail.init();
-  });
-</script>
 
-<div class="col-sm-9">
-  <h2>Product Detail Page</h2>
-  <form id="product_update_form">
-    <img src="/upload/img/${product.productImg}" width="300px" alt="상품 이미지">
+  <%@ include file="/views/icons.jsp" %>
 
-    <div class="form-group">
-      <label for="id">Id:</label>
-      <p id="id">${product.productId}</p>
-      <input type="hidden" name="productId" value="${product.productId}">
+</head>
+<body>
+
+<%@ include file="../header.jsp" %>
+
+<main class="container">
+  <h1>제품 상세 정보</h1>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="/images/${product.productImg}" alt="${product.productName}"
+             class="img-fluid rounded"
+             style="max-width: 100%; height: auto; max-height: 400px;" />
+
+      </div>
+
+      <div class="col-md-6">
+        <h2>${product.productName}</h2>
+        <p><strong>가격:</strong> ${product.productPrice}원</p>
+        <p><strong>할인율:</strong> ${product.discountRate}%</p>
+        <p><strong>카테고리 ID:</strong> ${product.cateId}</p>
+
+        <!-- 장바구니 추가 폼 -->
+        <form action="/cart/add" method="post">
+          <input type="hidden" name="productId" value="${product.productId}" />
+          <input type="hidden" name="productName" value="${product.productName}" />
+          <input type="hidden" name="productPrice" value="${product.productPrice}" />
+          <input type="hidden" name="productImg" value="${product.productImg}" />
+
+          <div class="mb-3">
+            <label for="quantity" class="form-label">수량</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1" class="form-control" required />
+          </div>
+
+          <button type="submit" class="btn btn-warning">장바구니에 담기</button>
+          <a href="/product" class="btn btn-secondary">목록으로</a>
+        </form>
+      </div>
     </div>
+  </div>
 
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" class="form-control" value="${product.productName}" id="name" name="productName">
-    </div>
+</main>
 
-    <div class="form-group">
-      <label for="price">Price:</label>
-      <input type="number" class="form-control" value="${product.productPrice}" id="price" name="productPrice">
-    </div>
-
-    <div class="form-group">
-      <label for="rate">Discount Rate:</label>
-      <input type="text" class="form-control" value="${product.discountRate}" id="rate" name="discountRate">
-    </div>
-
-    <input type="hidden" value="${product.productImg}" name="productImg">
-
-    <div class="form-group">
-      <label for="newpimg">New Product Image:</label>
-      <input type="file" class="form-control" id="newpimg" name="productImgFile">
-    </div>
-
-    <div class="form-group">
-      <label for="cate">Cate Id:</label>
-      <input type="number" class="form-control" value="${product.cateId}" id="cate" name="cateId">
-    </div>
-
-    <div class="form-group">
-      <label for="rdate">Register Date:</label>
-      <p id="rdate">
-        <fmt:parseDate value="${product.productRegdate}" pattern="yyyy-MM-dd HH:mm:ss" var="parsedReg" type="both"/>
-        <fmt:formatDate pattern="yyyy년 MM월 dd일 HH시 mm분 ss초" value="${parsedReg}" />
-      </p>
-    </div>
-
-    <div class="form-group">
-      <label for="udate">Update Date:</label>
-      <p id="udate">
-        <fmt:parseDate value="${product.productUpdate}" pattern="yyyy-MM-dd HH:mm:ss" var="parsedUpd" type="both"/>
-        <fmt:formatDate pattern="yyyy년 MM월 dd일 HH시 mm분 ss초" value="${parsedUpd}" />
-      </p>
-    </div>
-
-    <button type="button" class="btn btn-primary" id="update_btn">Update</button>
-    <button type="button" class="btn btn-danger" id="delete_btn">Delete</button>
-  </form>
-</div>
+<%@ include file="../footer.jsp" %>
+<%-- 상단 메뉴바를 눌렀을때 작동하게 되는 script --%>
+<script src="/js/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="/js/plugins.js"></script>
+<script src="/js/script.js"></script>
+</body>
+</html>

@@ -36,7 +36,7 @@
             <p class="card-text">
               할인율: ${p.discountRate}%
             </p>
-            <a href="/productitem/detail?id=${p.productId}" class="btn btn-primary btn-sm">상세보기</a>
+            <a href="/product/detail?id=${p.productId}" class="btn btn-primary btn-sm">상세보기</a>
             <c:if test="${sessionScope.logincust.custId == 'admin'}">
 
             <a href="/product/edit?id=${p.productId}" class="btn btn-warning btn-sm">수정</a>
