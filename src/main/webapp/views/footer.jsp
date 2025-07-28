@@ -8,6 +8,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="footer-menu">
                     <img src="/images/logo.png" alt="Petshop Logo" width="200" height="150" class="img-fluid">
+
                 </div>
             </div>
 
@@ -46,8 +47,10 @@
                 <div class="footer-menu">
                     <h5 class="widget-title">What is onlyPETS</h5>
                     <p>Our onlyPETS is 100% made in china.</p>
+
                 </div>
             </div>
+
         </div>
     </div>
 </footer>
