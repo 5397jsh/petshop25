@@ -74,4 +74,5 @@ public class ProductController {
         return "product/detail"; // detail.jsp
     }
 
+
 }
