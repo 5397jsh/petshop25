@@ -32,19 +32,33 @@ public class ProductService implements SmService<Product, Integer> {
 
     @Override
     public void modify(Product product) throws Exception {
-        // 기존 이미지 사용
-        if(product.getProductImgFile().isEmpty()){
-            productRepository.update(product);
-        }
-        // 신규 이미지 사용
-        else{
-            FileUploadUtil.deleteFile(product.getProductImg(), imgDir);
-            FileUploadUtil.saveFile(product.getProductImgFile(), imgDir);
-            product.setProductImg(product.getProductImgFile().getOriginalFilename());
-            productRepository.update(product);
-        }
+        // 기존 DB 정보 가져오기
+        Product old = productRepository.select(product.getProductId());
 
+        // 새 이미지 안 올렸으면 기존 이미지 유지
+        if (product.getProductImgFile() == null || product.getProductImgFile().isEmpty()) {
+            product.setProductImg(old.getProductImg());
+            productRepository.update(product);
+        }
+        // 새 이미지 업로드한 경우
+        else {
+            // 기존 이미지명 null이 아닐 때만 삭제
+            if (old.getProductImg() != null && !old.getProductImg().isEmpty()) {
+                FileUploadUtil.deleteFile(old.getProductImg(), imgDir);
+            }
+
+            // 새 이미지 저장
+            FileUploadUtil.saveFile(product.getProductImgFile(), imgDir);
+
+            // 새 이미지명 설정
+            product.setProductImg(product.getProductImgFile().getOriginalFilename());
+
+            // DB 업데이트
+            productRepository.update(product);
+        }
     }
+
+
 
     @Override
     public void remove(Integer s) throws Exception {

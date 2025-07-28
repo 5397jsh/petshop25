@@ -10,8 +10,14 @@
 
     <%@ include file="/views/icons.jsp" %>
 
+    <style>
+        input.form-control, textarea.form-control {
+            color: #212529;
+        }
+    </style>
+
 </head>
-<body>
+<body style="font-family: 'Open Sans', sans-serif; color: #212529;">
 
 <%@ include file="../header.jsp" %>
 

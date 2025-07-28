@@ -35,10 +35,11 @@
             product_price = #{productPrice},
             discount_rate = #{discountRate},
             product_img = #{productImg},
-            update_date = NOW(),
+            product_update = NOW(),
             cate_id = #{cateId}
         WHERE product_id = #{productId}
     </update>
+
 
     <!-- 상품 삭제 -->
     <delete id="delete" parameterType="Integer">

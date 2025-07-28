@@ -16,17 +16,29 @@
   <%@ include file="/views/icons.jsp" %>
 
 </head>
-<body>
+<body style="font-family: 'Open Sans', sans-serif; color: #212529;">
 
 <%@ include file="../header.jsp" %>
 
 <main class="container">
+
+  <c:if test="${not empty msg}">
+    <div class="alert alert-success mt-3">${msg}</div>
+  </c:if>
+
   <h1>내 정보 페이지</h1>
   <p><strong>아이디:</strong> ${logincust.custId}</p>
   <p><strong>이름:</strong> ${logincust.custName}</p>
   <p><strong>이메일:</strong> ${logincust.custMail}</p>
   <p><strong>전화번호:</strong> ${logincust.custPhone}</p>
   <p><strong>가입일: <fmt:formatDate value="${logincust.custRegdate}" pattern="yyyy-MM-dd"/></strong></p>
+
+<%-- 수정, 탈퇴 버튼 --%>
+  <div class="text-end mt-4">
+    <a href="/cust/update" class="btn btn-outline-primary me-2">회원 정보 수정</a>
+    <a href="/cust/delete" class="btn btn-outline-danger"
+       onclick="return confirm('정말로 탈퇴하시겠습니까?')">회원 탈퇴</a>
+  </div>
 
 </main>
 
