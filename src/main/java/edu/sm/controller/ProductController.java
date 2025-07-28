@@ -1,37 +1,46 @@
 package edu.sm.controller;
 
+import edu.sm.dto.Product;
+import edu.sm.service.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequiredArgsConstructor
+@RequestMapping("/product")
 public class ProductController {
 
-    @GetMapping("/product")
-    public String showAllProducts(Model model) {
-        // 여기에 신상품 목록 불러오는 로직 작성
-        // 예: List<Product> newProducts = productService.getNewProducts();
-        // model.addAttribute("newProducts", newProducts);
+    final ProductService productService;
 
-        return "product/main";  // /WEB-INF/views/product/main.jsp 로 forward됨
+    // 상품 목록
+    @GetMapping("")
+    public String showAllProducts(Model model) throws Exception {
+        model.addAttribute("products", productService.get());
+        return "product/main";
     }
 
     @GetMapping("/new")
     public String showNewProducts(Model model) {
-        // 여기에 신상품 목록 불러오는 로직 작성
-        // 예: List<Product> newProducts = productService.getNewProducts();
-        // model.addAttribute("newProducts", newProducts);
-
-        return "product/new";  // /WEB-INF/views/product/new.jsp 로 forward됨
+        return "product/new";
     }
 
     @GetMapping("/best")
     public String showBestProducts(Model model) {
-        // 여기에 신상품 목록 불러오는 로직 작성
-        // 예: List<Product> newProducts = productService.getNewProducts();
-        // model.addAttribute("newProducts", newProducts);
-
         return "product/best";
-        // /WEB-INF/views/product/new.jsp 로 forward됨
+    }
+
+    // 상품 등록 폼 (GET)
+    @GetMapping("/add")
+    public String showAddForm() {
+        return "product/add";
+    }
+
+    // 상품 등록 처리 (POST)
+    @PostMapping("/addimpl")
+    public String registerProduct(@ModelAttribute Product product) throws Exception {
+        productService.register(product);
+        return "redirect:/product";
     }
 }

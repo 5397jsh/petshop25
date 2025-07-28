@@ -104,7 +104,7 @@
                   <div class="content-wrapper col-md-7">
                     <div class="categories sale mb-3 pb-3">귀여운 친구들</div>
                     <h3 class="banner-title">고양이 & 강아지</h3>
-                    <a href="/product" class="d-flex align-items-center nav-link">전체 상품 <svg width="24" height="24"><use xlink:href="#arrow-right"></use></svg></a>
+                    <a href="/allproduct" class="d-flex align-items-center nav-link">전체 상품 <svg width="24" height="24"><use xlink:href="#arrow-right"></use></svg></a>
                   </div>
 
                 </div>
@@ -220,7 +220,8 @@
                                   </button>
                               </span>
                           </div>
-                          <a href="#" class="nav-link">Add to Cart <iconify-icon icon="uil:shopping-cart"></a>
+                          <a href=
+                          "#" class="nav-link">Add to Cart <iconify-icon icon="uil:shopping-cart"></a>
                         </div>
                       </div>
                     </div>

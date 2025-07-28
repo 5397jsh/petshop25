@@ -106,10 +106,10 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="/new" class="nav-link">신상품</a>
+                                    <a href="/product/new" class="nav-link">신상품</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/best" class="nav-link">베스트상품</a>
+                                    <a href="/product/best" class="nav-link">베스트상품</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/product" class="nav-link">전체상품</a>
