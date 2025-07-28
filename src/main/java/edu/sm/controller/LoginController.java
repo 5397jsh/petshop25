@@ -25,7 +25,7 @@ public class LoginController {
 
     @RequestMapping("/login")
     public String login() {
-        return "login"; // login.jsp 직접 이동
+        return "cust/login"; // login.jsp 직접 이동
     }
 
     @RequestMapping("/logout")
@@ -52,24 +52,27 @@ public class LoginController {
         }
 
         model.addAttribute("loginstate", "fail");
-        return "login"; // 실패 시 다시 로그인 페이지
+        return "cust/login"; // 실패 시 다시 로그인 페이지
     }
 
     @RequestMapping("/register")
     public String register() {
-        return "register"; // register.jsp 직접 이동
+        return "cust/register"; // register.jsp 직접 이동
     }
 
     @RequestMapping("/mainregisterimpl")
     public String mainregisterimpl(Cust cust, HttpSession session) {
         try {
             custService.register(cust);
-            session.setAttribute("logincust", cust);
-            return "redirect:/mypage";
+            Cust dbCust = custService.get(cust.getCustId());
+            session.setAttribute("logincust", dbCust);
+            return "cust/registersuccess"; // 수정된 부분
         } catch (Exception e) {
             return "redirect:/register";
         }
     }
+
+
 
 }
 
