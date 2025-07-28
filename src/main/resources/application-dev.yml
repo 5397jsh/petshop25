@@ -11,14 +11,24 @@ spring:
       suffix: .jsp
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/petshop?serverTimezone=Asia/Seoul
+    url: jdbc:mysql://127.0.0.1:3306/shopdb?characterEncoding=utf8
     username: smuser
     password: 111111
+
 mybatis:
   type-aliases-package: edu.sm.dto
   mapper-locations: classpath:/mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
+
 logging:
   level:
     root: info
+
+
+app:
+  dir:
+    imgsdir: file:///C:/sm25spring/sm25spring/imgs/     # 화면 출력 용
+    uploadimgsdir: C:/sm25spring/sm25spring/imgs/    # 파일 Write 용
+
+

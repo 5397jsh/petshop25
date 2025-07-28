@@ -3,16 +3,24 @@ package edu.sm.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/product")
 public class ProductController {
 
-    @GetMapping("/product")
+    @GetMapping("")
     public String showAllProducts(Model model) {
-        // 여기에 신상품 목록 불러오는 로직 작성
-        // 예: List<Product> newProducts = productService.getNewProducts();
-        // model.addAttribute("newProducts", newProducts);
+        return "product/main";
+    }
 
-        return "product";  // /WEB-INF/views/new.jsp 로 forward됨
+    @GetMapping("/new")
+    public String showNewProducts(Model model) {
+        return "product/new";
+    }
+
+    @GetMapping("/best")
+    public String showBestProducts(Model model) {
+        return "product/best";
     }
 }
