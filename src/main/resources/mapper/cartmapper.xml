@@ -14,7 +14,7 @@
     <select id="selectAll" resultType="Cart">
     </select>
     <insert id="insert" parameterType="Cart">
-        INSERT INTO cart VALUES (#{custId},#{productId},#{productQt}, NOW() )
+        INSERT INTO cart VALUES (#{custId},#{productId},#{productQt}, NOW(), NOW() )
         ON DUPLICATE KEY UPDATE
         product_qt = product_qt + #{productQt}
     </insert>

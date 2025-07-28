@@ -3,9 +3,10 @@
 
 <header>
   <div class="container-fluid">
-    <div class="row py-3 border-bottom">
+    <div class="row py-3 border-bottom align-items-center">
 
-      <div class="col-sm-4 col-lg-3 text-center text-sm-start">
+      <!-- 로고 영역 -->
+      <div class="col-12 col-lg-3 text-center text-lg-start mb-3 mb-lg-0">
         <div class="main-logo">
           <a href="/">
             <img src="/images/logo.png" alt="Petshop Logo" width="200" height="100" class="img-fluid">
@@ -13,93 +14,114 @@
         </div>
       </div>
 
-      <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-5 d-none d-lg-block">
+      <!-- 우측 정보 영역 -->
+      <div class="col-12 col-lg-9 d-flex justify-content-end align-items-center gap-4 flex-wrap">
 
-      </div>
+        <!-- 로그인 상태일 때만 표시 -->
+        <c:if test="${not empty sessionScope.logincust}">
+          <div class="d-flex align-items-center gap-2 me-2 text-dark" style="font-family: 'Open Sans', sans-serif;">
+              <span class="fw-bold">${sessionScope.logincust.custName}</span>
+              <span class="fw-normal">님 환영합니다</span>
+              <a href="/logout" class="btn btn-sm btn-outline-secondary text-dark">로그아웃</a>
+          </div>
+        </c:if>
 
-      <div class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
-        <div class="support-box text-end d-none d-xl-block">
-          <span class="fs-6 text-muted">감정쓰레기통</span>
-          <h5 class="mb-0">010-8920-3471</h5>
+        <!-- 고객센터 -->
+        <div class="text-end">
+          <span class="fs-6 text-muted">고객센터</span>
+          <h5 class="mb-0">010-8099-3471</h5>
         </div>
 
-        <ul class="d-flex justify-content-end list-unstyled m-0">
+        <!-- 아이콘 -->
+        <ul class="d-flex list-unstyled m-0 gap-2">
           <li>
-            <a href="/login" class="rounded-circle bg-light p-2 mx-1">
-              <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#user"></use></svg>
-            </a>
+            <c:choose>
+               <c:when test="${not empty sessionScope.logincust}">
+                <a href="/mypage" class="rounded-circle bg-light p-2 mx-1">
+                  <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#user"></use></svg>
+                </a>
+               </c:when>
+            <c:otherwise>
+              <a href="/login" class="rounded-circle bg-light p-2 mx-1">
+               <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#user"></use></svg>
+              </a>
+            </c:otherwise>
+            </c:choose>
           </li>
           <li>
-            <a href="/cart" class="rounded-circle bg-light p-2 mx-1">
+            <a href="/cart" class="rounded-circle bg-light p-2">
               <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>
             </a>
           </li>
-
         </ul>
       </div>
 
     </div>
   </div>
-  <div class="container-fluid">
-    <div class="row py-3">
-      <div class="d-flex  justify-content-center justify-content-sm-between align-items-center">
-        <nav class="main-menu d-flex navbar navbar-expand-lg">
 
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                  aria-controls="offcanvasNavbar">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+    <div class="container-fluid">
+        <div class="row py-3">
+            <div class="d-flex justify-content-center justify-content-sm-between align-items-center">
+                <nav class="main-menu d-flex navbar navbar-expand-lg">
 
-          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-            <div class="offcanvas-header justify-content-center">
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                         aria-labelledby="offcanvasNavbarLabel">
+
+                        <div class="offcanvas-header justify-content-center">
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end menu-list list-unstyled d-flex gap-md-3 mb-0">
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" role="button" id="pages"
+                                       data-bs-toggle="dropdown" aria-expanded="false">고양이</a>
+                                    <ul class="dropdown-menu" aria-labelledby="pages">
+                                        <li><a href="/cat/food" class="dropdown-item">사료</a></li>
+                                        <li><a href="/cat/snack" class="dropdown-item">간식</a></li>
+                                        <li><a href="/cat/sand" class="dropdown-item">모래</a></li>
+                                        <li><a href="/cat/bathroom" class="dropdown-item">화장실</a></li>
+                                        <li><a href="/cat/toy" class="dropdown-item">장난감</a></li>
+                                        <li><a href="/cat/house" class="dropdown-item">하우스/방석</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" role="button" id="pages"
+                                       data-bs-toggle="dropdown" aria-expanded="false">강아지</a>
+                                    <ul class="dropdown-menu" aria-labelledby="pages">
+                                        <li><a href="/dog/food" class="dropdown-item">사료</a></li>
+                                        <li><a href="/dog/snack" class="dropdown-item">간식</a></li>
+                                        <li><a href="/dog/bathitem" class="dropdown-item">목욕/미용</a></li>
+                                        <li><a href="/dog/rope" class="dropdown-item">애견줄</a></li>
+                                        <li><a href="/dog/toy" class="dropdown-item">장난감</a></li>
+                                        <li><a href="/dog/house" class="dropdown-item">하우스/방석</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="/new" class="nav-link">신상품</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/best" class="nav-link">베스트상품</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/product" class="nav-link">전체상품</a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </nav>
             </div>
-
-            <div class="offcanvas-body">
-
-
-
-              <ul class="navbar-nav justify-content-end menu-list list-unstyled d-flex gap-md-3 mb-0">
-
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">고양이</a>
-                  <ul class="dropdown-menu" aria-labelledby="pages">
-                    <li><a href="/cat/food" class="dropdown-item">사료 </a></li>
-                    <li><a href="/cat/snack" class="dropdown-item">간식 </a></li>
-                    <li><a href="/cat/sand" class="dropdown-item">모래</a></li>
-                    <li><a href="/cat/bathroom" class="dropdown-item">화장실 </a></li>
-                    <li><a href="/cat/toy" class="dropdown-item">장난감 </a></li>
-                    <li><a href="/cat/house" class="dropdown-item">하우스/방석 </a></li>
-                  </ul>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">강아지</a>
-                  <ul class="dropdown-menu" aria-labelledby="pages">
-                    <li><a href="/dog/food" class="dropdown-item">사료  </a></li>
-                    <li><a href="/dog/snack" class="dropdown-item">간식 </a></li>
-                    <li><a href="/dog/bathitem" class="dropdown-item">목욕/미용 </a></li>
-                    <li><a href="/dog/rope" class="dropdown-item">애견줄 </a></li>
-                    <li><a href="/dog/toy" class="dropdown-item">장난감 </a></li>
-                    <li><a href="/dog/house" class="dropdown-item">하우스/방석 </a></li>
-                    <li><a href="/dog/house" class="dropdown-item"></a></li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a href="/new" class="nav-link">신상품</a>
-                </li>
-                <li class="nav-item">
-                  <a href="/best" class="nav-link">베스트상품</a>
-                </li>
-                <li class="nav-item">
-                  <a href="/allproduct" class="nav-link">전체상품</a>
-                </li>
-              </ul>
-
-            </div>
-
-          </div>
-        </nav>
-      </div>
+        </div>
     </div>
-  </div>
+
 </header>
