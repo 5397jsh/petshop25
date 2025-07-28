@@ -1,17 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>전체 상품</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="/css/vendor.css">
-  <link rel="stylesheet" type="text/css" href="/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-
-
-
 
   <html>
   <head>
@@ -33,7 +22,7 @@
   <main class="container">
     <h1>전체 상품 페이지</h1>
     <p>여기에 전체 상품들을 나열하면 됩니다.</p>
-    <a href="/product/add" class="btn btn-success mb-3">상품 등록</a>
+
     <div class="row">
   <c:forEach var="p" items="${products}">
     <div class="col-md-3 mb-4">
