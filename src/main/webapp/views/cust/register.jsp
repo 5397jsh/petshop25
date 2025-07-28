@@ -90,7 +90,7 @@
              pattern="^010-\d{4}-\d{4}$"
              title="010-1234-5678 형식으로 입력해주세요.">
     </div>
-    <button type="submit" class="btn btn-warning w-100">회원가입</button>
+      <button type="submit" class="btn w-100" style="background-color: #ffc107; color: black;">회원가입</button>
   </form>
 
   <div class="container signin mt-4 text-center">
