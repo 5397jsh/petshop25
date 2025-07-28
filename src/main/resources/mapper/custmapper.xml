@@ -14,7 +14,14 @@
         INSERT INTO cust VALUES (#{custId}, #{custPwd}, #{custMail}, #{custName}, #{custPhone}, NOW(), NOW())
     </insert>
     <update id="update" parameterType="Cust">
-        UPDATE cust SET cust_pwd=#{custPwd},cust_name=#{custName}, cust_update=NOW() WHERE cust_id=#{custId}
+        UPDATE cust
+        SET
+            cust_pwd = #{custPwd},
+            cust_name = #{custName},
+            cust_mail = #{custMail},
+            cust_phone = #{custPhone},
+            cust_update = NOW()
+        WHERE cust_id = #{custId}
     </update>
     <delete id="delete" parameterType="String">
         DELETE FROM cust WHERE cust_id=#{custId}

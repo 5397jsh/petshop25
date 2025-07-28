@@ -61,16 +61,25 @@ public class LoginController {
     }
 
     @RequestMapping("/mainregisterimpl")
-    public String mainregisterimpl(Cust cust, HttpSession session) {
+    public String mainregisterimpl(@ModelAttribute Cust cust, Model model, HttpSession session) {
         try {
+            Cust existing = custService.get(cust.getCustId());
+            if (existing != null) {
+                model.addAttribute("msg", "이미 사용 중인 아이디입니다.");
+                model.addAttribute("cust", cust); // 입력값 유지
+                return "cust/register";
+            }
+
             custService.register(cust);
             Cust dbCust = custService.get(cust.getCustId());
             session.setAttribute("logincust", dbCust);
-            return "cust/registersuccess"; // 수정된 부분
+            return "cust/registersuccess";
         } catch (Exception e) {
-            return "redirect:/register";
+            model.addAttribute("msg", "회원가입 중 오류가 발생했습니다.");
+            return "cust/register";
         }
     }
+
 
 
 
