@@ -31,6 +31,7 @@ public class ProductController {
         // 예: List<Product> newProducts = productService.getNewProducts();
         // model.addAttribute("newProducts", newProducts);
 
-        return "product/best";  // /WEB-INF/views/product/new.jsp 로 forward됨
+        return "product/best";
+        // /WEB-INF/views/product/new.jsp 로 forward됨
     }
 }
