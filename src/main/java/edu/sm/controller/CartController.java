@@ -38,6 +38,6 @@ public class CartController {
         model.addAttribute("carts", list);
         model.addAttribute("center", "cart/cart"); // 예: WEB-INF/views/cart/cart.jsp
 
-        return "cart"; // 템플릿 메인
+        return "cart/cart"; // 템플릿 메인
     }
 }

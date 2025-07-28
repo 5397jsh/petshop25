@@ -267,7 +267,8 @@
                                   </button>
                               </span>
                           </div>
-                          <a href="#" class="nav-link">Add to Cart <iconify-icon icon="uil:shopping-cart"></a>
+                          <a href=
+                          "#" class="nav-link">Add to Cart <iconify-icon icon="uil:shopping-cart"></a>
                         </div>
                       </div>
                     </div>
