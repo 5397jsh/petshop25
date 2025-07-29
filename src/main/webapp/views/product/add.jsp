@@ -39,8 +39,15 @@
             <input type="file" class="form-control" placeholder="Enter image name" id="pimg" name="productImgFile">
         </div>
         <div class="form-group">
-            <label for="cate">카테고리 번호:</label>
-            <input type="number" class="form-control" placeholder="Enter cate id" id="cate" name="cateId">
+            <label for="cateId">카테고리 선택:</label>
+            <select name="cateId" id="cateId" class="form-control" required>
+                <option value="">카테고리를 선택하세요</option>
+                <c:forEach var="c" items="${cates}">
+                    <option value="${c.cateId}">
+                        ${c.cateUp} > ${c.cateDown}
+                    </option>
+                </c:forEach>
+            </select>
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
     </form>

@@ -53,7 +53,7 @@
             <!-- 브랜드 설명 -->
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="footer-menu">
-                    <h5 class="widget-title">What is ONLYPETS</h5>
+                    <h5 class="widget-title">What is ONLYPETS?</h5>
                     <p>ONLYPETS는 반려동물과 사람의 행복한 삶을 위한 온라인 플랫폼입니다.</p>
                 </div>
             </div>

@@ -30,6 +30,10 @@ public class ProductService implements SmService<Product, Integer> {
         } else {
             product.setProductImg("default.png"); // 이미지 없을 경우 기본 이미지 설정
         }
+        // 할인율 음수 방지
+        if (product.getDiscountRate() == null || product.getDiscountRate() < 0) {
+            product.setDiscountRate(0.0);
+        }
 
         productRepository.insert(product);
     }
