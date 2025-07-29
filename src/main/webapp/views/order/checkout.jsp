@@ -57,7 +57,9 @@
 
   <form action="/create" method="post">
     <input type="hidden" name="custId" value="${logincust.custId}">
-    <input type="hidden" name="totalPrice" value="${total}">
+    <input type="hidden" name="totalPrice"
+       value="<fmt:formatNumber value='${total}' type='number' maxFractionDigits='0'/>" />
+
 
     <div class="row">
       <div class="col-75">
