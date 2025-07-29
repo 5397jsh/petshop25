@@ -40,7 +40,6 @@
             <td>${cust.custPhone}</td>
             <td><fmt:formatDate value="${cust.custRegdate}" pattern="yyyy-MM-dd" /></td>
             <td>
-                <a href="/manage/detail?id=${cust.custId}">🔍</a>
                 <a href="/manage/update?id=${cust.custId}">✏️</a>
                 <a href="/delete?id=${cust.custId}" onclick="return confirm('정말 삭제할까요?')">🗑️</a>
             </td>
