@@ -1,9 +1,6 @@
 package edu.sm.controller;
 
-import edu.sm.dto.Cart;
-import edu.sm.dto.Cust;
-import edu.sm.dto.OrderDetail;
-import edu.sm.dto.OrderProduct;
+import edu.sm.dto.*;
 import edu.sm.service.CartService;
 import edu.sm.service.OrderService;
 import jakarta.servlet.http.HttpSession;
@@ -21,11 +18,6 @@ public class OrderController {
 
     final OrderService orderService;
     final CartService cartService;
-
-    @GetMapping("/order/test")
-    public String testOrderView() {
-        return "order/success";
-    }
 
     @GetMapping("/checkout")
     public String checkoutGet(@RequestParam("custId") String custId, Model model) throws Exception {
@@ -101,4 +93,5 @@ public class OrderController {
             return "order/fail";
         }
     }
+
 }

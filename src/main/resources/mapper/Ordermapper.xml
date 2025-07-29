@@ -25,4 +25,23 @@
                  )
     </insert>
 
+    <!-- DTO 매핑용 resultMap 정의 -->
+    <resultMap id="orderHistoryMap" type="edu.sm.dto.OrderHistory">
+        <id     property="orderId"       column="order_id"/>
+        <result property="regDate"        column="order_date"/>
+        <result property="recipientName"  column="receiver_name"/>
+        <result property="totalAmount"    column="all_price"/>
+    </resultMap>
+
+    <select id="findByCustId" parameterType="String" resultMap="orderHistoryMap">
+        SELECT
+            p.order_id,
+            p.order_date,
+            p.receiver_name,
+            p.all_price
+        FROM order_product p
+        WHERE p.cust_id = #{custId}
+        ORDER BY p.order_date DESC
+    </select>
+
 </mapper>
