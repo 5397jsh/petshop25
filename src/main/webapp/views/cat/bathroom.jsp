@@ -21,7 +21,7 @@
 <%@ include file="../header.jsp" %>
 
 <main class="container">
-    <div class="container mt-5">
+    <div class="container">
   <h2>고양이 화장실</h2>
   <div class="row">
     <c:forEach var="p" items="${products}">

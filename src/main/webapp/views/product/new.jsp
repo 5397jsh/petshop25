@@ -17,8 +17,28 @@
 <%@ include file="../header.jsp" %>
 
 <main class="container">
-  <h1>신상품 페이지</h1>
-  <p>여기에 신상품들을 나열하면 됩니다.</p>
+    <div class="container">
+  <h1>신상품</h1>
+  <div class="row">
+    <c:forEach var="p" items="${products}">
+      <div class="col-md-3 mb-4">
+        <div class="card">
+         <img src="/images/${p.productImg}" class="card-img-top" alt="${p.productName}" style="height: 200px; object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title">${p.productName}</h5>
+            <p><fmt:formatNumber value="${p.productPrice}" pattern="###,###원" /></p>
+            <p>할인율: ${p.discountRate}</p>
+            <a href="/product/detail?id=${p.productId}" class="btn btn-primary btn-sm">상세보기</a>
+            <c:if test="${sessionScope.logincust.custId == 'admin'}">
+                <a href="/product/update?id=${p.productId}" class="btn btn-warning btn-sm">수정</a>
+                <a href="/product/delete?id=${p.productId}" class="btn btn-danger btn-sm">삭제</a>
+            </c:if>
+          </div>
+        </div>
+      </div>
+    </c:forEach>
+  </div>
+</div>
 </main>
 <%-- 상단 메뉴바를 눌렀을때 작동하게 되는 script --%>
 <script src="/js/jquery-1.11.0.min.js"></script>
