@@ -416,13 +416,13 @@ h1,h2,h3,h4,h5,h6 {
 }
 .banner-ad .banner-content .sale:before {
   content: '';
-  width: 80px;
+  width: 200px;
   border-bottom: 1px solid #111;
   position: absolute;
   bottom: 6px;
 }
 .banner-ad .banner-content .sale:after {
-  content: 'SALE';
+  content: none;
   font-family: var(--body-font);
   position: absolute;
   font-size: 11px;
