@@ -63,7 +63,7 @@
         WHERE p.cate_id = #{cateId}
     </select>
 
-    <!-- 신상품 뭐시기 시발 -->
+    <!-- 신상품 뭐시기 -->
     <select id="selectNewProducts" resultType="Product">
         SELECT *
         FROM product
