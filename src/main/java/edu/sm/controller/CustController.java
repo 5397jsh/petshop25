@@ -31,14 +31,21 @@ public class CustController {
     }
 
 
-
+    @RequestMapping("/add")
+    public String custAdd() {
+        return "manage/add"; // cust/manage.jsp 직접 이동
+    }
 
     @GetMapping("/delete")
     public String delete(Model model, @RequestParam("id") String id) throws Exception {
         custService.remove(id);
         return "redirect:/manage";  // 삭제 후 목록으로 리다이렉트
     }
-
+//    @PostMapping("/deleteimpl")
+//    public String deleteImpl(@RequestParam("custId") int id) throws Exception {
+//        custService.remove(id);
+//        return "redirect:/manage";
+//    }
 
     @RequestMapping("/manage/update")
     public String custEdit(@RequestParam("id") String id, Model model) throws Exception {
