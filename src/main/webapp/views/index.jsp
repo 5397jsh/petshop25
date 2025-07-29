@@ -179,8 +179,10 @@
     <%-- 세번째 섹션 추천 인기 상품 칸 --%>
     <section class="py-5">
       <div class="container-fluid">
+
         <div class="row">
           <div class="col-md-12">
+
             <div class="bootstrap-tabs product-tabs">
               <div class="tabs-header d-flex justify-content-between border-bottom my-5">
                 <h3>추천 상품</h3>
