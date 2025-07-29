@@ -32,8 +32,6 @@
                     <th>수량</th>
                     <th>총합</th>
                     <td>삭제</td>
-
-
                 </tr>
             </thead>
         <tbody>
@@ -87,20 +85,18 @@
             <c:set var="totalPrice" value="${totalPrice + subtotal}" />
         </c:forEach>
 
-        <!-- 장바구니 리스트 아래쪽 -->
-        <div class="d-flex justify-content-between mt-4">
-          <h4>총 주문 금액:
-              <fmt:formatNumber value="${totalPrice}" type="number" /> 원
-          </h4>
-
-          <form action="/order/init" method="post">
-            <input type="hidden" name="custId" value="${logincust.custId}">
-            <button class="btn btn-primary">주문하기</button>
-          </form>
-        </div>
-
-
         </table>
+                <!-- 장바구니 리스트 아래쪽 -->
+            <div class="d-flex justify-content-end align-items-center gap-3 mt-4">
+              <h5 class="m-0">
+                총 주문 금액:
+                <fmt:formatNumber value="${totalPrice}" type="number" /> 원
+              </h5>
+              <form action="/order/init" method="post" class="m-0">
+                <input type="hidden" name="custId" value="${logincust.custId}">
+                <button class="btn btn-primary">주문하기</button>
+              </form>
+            </div>
     </c:if>
 </main>
 

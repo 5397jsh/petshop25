@@ -9,7 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequiredArgsConstructor
@@ -22,9 +24,22 @@ public class ProductController {
     // 상품 목록
     @GetMapping("")
     public String showAllProducts(Model model) throws Exception {
-        model.addAttribute("products", productService.get());
+        List<Product> allProducts = productService.get();
+        model.addAttribute("products", allProducts);  // ❗ 얘는 원본 그대로 전달
+
+        // ✅ 복사본 만들어서 섞는다
+        List<Product> shuffled = allProducts.stream().collect(Collectors.toList());
+        Collections.shuffle(shuffled);
+        List<Product> recommended = shuffled.stream()
+                .limit(10)
+                .collect(Collectors.toList());
+
+        model.addAttribute("recommendedProducts", recommended);
+
         return "product/main";
     }
+
+
     // 신상품
     @GetMapping("/new")
     public String showNewProducts(Model model) throws Exception {
@@ -86,4 +101,18 @@ public class ProductController {
         model.addAttribute("product", product);
         return "product/detail"; // detail.jsp
     }
+    // 랜덤 물품 추천
+    @GetMapping("/recommended")
+    public String showRecommendedProducts(Model model) throws Exception {
+        List<Product> allProducts = productService.get(); // 전체 상품
+        Collections.shuffle(allProducts); // 랜덤 섞기
+        int numberOfRecommendations = 10;
+        List<Product> recommended = allProducts.stream()
+                .limit(numberOfRecommendations)
+                .collect(Collectors.toList());
+
+        model.addAttribute("recommendedProducts", recommended);
+        return "product/recommend"; // 예시 JSP 경로
+    }
+
 }

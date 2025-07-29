@@ -21,26 +21,52 @@
 <main class="container">
 <div class="container ">
   <h1>고양이 사료</h1>
-  <div class="row">
+    <div class="row">
     <c:forEach var="p" items="${products}">
       <div class="col-md-3 mb-4">
         <div class="card">
-         <img src="/images/${p.productImg}" class="card-img-top" alt="${p.productName}" style="height: 200px; object-fit: cover;">
+          <img src="/images/${p.productImg}" class="card-img-top" alt="${p.productName}" style="height: 200px; object-fit: cover;">
           <div class="card-body">
             <h5 class="card-title">${p.productName}</h5>
-            <p><fmt:formatNumber value="${p.productPrice}" pattern="###,###원" /></p>
-            <p>할인율: ${p.discountRate}</p>
+
+            <c:choose>
+              <c:when test="${p.discountRate > 0}">
+                <p class="card-text d-flex justify-content-between align-items-center">
+                  <span>
+                    <span class="text-decoration-line-through text-muted">
+                      <fmt:formatNumber value="${p.productPrice}" pattern="###,###" />원
+                    </span>
+                    <span class="card-text fw-bold">
+                      <fmt:formatNumber value="${p.productPrice * (1 - p.discountRate / 100)}" pattern="###,###" />원
+                    </span>
+                  </span>
+
+                  <span class="text-muted" style="font-size: 0.9em;">
+                    할인율:
+                    <fmt:formatNumber value="${p.discountRate}" pattern="###" />%
+                  </span>
+                </p>
+
+              </c:when>
+              <c:otherwise>
+                <p class="card-text fw-bold">
+                  <fmt:formatNumber value="${p.productPrice}" pattern="###,###"/>원
+                </p>
+              </c:otherwise>
+            </c:choose>
+
             <a href="/product/detail?id=${p.productId}" class="btn btn-primary btn-sm">상세보기</a>
-              <c:if test="${sessionScope.logincust.custId == 'admin'}">
-                <a href="/product/update?id=${p.productId}" class="btn btn-warning btn-sm">수정</a>
-                <a href="/product/delete?id=${p.productId}" class="btn btn-danger btn-sm">삭제</a>
-              </c:if>
+            <c:if test="${sessionScope.logincust.custId == 'admin'}">
+
+            <a href="/product/update?id=${p.productId}" class="btn btn-warning btn-sm">수정</a>
+            <a href="/product/delete?id=${p.productId}" class="btn btn-danger btn-sm">삭제</a>
+            </c:if>
           </div>
         </div>
       </div>
     </c:forEach>
   </div>
-</div>
+  </div>
 </main>
 
 <%@ include file="../footer.jsp" %>
