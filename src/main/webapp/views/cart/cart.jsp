@@ -41,7 +41,8 @@
                         <img src="/images/${c.productImg}" width="80" height="80" style="object-fit: cover;">
                     </td>
                     <td>${c.productName}</td>
-                    <td><fmt:formatNumber value="${c.productPrice}" type="number"/> 원</td>
+                    <c:set var="discountedPrice" value="${c.productPrice * (1 - (c.discountRate / 100.0))}" />
+                    <td><fmt:formatNumber value="${discountedPrice}" type="number"/> 원</td>
 
                     <!-- 수량 수정 입력창 -->
                     <td>
@@ -62,7 +63,9 @@
                       </form>
                     </td>
 
-                    <td><fmt:formatNumber value="${c.productPrice * c.productQt}" type="number"/> 원</td>
+                    <c:set var="discountedPrice" value="${c.productPrice * (1 - (c.discountRate / 100.0))}" />
+                    <td><fmt:formatNumber value="${discountedPrice * c.productQt}" type="number" /> 원</td>
+
 
                     <!-- 삭제 버튼 -->
                     <td>
@@ -81,7 +84,8 @@
         <%--  장바구니 총 가격  --%>
         <c:set var="totalPrice" value="0" />
         <c:forEach var="c" items="${carts}">
-            <c:set var="subtotal" value="${c.productPrice * c.productQt}" />
+            <c:set var="discountedPrice" value="${c.productPrice * (1 - (c.discountRate / 100.0))}" />
+            <c:set var="subtotal" value="${discountedPrice * c.productQt}" />
             <c:set var="totalPrice" value="${totalPrice + subtotal}" />
         </c:forEach>
 

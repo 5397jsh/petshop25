@@ -14,6 +14,7 @@ public class Cart {
     private int productId;
     private int productQt;
     private Timestamp cartRegdate;
+    private double discountRate;
     // Join Data
     private String productName;
     private int productPrice;

@@ -31,9 +31,21 @@
       </div>
 
       <div class="col-md-6">
-        <h2>${product.productName}</h2>
-        <p><strong>가격:</strong> ${product.productPrice}원</p>
-        <p><strong>할인율:</strong> <fmt:formatNumber value="${product.discountRate}" pattern="###" />%</p>
+          <h2>${product.productName}</h2>
+          <%-- 할인된 가격 계산: 할인율이 있을 경우에만 적용 --%>
+          <c:set var="discountedPrice" value="${product.productPrice * (1 - (product.discountRate / 100.0))}" />
+          <p>
+            <strong>가격:</strong>
+            <del><fmt:formatNumber value="${product.productPrice}" type="number"/>원</del> →
+            <span class="card-text fw-bold">
+              <fmt:formatNumber value="${discountedPrice}" type="number"/>원
+            </span>
+          </p>
+          <p>
+            <strong>할인율:</strong>
+            <fmt:formatNumber value="${product.discountRate}" pattern="###" />%
+          </p>
+
         <c:if test="${sessionScope.logincust.custId == 'admin'}">
         <p><strong>카테고리 ID:</strong> ${product.cateId}</p>
         </c:if>

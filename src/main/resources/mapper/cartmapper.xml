@@ -4,10 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.sm.repository.CartRepository">
     <select id="findByCustId" parameterType="String" resultType="Cart">
-        select * from cart c
-        inner join product p on c.product_id = p.product_id
-        where c.cust_id = #{custId};
+        SELECT
+            c.*,
+            p.product_name,
+            p.product_price,
+            p.product_img,
+            p.discount_rate
+        FROM cart c
+                 INNER JOIN product p ON c.product_id = p.product_id
+        WHERE c.cust_id = #{custId}
     </select>
+
 
     <select id="select" parameterType="String" resultType="Cart">
     </select>
