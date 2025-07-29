@@ -1,7 +1,9 @@
 package edu.sm.controller;
 
 import edu.sm.dto.Cust;
+import edu.sm.dto.OrderHistory;
 import edu.sm.service.CustService;
+import edu.sm.service.OrderService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -12,11 +14,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 public class MyPageController {
 
     private final CustService custService;
+    private final OrderService orderService;
+
 
     @RequestMapping("/mypage")
     public String mypage(HttpSession session, Model model) throws Exception {
@@ -31,6 +37,20 @@ public class MyPageController {
         session.setAttribute("logincust", freshCust); // 세션도 갱신
         return "cust/mypage";
     }
+
+    @GetMapping("/mypage/orders")
+    public String showOrderHistory(HttpSession session, Model model) {
+        // 세션에서 로그인한 고객 ID 꺼내기
+        String custId = ((Cust)session.getAttribute("logincust")).getCustId();
+
+        // 주문 이력 조회
+        List<OrderHistory> orders = orderService.getHistory(custId);
+        model.addAttribute("orders", orders);
+
+        // 뷰 이름: /WEB-INF/views/mypage/orders.jsp
+        return "cust/orderhistory";
+    }
+
 
     // 수정 화면 보여주기
     @GetMapping("/cust/update")
@@ -56,7 +76,6 @@ public class MyPageController {
 
         return "redirect:/mypage";
     }
-
 
 
     // 탈퇴 처리

@@ -1,6 +1,7 @@
 package edu.sm.service;
 
 import edu.sm.dto.OrderDetail;
+import edu.sm.dto.OrderHistory;
 import edu.sm.dto.OrderProduct;
 import edu.sm.frame.SmService;
 import edu.sm.repository.OrderRepository;
@@ -15,6 +16,7 @@ import java.util.List;
 public class OrderService {
 
     final OrderRepository orderRepository;
+
 
     @Transactional
     public void registerOrder(OrderProduct order, List<OrderDetail> detailList) throws Exception {
@@ -37,4 +39,8 @@ public class OrderService {
             orderRepository.insertOrderDetail(detail);
         }
     }
+    public List<OrderHistory> getHistory(String custId) {
+        return orderRepository.findByCustId(custId);
+    }
+
 }

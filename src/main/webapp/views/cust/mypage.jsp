@@ -34,7 +34,9 @@
   <p><strong>가입일: <fmt:formatDate value="${logincust.custRegdate}" pattern="yyyy-MM-dd"/></strong></p>
 
 <%-- 수정, 탈퇴 버튼 --%>
+
   <div class="text-end mt-4">
+    <a href="/mypage/orders" class="btn btn-outline-primary me-2">내 주문 내역 보기</a>
     <a href="/cust/update" class="btn btn-outline-primary me-2">회원 정보 수정</a>
     <a href="/cust/delete" class="btn btn-outline-danger"
        onclick="return confirm('정말로 탈퇴하시겠습니까?')">회원 탈퇴</a>
