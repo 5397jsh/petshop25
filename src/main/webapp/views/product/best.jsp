@@ -18,7 +18,6 @@
 
 <main class="container">
   <h1>베스트상품 페이지</h1>
-  <p>여기에 신상품들을 나열하면 됩니다.</p>
 </main>
 <%-- 상단 메뉴바를 눌렀을때 작동하게 되는 script --%>
 <script src="/js/jquery-1.11.0.min.js"></script>

@@ -48,12 +48,21 @@
 
                     <!-- 수량 수정 입력창 -->
                     <td>
-                        <form action="/cart/update" method="post" class="d-flex justify-content-center align-items-center">
-                            <input type="hidden" name="custId" value="${c.custId}">
-                            <input type="hidden" name="productId" value="${c.productId}">
-                            <input type="number" name="productQt" value="${c.productQt}" min="1" class="form-control" style="width: 70px; margin-right: 5px;">
-                            <button type="submit" class="btn btn-outline-secondary btn-sm">수정</button>
-                        </form>
+                      <form action="/cart/update" method="post" class="d-flex justify-content-center align-items-center" onsubmit="return validateSubmit(this)">
+                        <input type="hidden" name="custId" value="${c.custId}">
+                        <input type="hidden" name="productId" value="${c.productId}">
+
+                        <button type="button" class="btn btn-outline-secondary btn-sm" onclick="decreaseQty(this)">-</button>
+
+                        <input type="text" name="productQt" value="${c.productQt}"
+                               class="form-control text-center mx-1"
+                               style="width: 50px;"
+                               readonly> <!-- ✅ 입력 막기 -->
+
+                        <button type="button" class="btn btn-outline-secondary btn-sm" onclick="increaseQty(this)">+</button>
+
+                        <button type="submit" class="btn btn-outline-success btn-sm ms-2">수정</button>
+                      </form>
                     </td>
 
                     <td><fmt:formatNumber value="${c.productPrice * c.productQt}" type="number"/> 원</td>
@@ -84,5 +93,32 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/js/plugins.js"></script>
 <script src="/js/script.js"></script>
+
+<script>
+    function decreaseQty(btn) {
+        const input = btn.parentNode.querySelector('input[name="productQt"]');
+        let val = parseInt(input.value) || 1;
+        if (val > 1) input.value = val - 1;
+    }
+
+    function increaseQty(btn) {
+        const input = btn.parentNode.querySelector('input[name="productQt"]');
+        let val = parseInt(input.value) || 1;
+        input.value = val + 1;
+    }
+
+    function validateSubmit(form) {
+        const input = form.querySelector('input[name="productQt"]');
+        const val = parseInt(input.value);
+        if (isNaN(val) || val < 1) {
+            alert("수량은 1 이상이어야 합니다.");
+            return false;
+        }
+        return true;
+    }
+</script>
+
+
+
 </body>
 </html>
