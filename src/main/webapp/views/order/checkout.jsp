@@ -42,7 +42,7 @@
 </head>
 <body>
 
-<%@ include file="../header.jsp" %>
+<jsp:include page="../header.jsp" />
 
 <%-- 총액 계산: 할인 적용된 가격 기준 --%>
 <c:set var="total" value="0" />
