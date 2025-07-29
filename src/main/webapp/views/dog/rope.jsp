@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>애견줄</title>
+    <title>강아지 애견줄</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/vendor.css">
     <link rel="stylesheet" type="text/css" href="/style.css">

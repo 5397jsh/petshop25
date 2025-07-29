@@ -7,7 +7,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>!!신상품!!</title>
+  <title>마이페이지</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/css/vendor.css">
   <link rel="stylesheet" type="text/css" href="/style.css">

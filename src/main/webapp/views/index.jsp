@@ -182,7 +182,7 @@
 
             <div class="bootstrap-tabs product-tabs">
               <div class="tabs-header d-flex justify-content-between border-bottom my-5">
-                <h3>최신 인기 상품</h3>
+                <h3>랜덤 상품</h3>
                 <nav>
                   <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <a href="#" class="nav-link text-uppercase fs-6 active" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all">전체</a>

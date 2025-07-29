@@ -17,12 +17,12 @@
 <body>
 
 <%@ include file="../header.jsp" %>
-<div class="container">
+<div class="mb-4 container ">
     <h1>회원 관리 페이지</h1>
-    <p>회원 정보를 관리</p>
 </div>
 
-<table class="container" border="1" cellpadding="10" cellspacing="0">
+<table class="table table-bordered text-center mx-auto" style="width: 90%; max-width: 1300px;">
+    <thead class="table-light">
     <tr>
         <th>아이디</th>
         <th>이름</th>
