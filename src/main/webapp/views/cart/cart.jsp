@@ -86,8 +86,8 @@
             <c:set var="subtotal" value="${c.productPrice * c.productQt}" />
             <c:set var="totalPrice" value="${totalPrice + subtotal}" />
         </c:forEach>
-
-        <!-- 장바구니 리스트 아래쪽 -->
+        </table>
+          <!-- 장바구니 리스트 아래쪽 -->
         <div class="d-flex justify-content-between mt-4">
           <h4>총 주문 금액:
               <fmt:formatNumber value="${totalPrice}" type="number" /> 원
@@ -98,9 +98,6 @@
             <button class="btn btn-primary">주문하기</button>
           </form>
         </div>
-
-
-        </table>
     </c:if>
 </main>
 
