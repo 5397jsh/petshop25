@@ -46,13 +46,13 @@ public class ProductController {
         return "redirect:/product";
     }
     @GetMapping("/edit")
-    public String editPage(@RequestParam("id") int id, Model model) throws Exception {
+    public String updatePage(@RequestParam("id") int id, Model model) throws Exception {
         model.addAttribute("product", productService.get(id));
-        return "product/edit"; // edit.jsp
+        return "product/update"; // update.jsp
     }
 
-    @PostMapping("/editimpl")
-    public String editImpl(@ModelAttribute Product product) throws Exception {
+    @PostMapping("/updateimpl")
+    public String updateImpl(@ModelAttribute Product product) throws Exception {
         productService.modify(product);
         return "redirect:/product";
     }
