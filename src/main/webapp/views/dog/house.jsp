@@ -19,8 +19,8 @@
 <%@ include file="../header.jsp" %>
 
 <main class="container">
-    <div class="container mt-5">
-  <h2>강아지 하우스</h2>
+    <div class="container">
+  <h1>강아지 하우스</h1>
   <div class="row">
     <c:forEach var="p" items="${products}">
       <div class="col-md-3 mb-4">

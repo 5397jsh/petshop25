@@ -31,7 +31,6 @@
                     <th>가격</th>
                     <th>수량</th>
                     <th>총합</th>
-                    <th>추가일</th>
                     <td>삭제</td>
 
 
@@ -57,7 +56,6 @@
                     </td>
 
                     <td><fmt:formatNumber value="${c.productPrice * c.productQt}" type="number"/> 원</td>
-                    <td><fmt:formatDate value="${c.cartRegdate}" pattern="yyyy-MM-dd HH:mm"/></td>
 
                     <!-- 삭제 버튼 -->
                     <td>
@@ -72,6 +70,15 @@
                 </tr>
             </c:forEach>
         </tbody>
+        <!-- 장바구니 리스트 아래쪽 -->
+        <div class="d-flex justify-content-between mt-4">
+          <h4>총 주문 금액: <span id="totalPrice">₩12,000</span></h4>
+          <form action="/order/init" method="post">
+            <input type="hidden" name="custId" value="${logincust.custId}">
+            <button class="btn btn-primary">주문하기</button>
+          </form>
+        </div>
+
 
         </table>
     </c:if>

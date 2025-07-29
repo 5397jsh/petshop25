@@ -20,7 +20,7 @@
 <%-- Center Page --%>
 
     <div class="container mt-5">
-    <h2>상품 추가</h2>
+    <h1>상품 추가</h1>
     <form action="/product/addimpl" method="post" enctype="multipart/form-data"style="max-width:600px;">
         <div class="form-group">
             <label for="name">상품명:</label>
