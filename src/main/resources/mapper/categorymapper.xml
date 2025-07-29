@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.sm.repository.CategoryRepository">
+
+    <select id="selectAll" resultType="edu.sm.dto.Category">
+        SELECT cate_id AS cateId,
+               cate_up AS cateUp,
+               cate_down AS cateDown
+        FROM cate
+        ORDER BY cate_up, cate_down
+    </select>
+
+</mapper>

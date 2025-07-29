@@ -13,7 +13,7 @@ public class Product {
     private int productId;
     private String productName;
     private int productPrice;
-    private double discountRate;
+    private Double discountRate;
     private String productImg;
     private Timestamp productRegdate;
     private Timestamp productUpdate;
