@@ -1,6 +1,8 @@
 package edu.sm.controller;
 
+import edu.sm.dto.Category;
 import edu.sm.dto.Product;
+import edu.sm.repository.CategoryRepository;
 import edu.sm.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,7 @@ import java.util.List;
 public class ProductController {
 
     final ProductService productService;
+    final CategoryRepository categoryRepository;
 
     // 상품 목록
     @GetMapping("")
@@ -38,9 +41,14 @@ public class ProductController {
 
     // 상품 등록 폼 (GET)
     @GetMapping("/add")
-    public String showAddForm() {
+    public String showAddForm(Model model) throws Exception {
+        List<Category> cates = categoryRepository.selectAll();
+        model.addAttribute("cates", cates);
+        model.addAttribute("product", new Product()); // 등록용 빈 객체
+
         return "product/add";
     }
+
 
     // 상품 등록 처리 (POST)
     @PostMapping("/addimpl")

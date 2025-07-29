@@ -15,13 +15,13 @@
 
 <%@ include file="../header.jsp" %>
 
-    <main class="container">
-    <div class="d-flex justify-content-between align-items-center mt-4 mb-3">
-      <h1 class="m-0">전체 상품 페이지</h1>
-      <c:if test="${sessionScope.logincust.custId == 'admin'}">
-        <a href="/product/add" class="btn btn-success">상품 등록</a>
-      </c:if>
-    </div>
+<main class="container">
+  <div class="d-flex justify-content-between align-items-center mt-4 mb-3">
+    <h1 class="m-0">전체 상품 페이지</h1>
+    <c:if test="${sessionScope.logincust.custId == 'admin'}">
+      <a href="/product/add" class="btn btn-success">상품 등록</a>
+    </c:if>
+  </div>
 
   <div class="row">
     <c:forEach var="p" items="${products}">
