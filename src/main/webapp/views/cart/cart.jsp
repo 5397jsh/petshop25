@@ -93,7 +93,7 @@
               <fmt:formatNumber value="${totalPrice}" type="number" /> 원
           </h4>
 
-          <form action="/order/init" method="post">
+          <form action="/order" method="post">
             <input type="hidden" name="custId" value="${logincust.custId}">
             <button class="btn btn-primary">주문하기</button>
           </form>
