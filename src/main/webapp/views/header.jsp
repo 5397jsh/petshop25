@@ -114,14 +114,11 @@
                                 <li class="nav-item">
                                     <a href="/product" class="nav-link">전체상품</a>
                                 </li>
-                                <c:if test="${sessionScope.logincust.custId == 'admin'}">
+<%--                                <c:if test="${sessionScope.logincust.custId == 'admin'}">--%>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/cust">회원관리</a>
+                                    <a href="/manage" class="nav-link" >회원 관리</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/product/manage">상품관리</a>
-                                </li>
-                                </c:if>
+<%--                                </c:if>--%>
                             </ul>
                         </div>
 

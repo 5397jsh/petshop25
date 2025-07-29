@@ -31,9 +31,6 @@ public class ProductController {
         return "product/best";
     }
 
-    @GetMapping("/manage")
-    public String productsManage(Model model) {return "product/manage";}
-
     // 상품 등록 폼 (GET)
     @GetMapping("/add")
     public String showAddForm() {
