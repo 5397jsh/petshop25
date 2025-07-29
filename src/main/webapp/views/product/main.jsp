@@ -15,12 +15,11 @@
 
 <%@ include file="../header.jsp" %>
 
-<main class="container mt-4">
+<main class="container">
   <h1>전체 상품 페이지</h1>
-  <p>여기에 전체 상품들을 나열하면 됩니다.</p>
 
   <c:if test="${sessionScope.logincust.custId == 'admin'}">
-    <a href="/product/add" class="btn btn-success mb-3">상품 등록</a>
+    <a href="/product/add" class="btn btn-success mb-3 mt-1">상품 등록</a>
   </c:if>
 
   <div class="row">

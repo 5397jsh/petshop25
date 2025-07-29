@@ -22,7 +22,7 @@
 
 <main class="container">
     <div class="container mt-5">
-  <h2>고양이 화장실</h2>
+  <h2>고양이 모래</h2>
   <div class="row">
     <c:forEach var="p" items="${products}">
       <div class="col-md-3 mb-4">
@@ -34,7 +34,7 @@
             <p>할인율: ${p.discountRate}</p>
             <a href="/product/detail?id=${p.productId}" class="btn btn-primary btn-sm">상세보기</a>
             <c:if test="${sessionScope.logincust.custId == 'admin'}">
-                <a href="/product/edit?id=${p.productId}" class="btn btn-warning btn-sm">수정</a>
+                <a href="/product/update?id=${p.productId}" class="btn btn-warning btn-sm">수정</a>
                 <a href="/product/delete?id=${p.productId}" class="btn btn-danger btn-sm">삭제</a>
             </c:if>
           </div>
