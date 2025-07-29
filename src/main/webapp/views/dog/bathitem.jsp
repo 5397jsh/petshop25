@@ -31,6 +31,7 @@
             <p><fmt:formatNumber value="${p.productPrice}" pattern="###,###원" /></p>
             <p>할인율: ${p.discountRate}</p>
             <a href="/product/detail?id=${p.productId}" class="btn btn-primary btn-sm">상세보기</a>
+
           </div>
         </div>
       </div>

@@ -45,7 +45,7 @@ public class ProductController {
         productService.register(product);
         return "redirect:/product";
     }
-    @GetMapping("/edit")
+    @GetMapping("/update")
     public String updatePage(@RequestParam("id") int id, Model model) throws Exception {
         model.addAttribute("product", productService.get(id));
         return "product/update"; // update.jsp
