@@ -110,7 +110,7 @@
                 </div>
               </div>
 
-              <div class="banner-ad bg-danger block-3" style="background: url('images/cat-house-main.png') no-repeat;background-position: right bottom;background-size: 260px auto;">  <!-- 이미지 크기 조절 -->
+              <div class="banner-ad bg-danger block-3" style="background: url('/images/cat-house-main.png') no-repeat;background-position: right bottom;background-size: 260px auto;">  <!-- 이미지 크기 조절 -->
 
                 <div class="row banner-content p-5">
 

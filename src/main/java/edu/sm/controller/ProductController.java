@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/product")
@@ -66,5 +68,13 @@ public class ProductController {
         productService.remove(id);
         return "redirect:/product";
     }
+    // 상품 상세보기 (고객용)
+    @GetMapping("/detail")
+    public String detailPage(@RequestParam("id") int id, Model model) throws Exception {
+        Product product = productService.get(id);
+        model.addAttribute("product", product);
+        return "product/detail"; // detail.jsp
+    }
+
 
 }
