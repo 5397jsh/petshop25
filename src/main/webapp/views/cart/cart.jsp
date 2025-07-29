@@ -51,7 +51,7 @@
                         <form action="/cart/update" method="post" class="d-flex justify-content-center align-items-center">
                             <input type="hidden" name="custId" value="${c.custId}">
                             <input type="hidden" name="productId" value="${c.productId}">
-                            <input type="number" name="productQt" value="${c.productQt}" class="form-control" style="width: 70px; margin-right: 5px;">
+                            <input type="number" name="productQt" value="${c.productQt}" min="1" class="form-control" style="width: 70px; margin-right: 5px;">
                             <button type="submit" class="btn btn-outline-secondary btn-sm">수정</button>
                         </form>
                     </td>

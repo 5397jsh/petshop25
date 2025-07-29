@@ -75,5 +75,9 @@ public class ProductService implements SmService<Product, Integer> {
     public List<Product> getByCateId(int cateId) throws Exception {
         return productRepository.selectByCateId(cateId);
     }
+    public List<Product> getNewProducts() throws Exception {
+        return productRepository.selectNewProducts();
+    }
+
 
 }
