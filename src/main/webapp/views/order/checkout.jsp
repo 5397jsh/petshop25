@@ -42,7 +42,7 @@
 </head>
 <body>
 
-<%@ include file="../header.jsp" %>
+<jsp:include page="../header.jsp" />
 
 <%-- 총액 계산 --%>
 <c:set var="total" value="0" />
