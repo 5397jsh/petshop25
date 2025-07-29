@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.sm.repository.OrderRepository">
+
+    <!-- 주문 등록 -->
+    <insert id="insertOrder" parameterType="OrderProduct" useGeneratedKeys="true" keyProperty="orderId">
+        INSERT INTO order_product (
+            cust_id, receiver_name, receiver_address,
+            receiver_phone, all_price, order_date, order_qt
+        ) VALUES (
+                     #{custId}, #{receiverName}, #{receiverAddress},
+                     #{receiverPhone}, #{allPrice}, NOW(), #{orderQt}
+                 )
+    </insert>
+
+    <!-- 주문 상세 등록 (여러 개 상품 반복 삽입) -->
+    <insert id="insertOrderDetail" parameterType="OrderDetail">
+        INSERT INTO order_detail (
+            order_id, product_id, order_qt
+        ) VALUES (
+                     #{orderId}, #{productId}, #{productQt}
+                 )
+    </insert>
+
+</mapper>

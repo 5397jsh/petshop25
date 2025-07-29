@@ -96,9 +96,9 @@
                 총 주문 금액:
                 <fmt:formatNumber value="${totalPrice}" type="number" /> 원
               </h5>
-              <form action="/order/init" method="post" class="m-0">
-                <input type="hidden" name="custId" value="${logincust.custId}">
-                <button class="btn btn-primary">주문하기</button>
+              <form action="checkout" method="get" class="m-0">
+                  <input type="hidden" name="custId" value="${logincust.custId}">
+                  <button class="btn btn-primary">주문하기</button>
               </form>
             </div>
     </c:if>
