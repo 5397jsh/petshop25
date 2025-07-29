@@ -29,16 +29,6 @@
         <result property="productImg" column="product_img" />
     </resultMap>
 
-    <!-- 장바구니 조회 -->
-    <select id="findByCustId" parameterType="String" resultMap="CartMap">
-        SELECT *
-        FROM cart c
-                 INNER JOIN product p ON c.product_id = p.product_id
-        WHERE c.cust_id = #{custId}
-
-    <select id="select" parameterType="String" resultType="Cart">
-    </select>
-
     <!-- 개별 조회/전체 조회는 비워둔 상태 -->
     <select id="select" parameterType="String" resultType="Cart"></select>
 

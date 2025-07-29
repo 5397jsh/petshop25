@@ -44,10 +44,11 @@
 
 <%@ include file="../header.jsp" %>
 
-<%-- 총액 계산 --%>
+<%-- 총액 계산: 할인 적용된 가격 기준 --%>
 <c:set var="total" value="0" />
 <c:forEach var="c" items="${carts}">
-  <c:set var="subtotal" value="${c.productPrice * c.productQt}" />
+  <c:set var="discountedPrice" value="${c.productPrice * (1 - (c.discountRate / 100.0))}" />
+  <c:set var="subtotal" value="${discountedPrice * c.productQt}" />
   <c:set var="total" value="${total + subtotal}" />
 </c:forEach>
 
@@ -116,13 +117,18 @@
         <div class="container">
           <h4>장바구니 <span class="price" style="color:black;"><i class="fa fa-shopping-cart"></i> <b>${fn:length(carts)}</b></span></h4>
           <c:forEach var="c" items="${carts}">
+            <c:set var="discountedPrice" value="${c.productPrice * (1 - (c.discountRate / 100.0))}" />
             <p>
               <a>${c.productName} (x${c.productQt})</a>
-              <span class="price"><fmt:formatNumber value="${c.productPrice * c.productQt}" type="number" />원</span>
+              <span class="price"><fmt:formatNumber value="${discountedPrice * c.productQt}" type="number" /></span>
             </p>
           </c:forEach>
           <hr>
-          <p>총 결제금액 <span class="price" style="color:black;"><b><fmt:formatNumber value="${total}" type="number" />원</b></span></p>
+          <p>총 결제금액
+            <span class="price" style="color:black;">
+              <b><fmt:formatNumber value="${total}" type="number" />원</b>
+            </span>
+          </p>
 
           <div style="text-align: right;">
             <input type="submit" value="주문하기" class="btn btn-warning mt-3" style="background-color: #ffc107; color: black;">
