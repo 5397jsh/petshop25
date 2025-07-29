@@ -47,7 +47,10 @@
     <symbol xmlns="http://www.w3.org/2000/svg" id="close" viewBox="0 0 15 15">
       <path fill="currentColor" d="M7.953 3.788a.5.5 0 0 0-.906 0L6.08 5.85l-2.154.33a.5.5 0 0 0-.283.843l1.574 1.613l-.373 2.284a.5.5 0 0 0 .736.518l1.92-1.063l1.921 1.063a.5.5 0 0 0 .736-.519l-.373-2.283l1.574-1.613a.5.5 0 0 0-.283-.844L8.921 5.85l-.968-2.062Z"/>
     </symbol>
-
+<%-- 트럭 아이콘    --%>
+    <symbol id="truck" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M20 8h-3V4H3v13h2a3 3 0 1 0 6 0h2a3 3 0 1 0 6 0h2v-5Zm-3 5V9h2.34L21 12.26V13Zm-9 3a1 1 0 1 1 1-1a1 1 0 0 1-1 1Zm8 0a1 1 0 1 1 1-1a1 1 0 0 1-1 1Z"/>
+    </symbol>
 
   </defs>
 </svg>
