@@ -14,15 +14,18 @@
     <select id="selectAll" resultType="Cart">
     </select>
     <insert id="insert" parameterType="Cart">
-        INSERT INTO cart VALUES (#{custId},#{productId},#{productQt}, NOW(), NOW() )
-        ON DUPLICATE KEY UPDATE
-        product_qt = product_qt + #{productQt}
+        INSERT INTO cart (cust_id, product_id, product_qt, cart_regdate)
+        VALUES (#{custId}, #{productId}, #{productQt}, NOW())
+            ON DUPLICATE KEY UPDATE
+                                 product_qt = product_qt + #{productQt}
     </insert>
+
     <update id="update" parameterType="Cart">
         UPDATE cart SET product_qt=#{productQt} WHERE cust_id=#{custId} AND product_id = #{productId}
     </update>
-    <delete id="delete" parameterType="Cart">
-        DELETE FROM cart WHERE cust_id=#{custId} AND product_id = #{productId}
+    <delete id="delete" parameterType="int">
+        DELETE FROM cart WHERE cart_id = #{cartId}
     </delete>
+
 
 </mapper>

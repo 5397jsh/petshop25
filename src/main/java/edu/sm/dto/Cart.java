@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 @Data
 @Builder
 public class Cart {
+    private int cartId;
     private String custId;
     private int productId;
     private int productQt;

@@ -7,9 +7,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 @RequiredArgsConstructor
-public class CartService implements SmService<Cart, Cart> {
+public class CartService implements SmService<Cart, Integer> {
 
     final CartRepository cartRepository;
 
@@ -24,18 +25,18 @@ public class CartService implements SmService<Cart, Cart> {
     }
 
     @Override
-    public void remove(Cart cart) throws Exception {
-        cartRepository.delete(cart);
+    public void remove(Integer cartId) throws Exception {
+        cartRepository.delete(cartId);
     }
 
     @Override
     public List<Cart> get() throws Exception {
-        return null;
+        return cartRepository.selectAll();
     }
 
     @Override
-    public Cart get(Cart cart) throws Exception {
-        return null;
+    public Cart get(Integer cartId) throws Exception {
+        return cartRepository.select(cartId);
     }
 
     public List<Cart> findByCustId(String custId) throws Exception {

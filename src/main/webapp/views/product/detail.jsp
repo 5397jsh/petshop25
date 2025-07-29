@@ -3,7 +3,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>강아지 화장실</title>
+  <title>제품 상세보기</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/css/vendor.css">
   <link rel="stylesheet" type="text/css" href="/style.css">

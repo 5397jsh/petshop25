@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 @Mapper
-public interface CartRepository extends SmRepository<Cart, Cart> {
+public interface CartRepository extends SmRepository<Cart, Integer> {
     List<Cart> findByCustId(String custId) throws Exception;
 }
+
