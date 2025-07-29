@@ -20,7 +20,7 @@
 
 <main class="container">
     <div class="container">
-  <h2>고양이 간식</h2>
+  <h1>고양이 간식</h1>
   <div class="row">
     <c:forEach var="p" items="${products}">
       <div class="col-md-3 mb-4">
