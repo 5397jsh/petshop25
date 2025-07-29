@@ -23,7 +23,7 @@
   <p><strong>${product.productName}</strong> 상품을 정말 삭제하시겠습니까?</p>
 
   <form action="/product/deleteimpl" method="post">
-    <input type="hidden" name="productId" value="${cust.custId}" />
+    <input type="hidden" name="productId" value="${product.productId}" />
     <button type="submit">삭제</button>
   </form>
 

@@ -22,11 +22,14 @@ public class ProductController {
         model.addAttribute("products", productService.get());
         return "product/main";
     }
-
+    // 신상품
     @GetMapping("/new")
-    public String showNewProducts(Model model) {
+    public String showNewProducts(Model model) throws Exception {
+        List<Product> newProducts = productService.getNewProducts();
+        model.addAttribute("products", newProducts);
         return "product/new";
     }
+
 
     @GetMapping("/best")
     public String showBestProducts(Model model) {
@@ -45,7 +48,7 @@ public class ProductController {
         productService.register(product);
         return "redirect:/product";
     }
-    @GetMapping("/edit")
+    @GetMapping("/update")
     public String updatePage(@RequestParam("id") int id, Model model) throws Exception {
         model.addAttribute("product", productService.get(id));
         return "product/update"; // update.jsp
@@ -75,6 +78,4 @@ public class ProductController {
         model.addAttribute("product", product);
         return "product/detail"; // detail.jsp
     }
-
-
 }

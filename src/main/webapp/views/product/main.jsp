@@ -17,9 +17,8 @@
 
 <main class="container">
   <h1>전체 상품 페이지</h1>
-
   <c:if test="${sessionScope.logincust.custId == 'admin'}">
-    <a href="/product/add" class="btn btn-success mb-3 mt-1">상품 등록</a>
+    <a href="/product/add" class="btn btn-success mb-3 nt-1">상품 등록</a>
   </c:if>
 
   <div class="row">
@@ -38,7 +37,7 @@
             <a href="/product/detail?id=${p.productId}" class="btn btn-primary btn-sm">상세보기</a>
             <c:if test="${sessionScope.logincust.custId == 'admin'}">
 
-            <a href="/product/edit?id=${p.productId}" class="btn btn-warning btn-sm">수정</a>
+            <a href="/product/update?id=${p.productId}" class="btn btn-warning btn-sm">수정</a>
             <a href="/product/delete?id=${p.productId}" class="btn btn-danger btn-sm">삭제</a>
             </c:if>
           </div>

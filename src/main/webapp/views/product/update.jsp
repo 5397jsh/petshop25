@@ -19,7 +19,7 @@
 <div class="container mt-5">
   <h2>상품 수정</h2>
   <!-- enctype 필수! -->
-  <form action="/product/editimpl" method="post" enctype="multipart/form-data"style="max-width:600px;">
+  <form action="/product/updateimpl" method="post" enctype="multipart/form-data"style="max-width:600px;">
     <input type="hidden" name="productId" value="${product.productId}"/>
 
     <div class="mb-3">

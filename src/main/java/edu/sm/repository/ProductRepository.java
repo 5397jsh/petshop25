@@ -12,4 +12,6 @@ import java.util.List;
 @Mapper
 public interface ProductRepository extends SmRepository<Product, Integer> {
     List<Product> selectByCateId(int cateId);
+    List<Product> selectNewProducts();
+
 }
