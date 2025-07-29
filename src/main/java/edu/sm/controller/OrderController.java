@@ -22,29 +22,31 @@ public class OrderController {
     final OrderService orderService;
     final CartService cartService;
 
-    /** [1] 주문 페이지 진입 (GET) */
+    @GetMapping("/order/test")
+    public String testOrderView() {
+        return "order/success";
+    }
+
     @GetMapping("/checkout")
     public String checkoutGet(@RequestParam("custId") String custId, Model model) throws Exception {
         List<Cart> cartList = cartService.findByCustId(custId);
         model.addAttribute("carts", cartList);
-        return "order/checkout"; // → /WEB-INF/views/order/checkout.jsp
+        return "order/checkout";
     }
 
-    /** [1-2] 주문 페이지 진입 (POST) - cart.jsp에서 POST로 호출 */
     @PostMapping("/checkout")
     public String checkoutPost(@RequestParam("custId") String custId, Model model) throws Exception {
         List<Cart> cartList = cartService.findByCustId(custId);
         model.addAttribute("carts", cartList);
-        return "order/checkout"; // → /WEB-INF/views/order/checkout.jsp
+        return "order/checkout";
     }
 
-    /** [2] 주문 생성 처리 (POST) */
     @PostMapping("/create")
     public String createOrder(
-            @RequestParam("receiverName") String receiverName,
-            @RequestParam("receiverAddress") String receiverAddress,
-            @RequestParam("receiverPhone") String receiverPhone,
-            @RequestParam("totalPrice") int totalPrice,
+            @RequestParam(value = "receiverName", required = false) String receiverName,
+            @RequestParam(value = "receiverAddress", required = false) String receiverAddress,
+            @RequestParam(value = "receiverPhone", required = false) String receiverPhone,
+            @RequestParam(value = "totalPrice", required = false, defaultValue = "0") int totalPrice,
             HttpSession session,
             Model model
     ) {
@@ -53,14 +55,21 @@ public class OrderController {
             return "redirect:/login";
         }
 
+        // 1. 입력값 유효성 검사
+        if (receiverName == null || receiverName.trim().isEmpty()
+                || receiverAddress == null || receiverAddress.trim().isEmpty()
+                || receiverPhone == null || receiverPhone.trim().isEmpty()) {
+            model.addAttribute("msg", "수령자 정보는 모두 필수입니다.");
+            return "order/fail";
+        }
+
         try {
             List<Cart> cartList = cartService.findByCustId(cust.getCustId());
             if (cartList == null || cartList.isEmpty()) {
                 model.addAttribute("msg", "장바구니가 비어있습니다.");
-                return "order/fail"; // → /WEB-INF/views/order/fail.jsp (미구현 시 에러)
+                return "order/fail";
             }
 
-            // 주문 정보 생성
             OrderProduct order = OrderProduct.builder()
                     .custId(cust.getCustId())
                     .receiverName(receiverName)
@@ -69,7 +78,6 @@ public class OrderController {
                     .allPrice(totalPrice)
                     .build();
 
-            // 주문 상세 생성
             List<OrderDetail> detailList = new ArrayList<>();
             for (Cart c : cartList) {
                 OrderDetail detail = OrderDetail.builder()
@@ -79,19 +87,17 @@ public class OrderController {
                 detailList.add(detail);
             }
 
-            // 서비스 처리
             orderService.registerOrder(order, detailList);
 
-            // 장바구니 비우기
             for (Cart c : cartList) {
                 cartService.remove(c.getCartId());
             }
 
-            return "order/success"; // → /WEB-INF/views/order/success.jsp
+            return "order/success";
 
         } catch (Exception e) {
             e.printStackTrace();
-            model.addAttribute("msg", "주문 중 오류가 발생했습니다.");
+            model.addAttribute("msg", "주문 처리 중 예외가 발생했습니다.");
             return "order/fail";
         }
     }
