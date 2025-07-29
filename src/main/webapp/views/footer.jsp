@@ -9,7 +9,10 @@
             <!-- 로고 -->
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="footer-menu">
-                    <img src="/images/logo.png" alt="Petshop Logo" width="200" height="150" class="img-fluid">
+                    <a href="/">
+                        <img src="/images/logo.png" alt="Petshop Logo" width="200" height="150" class="img-fluid">
+                    </a>
+
                 </div>
             </div>
 
@@ -18,24 +21,34 @@
                 <div class="footer-menu">
                     <h5 class="widget-title">About onlyPETS</h5>
                     <ul class="menu-list list-unstyled">
-                        <li><a href="#" class="nav-link">반려동물 전문 쇼핑몰</a></li>
-                        <li><a href="#" class="nav-link">믿을 수 있는 상품만 엄선</a></li>
-                        <li><a href="#" class="nav-link">누구나 쉽게 쇼핑</a></li>
+                        <li class="nav-link">반려동물 전문 쇼핑몰</li>
+                        <li class="nav-link">믿을 수 있는 상품만 엄선</li>
+                        <li class="nav-link">누구나 쉽게 쇼핑</li>
                     </ul>
                 </div>
             </div>
 
             <!-- 이용안내 -->
             <div class="col-md-2 col-sm-6">
-                <div class="footer-menu">
-                    <h5 class="widget-title">이용안내</h5>
-                    <ul class="menu-list list-unstyled">
-                        <li><a href="#" class="nav-link">회원가입</a></li>
-                        <li><a href="#" class="nav-link">로그인</a></li>
-                        <li><a href="#" class="nav-link">장바구니</a></li>
-                    </ul>
-                </div>
+              <div class="footer-menu">
+                <h5 class="widget-title">이용안내</h5>
+                <ul class="menu-list list-unstyled">
+                  <li><a href="/register" class="nav-link">회원가입</a></li>
+                  <li>
+                    <c:choose>
+                      <c:when test="${not empty sessionScope.logincust}">
+                        <a href="/mypage" class="nav-link">내 정보</a>
+                      </c:when>
+                      <c:otherwise>
+                        <a href="/login" class="nav-link">로그인</a>
+                      </c:otherwise>
+                    </c:choose>
+                  </li>
+                  <li><a href="/cart" class="nav-link">장바구니</a></li>
+                </ul>
+              </div>
             </div>
+
 
             <!-- 브랜드 설명 -->
             <div class="col-lg-3 col-md-6 col-sm-6">

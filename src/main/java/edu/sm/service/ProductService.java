@@ -23,12 +23,17 @@ public class ProductService implements SmService<Product, Integer> {
 
     @Override
     public void register(Product product) throws Exception {
-        if(product.getProductImgFile() != null){
-            product.setProductImg(product.getProductImgFile().getOriginalFilename());
-            FileUploadUtil.saveFile(product.getProductImgFile(), imgDir);
+        if (product.getProductImgFile() != null && !product.getProductImgFile().isEmpty()) {
+            String fileName = product.getProductImgFile().getOriginalFilename();
+            product.setProductImg(fileName);
+            FileUploadUtil.saveFile(product.getProductImgFile(), imgDir); // 경로는 이미 설정된 imgDir 사용
+        } else {
+            product.setProductImg("default.png"); // 이미지 없을 경우 기본 이미지 설정
         }
+
         productRepository.insert(product);
     }
+
     @Override
     public void modify(Product product) throws Exception {
         // 기존 DB 정보 가져오기

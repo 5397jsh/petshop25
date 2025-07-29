@@ -3,7 +3,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>강아지 화장실</title>
+  <title>제품 상세보기</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/css/vendor.css">
   <link rel="stylesheet" type="text/css" href="/style.css">
@@ -47,12 +47,37 @@
 
           <div class="mb-3">
             <label for="quantity" class="form-label">수량</label>
-            <input type="number" id="quantity" name="quantity" value="1" min="1" class="form-control" required />
+            <div class="input-group" style="width: 170px;">
+            <span>
+              <button type="button" class="quantity-left-minus btn btn-outline-secondary btn-number"
+                      data-type="minus" style="margin-right: 5px;">
+                <svg width="16" height="16"><use xlink:href="#minus"></use></svg>
+              </button>
+            </span>
+
+              <input type="text" id="quantity" name="quantity"
+                     class="form-control text-center input-number"
+                     value="1" min="1"
+                     style="width: 60px;" />
+
+              <span>
+                <button type="button" class="quantity-right-plus btn btn-outline-secondary btn-number"
+                        data-type="plus" style="margin-left: 5px;">
+                  <svg width="16" height="16"><use xlink:href="#plus"></use></svg>
+                </button>
+              </span>
+            </div>
           </div>
 
-          <button type="submit" class="btn btn-warning">장바구니에 담기</button>
+
+          <button type="submit" class="btn btn-outline-primary me-2">
+            <svg width="16" height="16" style="margin-right:4px;"><use xlink:href="#cart"></use></svg>
+            장바구니에 담기
+          </button>
+
           <a href="/product" class="btn btn-secondary">목록으로</a>
         </form>
+
       </div>
     </div>
   </div>
@@ -60,11 +85,35 @@
 </main>
 
 <%@ include file="../footer.jsp" %>
+
 <%-- 상단 메뉴바를 눌렀을때 작동하게 되는 script --%>
 <script src="/js/jquery-1.11.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 <script src="/js/plugins.js"></script>
 <script src="/js/script.js"></script>
+
+<script>
+  $(document).ready(function () {
+    const quantityInput = $('#quantity');
+
+    $('.quantity-left-minus').click(function (e) {
+      e.preventDefault();
+      let currentVal = parseInt(quantityInput.val());
+      if (!isNaN(currentVal) && currentVal > 1) {
+        quantityInput.val(currentVal - 1);
+      }
+    });
+
+    $('.quantity-right-plus').click(function (e) {
+      e.preventDefault();
+      let currentVal = parseInt(quantityInput.val());
+      if (!isNaN(currentVal)) {
+        quantityInput.val(currentVal + 1);
+      }
+    });
+  });
+</script>
+
 </body>
 </html>

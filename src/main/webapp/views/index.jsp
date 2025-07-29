@@ -49,42 +49,42 @@
 
                 <div class="swiper main-swiper">
                   <div class="swiper-wrapper">
-
+                    <%--  첫 번째 슬라이드 --%>
                     <div class="swiper-slide">
                       <div class="row banner-content p-5">
                         <div class="content-wrapper col-md-7">
                           <div class="categories my-3">100% natural</div>
                           <h3 class="display-4">고양이들을 위한 맛있는 사료 & 건강한 사료</h3>
                           <p>야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹</p>
-                          <a href="/cat/food" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">Shop Now</a>
+                          <a href="/cat/food" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">보러 가기</a>
                         </div>
                         <div class="img-wrapper col-md-5">
                           <img src="images/cat-food-01.png" class="img-fluid">
                         </div>
                       </div>
                     </div>
-
+                    <%--  두 번째 슬라이드 --%>
                     <div class="swiper-slide">
                       <div class="row banner-content p-5">
                         <div class="content-wrapper col-md-7">
                           <div class="categories mb-3 pb-3">100% natural</div>
                           <h3 class="banner-title">강아지들을 위한 맛있고 건강한 사료</h3>
                           <p>월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월월</p>
-                          <a href="/dog/food" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">Shop Collection</a>
+                          <a href="/dog/food" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 ">보러 가기</a>
                         </div>
                         <div class="img-wrapper col-md-5">
                           <img src="images/dog-food-01.png" class="img-fluid">
                         </div>
                       </div>
                     </div>
-
+                    <%--  세 번째 슬라이드 --%>
                     <div class="swiper-slide">
                       <div class="row banner-content p-5">
                         <div class="content-wrapper col-md-7">
                           <div class="categories mb-3 pb-3">100% natural</div>
                           <h3 class="banner-title">귀여운 고양이에게 황홀한 맛의 경험을 주는 츄츄츄츄츄르</h3>
                           <p>츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르츄르</p>
-                          <a href="/cat/snack" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">Shop Collection</a>
+                          <a href="/cat/snack" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">보러 가기</a>
                         </div>
                         <div class="img-wrapper col-md-5">
                           <img src="images/cat-treat-03.png" class="img-fluid">
@@ -104,7 +104,7 @@
                   <div class="content-wrapper col-md-7">
                     <div class="categories sale mb-3 pb-3">귀여운 친구들</div>
                     <h3 class="banner-title">고양이 & 강아지</h3>
-                    <a href="/product" class="d-flex align-items-center nav-link">전체 상품 <svg width="24" height="24"><use xlink:href="#arrow-right"></use></svg></a>
+                    <a href="/product" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">보러 가기</a>
                   </div>
 
                 </div>
@@ -116,8 +116,8 @@
 
                   <div class="content-wrapper col-md-7">
                     <div class="categories sale mb-3 pb-3">고양이들의 쉼터</div>
-                    <h3 class="item-title">고양이 하우스/방석 보러가기</h3>
-                    <a href="/cat/house" class="d-flex align-items-center nav-link">고양이의 쉼터 <svg width="24" height="24"><use xlink:href="#arrow-right"></use></svg></a>
+                    <h3 class="item-title"> 고양이 하우스 & 방석 </h3>
+                    <a href="/cat/house" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">보러 가기</a>
                   </div>
 
                 </div>
@@ -145,7 +145,7 @@
 
                 <div class="categories text-primary fs-3 fw-bold">신상품</div>
                 <h3 class="banner-title">고양이 & 강아지</h3>
-                <p>부드러운 츄르& 담백한 강아지용 닭가슴살.</p>
+                <p>부드러운 츄르 & 담백한 강아지용 닭가슴살.</p>
                 <a href="/product/new" class="btn btn-dark text-uppercase">보러가자멍</a>
 
               </div>
