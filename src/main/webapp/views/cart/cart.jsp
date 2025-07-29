@@ -70,9 +70,20 @@
                 </tr>
             </c:forEach>
         </tbody>
+
+        <%--  장바구니 총 가격  --%>
+        <c:set var="totalPrice" value="0" />
+        <c:forEach var="c" items="${carts}">
+            <c:set var="subtotal" value="${c.productPrice * c.productQt}" />
+            <c:set var="totalPrice" value="${totalPrice + subtotal}" />
+        </c:forEach>
+
         <!-- 장바구니 리스트 아래쪽 -->
         <div class="d-flex justify-content-between mt-4">
-          <h4>총 주문 금액: <span id="totalPrice">₩12,000</span></h4>
+          <h4>총 주문 금액:
+              <fmt:formatNumber value="${totalPrice}" type="number" /> 원
+          </h4>
+
           <form action="/order/init" method="post">
             <input type="hidden" name="custId" value="${logincust.custId}">
             <button class="btn btn-primary">주문하기</button>
