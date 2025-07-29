@@ -17,12 +17,11 @@
   </style>
 
 </head>
-<body style="font-family: 'Open Sans', sans-serif; color: #212529;">
+<body>
 
 <%@ include file="../header.jsp" %>
-
-<div class="container" style="max-width: 600px; margin-top: 50px;">
-  <h2 class="mb-4">회원가입 페이지</h2>
+<div class="container" style="max-width: 600px; margin-top: 50px; font-family: 'Open Sans', sans-serif; color: #212529;">
+ <h2 class="mb-4">회원가입 페이지</h2>
 
   <!-- 경고 메시지 출력 -->
   <c:if test="${not empty msg}">
