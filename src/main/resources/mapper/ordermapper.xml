@@ -44,4 +44,37 @@
         ORDER BY p.order_date DESC
     </select>
 
+    <!-- 주문 상세 아이템 매핑 -->
+    <resultMap id="orderItemMap" type="edu.sm.dto.OrderItem">
+        <result property="productImg"   column="product_img"/>
+        <result property="productName"  column="product_name"/>
+        <result property="quantity" column="order_qt"/>
+        <result property="unitPrice"    column="product_price"/>
+        <result property="subtotal"     column="subtotal"/>
+    </resultMap>
+
+    <select id="findDetailsByOrderId" parameterType="int" resultMap="orderItemMap">
+        SELECT
+            d.product_id,
+            p.product_img    AS product_img,
+            p.product_name   AS product_name,
+            d.order_qt       AS order_qt,
+            p.product_price  AS product_price,
+            (d.order_qt * p.product_price) AS subtotal
+        FROM order_detail d
+                 JOIN product p ON d.product_id = p.product_id
+        WHERE d.order_id = #{orderId}
+    </select>
+
+    <!-- 단일 주문 기본 정보 조회 -->
+    <select id="findByOrderId" parameterType="int" resultMap="orderHistoryMap">
+        SELECT
+            p.order_id,
+            p.order_date,
+            p.receiver_name,
+            p.all_price
+        FROM order_product p
+        WHERE p.order_id = #{orderId}
+    </select>
+
 </mapper>

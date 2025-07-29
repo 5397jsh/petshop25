@@ -2,6 +2,7 @@ package edu.sm.service;
 
 import edu.sm.dto.OrderDetail;
 import edu.sm.dto.OrderHistory;
+import edu.sm.dto.OrderItem;
 import edu.sm.dto.OrderProduct;
 import edu.sm.frame.SmService;
 import edu.sm.repository.OrderRepository;
@@ -42,5 +43,13 @@ public class OrderService {
     public List<OrderHistory> getHistory(String custId) {
         return orderRepository.findByCustId(custId);
     }
+    public OrderHistory getHistoryById(int orderId) {
+        return orderRepository.findByOrderId(orderId);
+    }
+
+    public List<OrderItem> getDetails(int orderId) {
+        return orderRepository.findDetailsByOrderId(orderId);
+    }
+
 
 }
