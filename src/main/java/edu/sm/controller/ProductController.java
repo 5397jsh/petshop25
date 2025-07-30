@@ -1,9 +1,12 @@
 package edu.sm.controller;
 
 import edu.sm.dto.Category;
+import edu.sm.dto.Cust;
 import edu.sm.dto.Product;
+import edu.sm.dto.Review;
 import edu.sm.repository.CategoryRepository;
 import edu.sm.service.ProductService;
+import edu.sm.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,104 +21,153 @@ import java.util.stream.Collectors;
 @RequestMapping("/product")
 public class ProductController {
 
-    final ProductService productService;
-    final CategoryRepository categoryRepository;
+    private final ProductService productService;
+    private final CategoryRepository categoryRepository;
+    private final ReviewService reviewService;
 
     // 상품 목록
     @GetMapping("")
     public String showAllProducts(Model model) throws Exception {
         List<Product> allProducts = productService.get();
-        model.addAttribute("products", allProducts);  // ❗ 얘는 원본 그대로 전달
-
-        // ✅ 복사본 만들어서 섞는다
+        model.addAttribute("products", allProducts);
         List<Product> shuffled = allProducts.stream().collect(Collectors.toList());
         Collections.shuffle(shuffled);
-        List<Product> recommended = shuffled.stream()
-                .limit(10)
-                .collect(Collectors.toList());
-
-        model.addAttribute("recommendedProducts", recommended);
-
+        model.addAttribute("recommendedProducts", shuffled.stream().limit(8).collect(Collectors.toList()));
         return "product/main";
     }
-
 
     // 신상품
     @GetMapping("/new")
     public String showNewProducts(Model model) throws Exception {
-        List<Product> newProducts = productService.getNewProducts();
-        model.addAttribute("products", newProducts);
+        model.addAttribute("products", productService.getNewProducts());
         return "product/new";
     }
 
-
-    // Controller
+    // 베스트상품
     @GetMapping("/best")
     public String showBestProducts(Model model) throws Exception {
-        // 상위 8개 판매량 기준 베스트 상품 조회
-        List<Product> bests = productService.getBestBySales(8);
-        model.addAttribute("products", bests);
-        return "product/best";  // /views/product/best.jsp
+        model.addAttribute("products", productService.getBestBySales(8));
+        return "product/best";
     }
-    // 상품 등록 폼 (GET)
+
+    // 상품 등록 폼
     @GetMapping("/add")
     public String showAddForm(Model model) throws Exception {
-        List<Category> cates = categoryRepository.selectAll();
-        model.addAttribute("cates", cates);
-        model.addAttribute("product", new Product()); // 등록용 빈 객체
-
+        model.addAttribute("cates", categoryRepository.selectAll());
+        model.addAttribute("product", new Product());
         return "product/add";
     }
 
-
-    // 상품 등록 처리 (POST)
+    // 상품 등록 처리
     @PostMapping("/addimpl")
     public String registerProduct(@ModelAttribute Product product) throws Exception {
         productService.register(product);
         return "redirect:/product";
     }
+
+    // 상품 수정 폼
     @GetMapping("/update")
     public String updatePage(@RequestParam("id") int id, Model model) throws Exception {
         model.addAttribute("product", productService.get(id));
-        return "product/update"; // update.jsp
+        model.addAttribute("cates", categoryRepository.selectAll());
+        return "product/update";
     }
 
+    // 상품 수정 처리
     @PostMapping("/updateimpl")
     public String updateImpl(@ModelAttribute Product product) throws Exception {
         productService.modify(product);
         return "redirect:/product";
     }
 
+    // 상품 삭제 폼
     @GetMapping("/delete")
     public String deletePage(@RequestParam("id") int id, Model model) throws Exception {
         model.addAttribute("product", productService.get(id));
-        return "product/delete"; // delete.jsp
+        return "product/delete";
     }
 
+    // 상품 삭제 처리
     @PostMapping("/deleteimpl")
     public String deleteImpl(@RequestParam("productId") int id) throws Exception {
         productService.remove(id);
         return "redirect:/product";
     }
-    // 상품 상세보기 (고객용)
+
+    // 상품 상세보기 + 리뷰 리스트, 작성폼
     @GetMapping("/detail")
-    public String detailPage(@RequestParam("id") int id, Model model) throws Exception {
+    public String detailPage(
+            @RequestParam("id") int id,
+            Model model,
+            @SessionAttribute(name = "logincust", required = false) Cust loginCust
+    ) throws Exception {
         Product product = productService.get(id);
         model.addAttribute("product", product);
-        return "product/detail"; // detail.jsp
+        Category category = categoryRepository.selectAll().stream()
+                .filter(c -> c.getCateId() == product.getCateId())
+                .findFirst().orElse(null);
+        model.addAttribute("category", category);
+        List<Review> reviews = reviewService.getByProduct(id);
+        model.addAttribute("reviews", reviews);
+        if (loginCust != null) {
+            Review newReview = new Review();
+            newReview.setProductId(id);
+            newReview.setCustId(loginCust.getCustId());
+            model.addAttribute("newReview", newReview);
+        }
+        return "product/detail";
     }
-    // 랜덤 물품 추천
+
+    // 리뷰 등록
+    @PostMapping("/detail/{id}/review")
+    public String writeReview(
+            @PathVariable("id") int id,
+            @ModelAttribute("newReview") Review review
+    ) throws Exception {
+        reviewService.write(review);
+        return "redirect:/product/detail?id=" + id;
+    }
+
+    // 리뷰 수정
+    @PostMapping("/detail/{productId}/review/{reviewId}/edit")
+    public String editReviewSubmit(
+            @PathVariable int productId,
+            @PathVariable int reviewId,
+            @RequestParam String comment,
+            @RequestParam int rating
+    ) throws Exception {
+        Review edit = new Review();
+        edit.setReviewId(reviewId);
+        edit.setComment(comment);
+        edit.setRating(rating);
+        reviewService.modify(edit);
+        return "redirect:/product/detail?id=" + productId;
+    }
+
+    // 리뷰 삭제
+    @PostMapping("/detail/{productId}/review/{reviewId}/delete")
+    public String deleteReview(
+            @PathVariable int productId,
+            @PathVariable int reviewId,
+            @SessionAttribute(name = "logincust", required = false) Cust loginCust
+    ) throws Exception {
+        if (loginCust == null) {
+            throw new IllegalStateException("로그인한 사용자만 삭제할 수 있습니다.");
+        }
+        Review target = reviewService.get(reviewId);
+        if (!loginCust.getCustId().equals(target.getCustId())) {
+            throw new IllegalStateException("본인이 작성한 리뷰만 삭제할 수 있습니다.");
+        }
+        reviewService.remove(reviewId);
+        return "redirect:/product/detail?id=" + productId;
+    }
+
+    // 랜덤 추천
     @GetMapping("/recommended")
     public String showRecommendedProducts(Model model) throws Exception {
-        List<Product> allProducts = productService.get(); // 전체 상품
-        Collections.shuffle(allProducts); // 랜덤 섞기
-        int numberOfRecommendations = 10;
-        List<Product> recommended = allProducts.stream()
-                .limit(numberOfRecommendations)
-                .collect(Collectors.toList());
-
-        model.addAttribute("recommendedProducts", recommended);
-        return "product/recommend"; // 예시 JSP 경로
+        List<Product> allProducts = productService.get();
+        Collections.shuffle(allProducts);
+        model.addAttribute("recommendedProducts", allProducts.stream().limit(8).collect(Collectors.toList()));
+        return "product/recommend";
     }
-
 }

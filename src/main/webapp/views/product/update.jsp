@@ -32,10 +32,18 @@
       <input type="number" name="productPrice" class="form-control" value="${product.productPrice}" required/>
     </div>
 
-    <div class="mb-3">
-      <label class="form-label">카테고리 ID</label>
-      <input type="number" name="cateId" class="form-control" value="${product.cateId}" required/>
+    <div class="form-group">
+            <label for="cateId">카테고리 선택:</label>
+            <select name="cateId" id="cateId" class="form-control" required>
+                <option value="">카테고리를 선택하세요</option>
+                <c:forEach var="c" items="${cates}">
+                    <option value="${c.cateId}">
+                        ${c.cateUp} > ${c.cateDown}
+                    </option>
+                </c:forEach>
+            </select>
     </div>
+
 
     <div class="mb-3">
       <label class="form-label">기존 이미지</label><br/>

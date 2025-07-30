@@ -15,7 +15,7 @@
 <body>
   <%@ include file="../header.jsp" %>
 
-  <main class="container my-5">
+  <main class="container">
     <h1 class="mb-4">베스트 상품</h1>
     <div class="row">
       <c:forEach var="p" items="${products}">
