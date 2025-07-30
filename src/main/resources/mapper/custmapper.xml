@@ -11,7 +11,7 @@
         SELECT * FROM cust
     </select>
     <insert id="insert" parameterType="Cust">
-        INSERT INTO cust VALUES (#{custId}, #{custPwd}, #{custMail}, #{custName}, #{custPhone},#{custAddress}, NOW(), NOW())
+        INSERT INTO cust VALUES (#{custId}, #{custPwd}, #{custMail}, #{custName}, #{custPhone}, NOW(), NOW())
     </insert>
     <update id="update" parameterType="Cust">
         UPDATE cust
@@ -20,7 +20,6 @@
             cust_name = #{custName},
             cust_mail = #{custMail},
             cust_phone = #{custPhone},
-            cust_address = #{custAddress},
             cust_update = NOW()
         WHERE cust_id = #{custId}
     </update>
