@@ -58,9 +58,6 @@ public class ProductService implements SmService<Product, Integer> {
         productRepository.update(product);
     }
 
-
-
-
     @Override
     public void remove(Integer s) throws Exception {
         productRepository.delete(s);
@@ -81,6 +78,10 @@ public class ProductService implements SmService<Product, Integer> {
     }
     public List<Product> getNewProducts() throws Exception {
         return productRepository.selectNewProducts();
+    }
+    /** 판매량 기준 베스트상품 */
+    public List<Product> getBestBySales(int limit) throws Exception {
+        return productRepository.selectBestBySales(limit);
     }
 
 

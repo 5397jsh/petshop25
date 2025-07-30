@@ -70,6 +70,27 @@
         ORDER BY product_regdate DESC
             LIMIT 8
     </select>
+    <!-- 베스트 상품(판매수량 기준) -->
+    <!-- ProductRepository.xml -->
+    <select id="selectBestBySales" parameterType="int" resultType="Product">
+        SELECT
+            p.product_id    AS productId,
+            p.product_name  AS productName,
+            p.product_price AS productPrice,
+            p.discount_rate AS discountRate,
+            p.product_img   AS productImg,
+            p.product_regdate AS productRegdate,
+            p.product_update  AS productUpdate,
+            p.cate_id         AS cateId,
+            COALESCE(SUM(od.order_qt), 0) AS soldQty
+        FROM product p
+                 LEFT JOIN order_detail od
+                           ON p.product_id = od.product_id
+        GROUP BY p.product_id
+        ORDER BY soldQty DESC
+            LIMIT 8
+    </select>
+
 
 
 

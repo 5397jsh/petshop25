@@ -49,11 +49,14 @@ public class ProductController {
     }
 
 
+    // Controller
     @GetMapping("/best")
-    public String showBestProducts(Model model) {
-        return "product/best";
+    public String showBestProducts(Model model) throws Exception {
+        // 상위 8개 판매량 기준 베스트 상품 조회
+        List<Product> bests = productService.getBestBySales(8);
+        model.addAttribute("products", bests);
+        return "product/best";  // /views/product/best.jsp
     }
-
     // 상품 등록 폼 (GET)
     @GetMapping("/add")
     public String showAddForm(Model model) throws Exception {

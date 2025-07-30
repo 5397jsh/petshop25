@@ -13,5 +13,6 @@ import java.util.List;
 public interface ProductRepository extends SmRepository<Product, Integer> {
     List<Product> selectByCateId(int cateId);
     List<Product> selectNewProducts();
-
+    // 판매량 기준 베스트상품
+    List<Product> selectBestBySales(int limit);
 }

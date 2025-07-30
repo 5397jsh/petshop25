@@ -20,4 +20,5 @@ public class Product {
     private int cateId;
     private String cateName;
     private MultipartFile productImgFile;
+    private Integer soldQty;   // order_detail.order_qt 합계가 매핑될 필드
 }

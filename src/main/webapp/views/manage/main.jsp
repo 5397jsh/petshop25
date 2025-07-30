@@ -29,6 +29,7 @@
         <th>이메일</th>
         <th>전화번호</th>
         <th>가입일</th>
+        <th>수정일</th>
         <th>관리</th>
     </tr>
 
@@ -40,7 +41,9 @@
             <td>${cust.custPhone}</td>
             <td><fmt:formatDate value="${cust.custRegdate}" pattern="yyyy-MM-dd" /></td>
             <td>
-                <a href="/manage/detail?id=${cust.custId}">🔍</a>
+             <fmt:formatDate value="${cust.custUpdate}" pattern="yyyy-MM-dd"/>  <!-- 수정일 출력 -->
+            </td>
+            <td>
                 <a href="/manage/update?id=${cust.custId}">✏️</a>
                 <a href="/delete?id=${cust.custId}" onclick="return confirm('정말 삭제할까요?')">🗑️</a>
             </td>

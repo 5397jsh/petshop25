@@ -36,7 +36,9 @@
                 <td>${o.orderId}</td>
                 <td><fmt:formatDate value="${o.regDate}" pattern="yyyy-MM-dd HH:mm"/></td>
                 <td>${o.recipientName}</td>
-                <td>${o.totalAmount}원</td>
+                <td>
+                    <fmt:formatNumber value="${o.totalAmount}" pattern="###,###"/>원
+                </td>
                 <td>
                     <a href="/mypage/orderDetail?orderId=${o.orderId}"
                        class="btn btn-sm btn-outline-primary">보기</a>
