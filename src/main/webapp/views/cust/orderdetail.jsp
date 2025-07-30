@@ -59,8 +59,12 @@
         </td>
         <td>${i.productName}</td>
         <td>${i.quantity}</td>
-        <td>${i.unitPrice}원</td>
-        <td>${i.subtotal}원</td>
+        <td>
+          <fmt:formatNumber value="${i.unitPrice}" pattern="###,###"/>원
+        </td>
+        <td>
+          <fmt:formatNumber value="${i.subtotal}" pattern="###,###"/>원
+        </td>
       </tr>
     </c:forEach>
     <c:if test="${empty items}">
