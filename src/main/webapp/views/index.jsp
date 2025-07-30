@@ -149,7 +149,7 @@
                 <div class="categories text-primary fs-3 fw-bold">신상품</div>
                 <h3 class="banner-title">고양이 & 강아지</h3>
                 <p>부드러운 츄르 & 담백한 강아지용 닭가슴살.</p>
-                <a href="/product/new" class="btn btn-dark text-uppercase">보러가자멍</a>
+                <a href="/product/new" class="btn btn-dark text-uppercase">보러가자멍🐶</a>
 
               </div>
 
@@ -165,7 +165,7 @@
                 <div class="categories text-primary fs-3 fw-bold">베스트 상품</div>
                 <h3 class="banner-title">목재 캣타워</h3>
                 <p>튼튼한 목재 기둥과 고양이들이 좋아하는 특제 목재</p>
-                <a href="/product/best" class="btn btn-dark text-uppercase">보러가자냥</a>
+                <a href="/product/best" class="btn btn-dark text-uppercase">보러가자냥🐱</a>
 
               </div>
 
