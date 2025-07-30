@@ -36,6 +36,7 @@
 <%-- 수정, 탈퇴 버튼 --%>
 
   <div class="text-end mt-4">
+    <a href="<c:url value='/mypage/addresses'/>" class="btn btn-outline-primary me-2">배송지 관리</a>
     <a href="/mypage/orders" class="btn btn-outline-primary me-2">내 주문 내역 보기</a>
     <a href="/cust/update" class="btn btn-outline-primary me-2">회원 정보 수정</a>
     <a href="/cust/delete" class="btn btn-outline-danger"

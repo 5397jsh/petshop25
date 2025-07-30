@@ -42,4 +42,10 @@ public class CartService implements SmService<Cart, Integer> {
     public List<Cart> findByCustId(String custId) throws Exception {
         return cartRepository.findByCustId(custId);
     }
+    /** 장바구니 상품별 수량×단가 합계 반환 */
+    public int calculateTotal(List<Cart> carts) {
+        return carts.stream()
+                .mapToInt(c -> c.getProductQt() * c.getProductPrice())
+                .sum();
+    }
 }

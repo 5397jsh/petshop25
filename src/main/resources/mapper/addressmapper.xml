@@ -4,7 +4,37 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="edu.sm.repository.AddressRepository">
+
+    <!-- 고객ID로 저장된 주소 전체 조회 -->
     <select id="selectByCustId" parameterType="String" resultType="edu.sm.dto.Address">
-        SELECT * FROM address WHERE cust_id = #{custId}
+        SELECT
+            address_id    AS addressId,
+            cust_id       AS custId,
+            address_name  AS addressName,
+            address_detail AS addressDetail
+        FROM address
+        WHERE cust_id = #{custId}
+        ORDER BY address_id
     </select>
+
+    <!-- 새 주소 등록 -->
+    <insert id="insertAddress" parameterType="edu.sm.dto.Address" useGeneratedKeys="true" keyProperty="addressId">
+        INSERT INTO address (cust_id, address_name, address_detail)
+        VALUES (#{custId}, #{addressName}, #{addressDetail})
+    </insert>
+
+    <!-- 기존 주소 수정 -->
+    <update id="updateAddress" parameterType="edu.sm.dto.Address">
+        UPDATE address
+        SET address_name   = #{addressName},
+            address_detail = #{addressDetail}
+        WHERE address_id = #{addressId}
+    </update>
+
+    <!-- 주소 삭제 -->
+    <delete id="deleteAddress" parameterType="int">
+        DELETE FROM address
+        WHERE address_id = #{addressId}
+    </delete>
+
 </mapper>

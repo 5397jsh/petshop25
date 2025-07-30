@@ -1,18 +1,17 @@
 package edu.sm.dto;
 
 import lombok.*;
-import java.sql.Timestamp;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
 @Getter
+@Setter
 @ToString
 @Builder
 public class Address {
-    private int addressId;
-    private String addressNum;
-    private String addressDetail;
-    private String custId;
-    private Timestamp regDate;  // 옵션
+    private int    addressId;      // address.address_id (PK)
+    private String custId;         // address.cust_id (FK to cust)
+    private String addressName;    // address.address_name (예: “본가”, “회사”)
+    private String addressDetail;  // address.address_detail (도로명·상세주소)
 }

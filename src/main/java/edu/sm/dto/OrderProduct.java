@@ -16,7 +16,8 @@ public class OrderProduct {
     private String receiverName;
     private String receiverAddress;
     private String receiverPhone;
+    private Integer addressId;
     private int allPrice;
     private Timestamp orderDate;
-    private int orderQt; // ← 이 필드 추가
+    private int orderQt;
 }

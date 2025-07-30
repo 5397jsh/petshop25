@@ -1,6 +1,7 @@
 package edu.sm.controller;
 
 import edu.sm.dto.*;
+import edu.sm.service.AddressService;
 import edu.sm.service.CartService;
 import edu.sm.service.OrderService;
 import jakarta.servlet.http.HttpSession;
@@ -9,89 +10,83 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
 public class OrderController {
 
-    final OrderService orderService;
-    final CartService cartService;
+    private final OrderService   orderService;
+    private final CartService    cartService;
+    private final AddressService addressService;
 
+    /**
+     * 1) 체크아웃 페이지 보여주기
+     */
     @GetMapping("/checkout")
-    public String checkoutGet(@RequestParam("custId") String custId, Model model) throws Exception {
-        List<Cart> cartList = cartService.findByCustId(custId);
-        model.addAttribute("carts", cartList);
-        return "order/checkout";
-    }
-
-    @PostMapping("/checkout")
-    public String checkoutPost(@RequestParam("custId") String custId, Model model) throws Exception {
-        List<Cart> cartList = cartService.findByCustId(custId);
-        model.addAttribute("carts", cartList);
-        return "order/checkout";
-    }
-
-    @PostMapping("/create")
-    public String createOrder(
-            @RequestParam(value = "receiverName", required = false) String receiverName,
-            @RequestParam(value = "receiverAddress", required = false) String receiverAddress,
-            @RequestParam(value = "receiverPhone", required = false) String receiverPhone,
-            @RequestParam(value = "totalPrice", required = false, defaultValue = "0") int totalPrice,
-            HttpSession session,
-            Model model
-    ) {
-        Cust cust = (Cust) session.getAttribute("logincust");
-        if (cust == null) {
+    public String showCheckout(HttpSession session, Model model) throws Exception {
+        Cust login = (Cust) session.getAttribute("logincust");
+        if (login == null) {
             return "redirect:/login";
         }
+        String custId = login.getCustId();
 
-        // 1. 입력값 유효성 검사
-        if (receiverName == null || receiverName.trim().isEmpty()
-                || receiverAddress == null || receiverAddress.trim().isEmpty()
-                || receiverPhone == null || receiverPhone.trim().isEmpty()) {
-            model.addAttribute("msg", "수령자 정보는 모두 필수입니다.");
+        // 장바구니 목록 & 총액
+        List<Cart> carts = cartService.findByCustId(custId);
+        model.addAttribute("carts", carts);
+        model.addAttribute("total", cartService.calculateTotal(carts));
+
+        // 저장된 주소 목록
+        List<Address> addresses = addressService.getByCustId(custId);
+        model.addAttribute("addresses", addresses);
+
+        // 폼 바인딩용 빈 주문 객체
+        model.addAttribute("order", new OrderProduct());
+        return "order/checkout";
+    }
+
+    /**
+     * 2) 주문 생성 처리
+     */
+    @PostMapping("/create")
+    public String createOrder(
+            @ModelAttribute OrderProduct order,
+            HttpSession session,
+            Model model
+    ) throws Exception {
+        Cust login = (Cust) session.getAttribute("logincust");
+        if (login == null) {
+            return "redirect:/login";
+        }
+        order.setCustId(login.getCustId());
+
+        // 장바구니 검증
+        List<Cart> carts = cartService.findByCustId(login.getCustId());
+        if (carts.isEmpty()) {
+            model.addAttribute("msg", "장바구니가 비어있습니다.");
             return "order/fail";
         }
 
-        try {
-            List<Cart> cartList = cartService.findByCustId(cust.getCustId());
-            if (cartList == null || cartList.isEmpty()) {
-                model.addAttribute("msg", "장바구니가 비어있습니다.");
-                return "order/fail";
-            }
-
-            OrderProduct order = OrderProduct.builder()
-                    .custId(cust.getCustId())
-                    .receiverName(receiverName)
-                    .receiverAddress(receiverAddress)
-                    .receiverPhone(receiverPhone)
-                    .allPrice(totalPrice)
-                    .build();
-
-            List<OrderDetail> detailList = new ArrayList<>();
-            for (Cart c : cartList) {
-                OrderDetail detail = OrderDetail.builder()
+        // OrderDetail 리스트 생성
+        List<OrderDetail> details = carts.stream()
+                .map(c -> OrderDetail.builder()
                         .productId(c.getProductId())
                         .productQt(c.getProductQt())
-                        .build();
-                detailList.add(detail);
-            }
+                        .build())
+                .toList();
 
-            orderService.registerOrder(order, detailList);
-
-            for (Cart c : cartList) {
+        try {
+            // 주문 저장
+            orderService.registerOrder(order, details);
+            // 주문 저장 후 장바구니 비우기
+            for (Cart c : carts) {
                 cartService.remove(c.getCartId());
             }
-
             return "order/success";
-
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("msg", "주문 처리 중 예외가 발생했습니다.");
             return "order/fail";
         }
     }
-
 }
