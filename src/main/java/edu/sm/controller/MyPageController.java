@@ -2,16 +2,14 @@ package edu.sm.controller;
 
 import edu.sm.dto.Cust;
 import edu.sm.dto.OrderHistory;
+import edu.sm.dto.OrderItem;
 import edu.sm.service.CustService;
 import edu.sm.service.OrderService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -22,6 +20,7 @@ public class MyPageController {
 
     private final CustService custService;
     private final OrderService orderService;
+
 
 
     @RequestMapping("/mypage")
@@ -49,6 +48,17 @@ public class MyPageController {
 
         // 뷰 이름: /WEB-INF/views/mypage/orders.jsp
         return "cust/orderhistory";
+    }
+
+    @GetMapping("/mypage/orderDetail")
+    public String orderDetail(@RequestParam int orderId, Model model) {
+        // 주문 기본 정보
+        OrderHistory base = orderService.getHistoryById(orderId);
+        // 주문 아이템 리스트
+        List<OrderItem> items = orderService.getDetails(orderId);
+        model.addAttribute("base", base);
+        model.addAttribute("items", items);
+        return "cust/orderdetail";
     }
 
 
