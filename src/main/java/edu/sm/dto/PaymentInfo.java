@@ -1,9 +1,11 @@
 package edu.sm.dto;
 
+import lombok.Builder;
 import lombok.Data;
 import java.util.Date;
 
 @Data
+@Builder
 public class PaymentInfo {
     private String custId;
     private String cardName;

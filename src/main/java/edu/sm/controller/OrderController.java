@@ -4,6 +4,7 @@ import edu.sm.dto.*;
 import edu.sm.service.AddressService;
 import edu.sm.service.CartService;
 import edu.sm.service.OrderService;
+import edu.sm.service.PaymentInfoService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,7 @@ public class OrderController {
     private final OrderService   orderService;
     private final CartService    cartService;
     private final AddressService addressService;
+    private final PaymentInfoService paymentInfoService;
 
     /**
      * 1) 체크아웃 페이지 보여주기
@@ -52,27 +54,27 @@ public class OrderController {
     @PostMapping("/create")
     public String createOrder(
             @ModelAttribute OrderProduct order,
+            @RequestParam("cardName") String cardName,
+            @RequestParam("cardNumber") String cardNumber,
+            @RequestParam("expMonth") String expMonth,
+            @RequestParam("expYear") String expYear,
+            @RequestParam("cvv") String cvv,
             HttpSession session,
             Model model
     ) throws Exception {
         Cust login = (Cust) session.getAttribute("logincust");
-        if (login == null) {
-            return "redirect:/login";
-        }
+        if (login == null) return "redirect:/login";
         order.setCustId(login.getCustId());
 
-        // 장바구니 검증
         List<Cart> carts = cartService.findByCustId(login.getCustId());
         if (carts.isEmpty()) {
             model.addAttribute("msg", "장바구니가 비어있습니다.");
             return "order/fail";
         }
 
-        // ✅ 총 결제 금액 계산 및 세팅
         int totalPrice = cartService.calculateTotal(carts);
         order.setAllPrice(totalPrice);
 
-        // OrderDetail 리스트 생성
         List<OrderDetail> details = carts.stream()
                 .map(c -> OrderDetail.builder()
                         .productId(c.getProductId())
@@ -82,9 +84,21 @@ public class OrderController {
 
         try {
             orderService.registerOrder(order, details);
-            for (Cart c : carts) {
-                cartService.remove(c.getCartId());
-            }
+
+            // ✅ 카드정보 저장
+            PaymentInfo info = PaymentInfo.builder()
+                    .custId(order.getCustId())
+                    .cardName(cardName)
+                    .cardNumber(cardNumber)
+                    .expMonth(expMonth)
+                    .expYear(expYear)
+                    .cvv(cvv)
+                    .build();
+            paymentInfoService.saveOrUpdate(info);
+
+            // 장바구니 비우기
+            for (Cart c : carts) cartService.remove(c.getCartId());
+
             return "order/success";
         } catch (Exception e) {
             e.printStackTrace();

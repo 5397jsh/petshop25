@@ -175,10 +175,10 @@
           .then(data => {
             if (!data) return;
 
-            document.querySelector("input[name='cardname']").value   = data.cardName || '';
-            document.querySelector("input[name='cardnumber']").value = data.cardNumber || '';
-            document.querySelector("input[name='expmonth']").value   = data.expMonth || '';
-            document.querySelector("input[name='expyear']").value    = data.expYear || '';
+            document.querySelector("input[name='cardName']").value   = data.cardName || '';
+            document.querySelector("input[name='cardNumber']").value = data.cardNumber || '';
+            document.querySelector("input[name='expMonth']").value   = data.expMonth || '';
+            document.querySelector("input[name='expYear']").value    = data.expYear || '';
             document.querySelector("input[name='cvv']").value        = data.cvv || '';
           })
           .catch(err => {

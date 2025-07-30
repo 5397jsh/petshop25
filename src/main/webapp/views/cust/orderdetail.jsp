@@ -20,7 +20,6 @@
     <div class="card-body">
       <div class="row text-center">
         <div class="col-6 col-md-3 mb-3">
-          <!-- text-secondary 제거, fw-semibold로 강조 -->
           <h6 class="fw-semibold mb-2">주문번호</h6>
           <p class="fw-bold fs-5 mb-0">${base.orderId}</p>
         </div>
