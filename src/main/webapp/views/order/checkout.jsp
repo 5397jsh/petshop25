@@ -61,11 +61,13 @@
         <div class="container-box">
           <h4>배송 정보</h4>
           <label>수령자 이름</label>
-          <input type="text" name="receiverName" class="form-control mb-3" required>
+          <input type="text" name="receiverName" class="form-control mb-3" value="${custinfo.custName}" required>
           <label>연락처</label>
-          <input type="text" name="receiverPhone" class="form-control mb-3" required>
+          <input type="text" name="receiverPhone" class="form-control mb-3" value="${custinfo.custPhone}" required>
           <label>배송 주소</label>
-          <input type="text" name="receiverAddress" class="form-control mb-3" required>
+          <input type="text" name="receiverAddress" class="form-control mb-3" value="${custinfo.custAddress}" required>
+
+
 
           <h4 class="mt-4">결제 정보</h4>
           <label>결제 수단</label>

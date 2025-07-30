@@ -2,6 +2,7 @@ package edu.sm.controller;
 
 import edu.sm.dto.*;
 import edu.sm.service.CartService;
+import edu.sm.service.CustService;
 import edu.sm.service.OrderService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -18,13 +19,25 @@ public class OrderController {
 
     final OrderService orderService;
     final CartService cartService;
+    final CustService custService;
+
 
     @GetMapping("/checkout")
-    public String checkoutGet(@RequestParam("custId") String custId, Model model) throws Exception {
+    public String checkoutGet(@RequestParam("custId") String custId, HttpSession session, Model model) throws Exception {
+        // 1. 장바구니
         List<Cart> cartList = cartService.findByCustId(custId);
         model.addAttribute("carts", cartList);
+
+        // 2. 로그인한 회원 정보 조회
+        Cust loginCust = (Cust) session.getAttribute("logincust");
+        if (loginCust != null) {
+            Cust fullInfo = custService.get(loginCust.getCustId()); // DB에서 상세 정보
+            model.addAttribute("custinfo", fullInfo);
+        }
+
         return "order/checkout";
     }
+
 
     @PostMapping("/checkout")
     public String checkoutPost(@RequestParam("custId") String custId, Model model) throws Exception {
