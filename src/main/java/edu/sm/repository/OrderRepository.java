@@ -17,7 +17,5 @@ public interface OrderRepository {
     List<OrderHistory> findByCustId(@Param("custId") String custId);
     List<OrderItem>   findDetailsByOrderId(int orderId);
 
-
     OrderHistory findByOrderId(@Param("orderId") int orderId);
 }
-

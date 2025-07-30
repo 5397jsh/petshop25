@@ -16,16 +16,31 @@
 
 <main class="container mt-5">
   <h1 class="fw-bold mt-4 mb-3">주문 상세</h1>
-  <dl class="row">
-    <dt class="col-sm-3">주문번호</dt><dd class="col-sm-9">${base.orderId}</dd>
-    <dt class="col-sm-3">주문일시</dt>
-    <dd class="col-sm-9"><fmt:formatDate value="${base.regDate}" pattern="yyyy-MM-dd HH:mm"/></dd>
-    <dt class="col-sm-3">수령인</dt><dd class="col-sm-9">${base.recipientName}</dd>
-    <dt class="col-sm-3">총 결제금액</dt>
-    <dd class="col-sm-9">
-      <fmt:formatNumber value="${base.totalAmount}" pattern="###,###"/>원
-    </dd>
-  </dl>
+  <div class="card mb-4">
+    <div class="card-body">
+      <div class="row text-center">
+        <div class="col-6 col-md-3 mb-3">
+          <h6 class="fw-semibold mb-2">주문번호</h6>
+          <p class="fw-bold fs-5 mb-0">${base.orderId}</p>
+        </div>
+        <div class="col-6 col-md-3 mb-3">
+          <h6 class="fw-semibold mb-2">주문일시</h6>
+          <p class="fw-bold fs-5 mb-0">
+            <fmt:formatDate value="${base.regDate}" pattern="yyyy-MM-dd HH:mm"/>
+          </p>
+        </div>
+        <div class="col-6 col-md-3 mb-3">
+          <h6 class="fw-semibold mb-2">수령인</h6>
+          <p class="fw-bold fs-5 mb-0">${base.recipientName}</p>
+        </div>
+        <div class="col-6 col-md-3 mb-3">
+          <h6 class="fw-semibold mb-2">총 결제금액</h6>
+          <p class="fw-bold fs-5 mb-0">${base.totalAmount}원</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <table class="table mt-4 align-middle">
     <thead>
@@ -36,7 +51,12 @@
     <tbody>
     <c:forEach var="i" items="${items}">
       <tr>
-        <td><img src="${i.productImg}" style="width:60px;" alt=""/></td>
+        <td class="py-3">
+          <img
+              src="<c:url value='/images/${i.productImg}'/>"
+              style="width:60px;"
+              alt="상품 이미지"/>
+        </td>
         <td>${i.productName}</td>
         <td>${i.quantity}</td>
         <td>

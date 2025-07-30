@@ -42,17 +42,15 @@
     </span>
   </p>
 
-  <form action="/create" method="post">
-    <%-- 2) 숨겨진 필드: JS가 순수 숫자값 세팅 --%>
-    <input type="hidden" name="custId"    value="${logincust.custId}" />
+  <form action="<c:url value='/create'/>" method="post">
+    <input type="hidden" name="custId" value="${logincust.custId}" />
     <input type="hidden" id="totalPriceHidden" name="totalPrice" />
 
     <%-- 3) JS로 totalPriceHidden 에 쉼표 없는 정수값 세팅 --%>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         var raw = "${total}";
-        var num = parseInt(parseFloat(raw));
-        document.getElementById("totalPriceHidden").value = num;
+        document.getElementById("totalPriceHidden").value = parseInt(raw);
       });
     </script>
 
@@ -60,12 +58,22 @@
       <div class="col-md-8">
         <div class="container-box">
           <h4>배송 정보</h4>
-          <label>수령자 이름</label>
-          <input type="text" name="receiverName" class="form-control mb-3" value="${logincust.custName}" required>
-          <label>연락처</label>
-          <input type="text" name="receiverPhone" class="form-control mb-3" value="${logincust.custPhone}" required>
-          <label>배송 주소</label>
-          <input type="text" name="receiverAddress" class="form-control mb-3" required>
+          <label for="receiverName">수령자 이름</label>
+          <input type="text" name="receiverName" id="receiverName" class="form-control mb-3" required>
+
+          <label for="receiverPhone">연락처</label>
+          <input type="text" name="receiverPhone" id="receiverPhone" class="form-control mb-3" required>
+
+          <label for="addressId">배송지 선택</label>
+          <select id="addressId" name="addressId" class="form-select mb-3">
+            <option value="">직접 입력</option>
+            <c:forEach var="a" items="${addresses}">
+              <option value="${a.addressId}">${a.addressName} — ${a.addressDetail}</option>
+            </c:forEach>
+          </select>
+
+          <label for="receiverAddress">배송 주소</label>
+          <input type="text" name="receiverAddress" id="receiverAddress" class="form-control mb-3" placeholder="직접 입력할 경우 작성하세요" required>
 
           <h4 class="mt-4">결제 정보</h4>
           <label>결제 수단</label>
@@ -75,24 +83,28 @@
             <i class="fa fa-cc-mastercard" style="color:red;"></i>
             <i class="fa fa-cc-discover" style="color:orange;"></i>
           </div>
-          <label>카드 소유자 이름</label>
-          <input type="text" name="cardname" class="form-control mb-3" placeholder="홍길동" required>
-          <label>카드 번호</label>
-          <input type="text" name="cardnumber" class="form-control mb-3" placeholder="1111-2222-3333-4444" required>
-          <div class="d-flex gap-3">
+
+          <label for="cardName">카드 소유자 이름</label>
+          <input type="text" name="cardName" id="cardName" class="form-control mb-3" placeholder="홍길동" required>
+
+          <label for="cardNumber">카드 번호</label>
+          <input type="text" name="cardNumber" id="cardNumber" class="form-control mb-3" placeholder="1111-2222-3333-4444" required>
+
+          <div class="d-flex gap-3 mb-3">
             <div class="flex-fill">
-              <label>만료 월</label>
-              <input type="text" name="expmonth" class="form-control" placeholder="MM" required>
+              <label for="expMonth">만료 월</label>
+              <input type="text" name="expMonth" id="expMonth" class="form-control" placeholder="MM" required>
             </div>
             <div class="flex-fill">
-              <label>만료 년</label>
-              <input type="text" name="expyear" class="form-control" placeholder="YYYY" required>
+              <label for="expYear">만료 년</label>
+              <input type="text" name="expYear" id="expYear" class="form-control" placeholder="YYYY" required>
             </div>
             <div class="flex-fill">
-              <label>CVV</label>
-              <input type="text" name="cvv" class="form-control" placeholder="123" required>
+              <label for="cvv">CVV</label>
+              <input type="text" name="cvv" id="cvv" class="form-control" placeholder="123" required>
             </div>
           </div>
+<%--카드 폼 체크--%>
           <div class="form-check my-3">
             <input type="checkbox" id="loadSavedCard" class="form-check-input">
             <label for="loadSavedCard" class="form-check-label">저장된 결제정보 불러오기</label>
@@ -109,10 +121,10 @@
           <h4>장바구니 (총 <b>${fn:length(carts)}</b>개)</h4>
           <hr>
           <c:forEach var="c" items="${carts}">
-            <c:set var="discounted" value="${c.productPrice * (1 - (c.discountRate / 100.0))}" />
+            <c:set var="disc" value="${c.productPrice * (1 - (c.discountRate/100.0))}" />
             <p>${c.productName} (x${c.productQt})
               <span class="price">
-                <fmt:formatNumber value="${discounted * c.productQt}" type="number" />원
+                <fmt:formatNumber value="${disc * c.productQt}" type="number" />원
               </span>
             </p>
           </c:forEach>
@@ -128,6 +140,21 @@
     </div>
   </form>
 </div>
+
+<script>
+  const sel = document.getElementById('addressId');
+  const addrInput = document.getElementById('receiverAddress');
+  sel.addEventListener('change', () => {
+    const opt = sel.selectedOptions[0];
+    if (opt.value) {
+      addrInput.value = opt.text.split(' — ')[1] || '';
+      addrInput.readOnly = true;
+    } else {
+      addrInput.readOnly = false;
+      addrInput.value = '';
+    }
+  });
+</script>
 
 <jsp:include page="../footer.jsp" />
 <script src="/js/jquery-1.11.0.min.js"></script>
@@ -148,10 +175,10 @@
           .then(data => {
             if (!data) return;
 
-            document.querySelector("input[name='cardname']").value   = data.cardName || '';
-            document.querySelector("input[name='cardnumber']").value = data.cardNumber || '';
-            document.querySelector("input[name='expmonth']").value   = data.expMonth || '';
-            document.querySelector("input[name='expyear']").value    = data.expYear || '';
+            document.querySelector("input[name='cardName']").value   = data.cardName || '';
+            document.querySelector("input[name='cardNumber']").value = data.cardNumber || '';
+            document.querySelector("input[name='expMonth']").value   = data.expMonth || '';
+            document.querySelector("input[name='expYear']").value    = data.expYear || '';
             document.querySelector("input[name='cvv']").value        = data.cvv || '';
           })
           .catch(err => {

@@ -5,9 +5,19 @@
 
 <mapper namespace="edu.sm.repository.PaymentInfoRepository">
 
-    <select id="selectByCustId" parameterType="String" resultType="edu.sm.dto.PaymentInfo">
+    <resultMap id="PaymentInfoMap" type="edu.sm.dto.PaymentInfo">
+        <result column="cust_id" property="custId"/>
+        <result column="card_name" property="cardName"/>
+        <result column="card_number" property="cardNumber"/>
+        <result column="exp_month" property="expMonth"/>
+        <result column="exp_year" property="expYear"/>
+        <result column="cvv" property="cvv"/>
+    </resultMap>
+
+    <select id="selectByCustId" parameterType="String" resultMap="PaymentInfoMap">
         SELECT * FROM payment_info WHERE cust_id = #{custId}
     </select>
+
 
     <insert id="insertOrUpdate" parameterType="edu.sm.dto.PaymentInfo">
         INSERT INTO payment_info (cust_id, card_name, card_number, exp_month, exp_year, cvv)
