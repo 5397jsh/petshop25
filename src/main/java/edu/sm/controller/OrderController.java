@@ -67,6 +67,10 @@ public class OrderController {
             return "order/fail";
         }
 
+        // ✅ 총 결제 금액 계산 및 세팅
+        int totalPrice = cartService.calculateTotal(carts);
+        order.setAllPrice(totalPrice);
+
         // OrderDetail 리스트 생성
         List<OrderDetail> details = carts.stream()
                 .map(c -> OrderDetail.builder()
@@ -76,9 +80,7 @@ public class OrderController {
                 .toList();
 
         try {
-            // 주문 저장
             orderService.registerOrder(order, details);
-            // 주문 저장 후 장바구니 비우기
             for (Cart c : carts) {
                 cartService.remove(c.getCartId());
             }
@@ -89,4 +91,5 @@ public class OrderController {
             return "order/fail";
         }
     }
+
 }
