@@ -2,8 +2,8 @@ package edu.sm.controller;
 
 import edu.sm.dto.*;
 import edu.sm.service.CartService;
-import edu.sm.service.CustService;
 import edu.sm.service.OrderService;
+import edu.sm.service.PaymentInfoService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -19,25 +19,14 @@ public class OrderController {
 
     final OrderService orderService;
     final CartService cartService;
-    final CustService custService;
-
+    final PaymentInfoService paymentInfoService;
 
     @GetMapping("/checkout")
-    public String checkoutGet(@RequestParam("custId") String custId, HttpSession session, Model model) throws Exception {
-        // 1. 장바구니
+    public String checkoutGet(@RequestParam("custId") String custId, Model model) throws Exception {
         List<Cart> cartList = cartService.findByCustId(custId);
         model.addAttribute("carts", cartList);
-
-        // 2. 로그인한 회원 정보 조회
-        Cust loginCust = (Cust) session.getAttribute("logincust");
-        if (loginCust != null) {
-            Cust fullInfo = custService.get(loginCust.getCustId()); // DB에서 상세 정보
-            model.addAttribute("custinfo", fullInfo);
-        }
-
         return "order/checkout";
     }
-
 
     @PostMapping("/checkout")
     public String checkoutPost(@RequestParam("custId") String custId, Model model) throws Exception {
@@ -52,6 +41,13 @@ public class OrderController {
             @RequestParam(value = "receiverAddress", required = false) String receiverAddress,
             @RequestParam(value = "receiverPhone", required = false) String receiverPhone,
             @RequestParam(value = "totalPrice", required = false, defaultValue = "0") int totalPrice,
+
+            @RequestParam(value = "cardname", required = false) String cardName,
+            @RequestParam(value = "cardnumber", required = false) String cardNumber,
+            @RequestParam(value = "expmonth", required = false) String expMonth,
+            @RequestParam(value = "expyear", required = false) String expYear,
+            @RequestParam(value = "cvv", required = false) String cvv,
+
             HttpSession session,
             Model model
     ) {
@@ -60,7 +56,7 @@ public class OrderController {
             return "redirect:/login";
         }
 
-        // 1. 입력값 유효성 검사
+        // 1. 수령자 정보 유효성 검사
         if (receiverName == null || receiverName.trim().isEmpty()
                 || receiverAddress == null || receiverAddress.trim().isEmpty()
                 || receiverPhone == null || receiverPhone.trim().isEmpty()) {
@@ -92,11 +88,23 @@ public class OrderController {
                 detailList.add(detail);
             }
 
+            // 주문 저장
             orderService.registerOrder(order, detailList);
 
+            // 장바구니 비우기
             for (Cart c : cartList) {
                 cartService.remove(c.getCartId());
             }
+
+            // 결제 정보 저장
+            PaymentInfo info = new PaymentInfo();
+            info.setCustId(cust.getCustId());
+            info.setCardName(cardName);
+            info.setCardNumber(cardNumber);
+            info.setExpMonth(expMonth);
+            info.setExpYear(expYear);
+            info.setCvv(cvv);
+            paymentInfoService.saveOrUpdate(info);
 
             return "order/success";
 
@@ -106,5 +114,6 @@ public class OrderController {
             return "order/fail";
         }
     }
+
 
 }
