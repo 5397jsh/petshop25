@@ -25,6 +25,7 @@
 
 <jsp:include page="../header.jsp" />
 
+<%-- 1) 총액 계산 (할인 적용된 가격 기준) --%>
 <c:set var="total" value="0" />
 <c:forEach var="c" items="${carts}">
   <c:set var="discountedPrice" value="${c.productPrice * (1 - (c.discountRate / 100.0))}" />
@@ -44,6 +45,8 @@
   <form action="<c:url value='/create'/>" method="post">
     <input type="hidden" name="custId" value="${logincust.custId}" />
     <input type="hidden" id="totalPriceHidden" name="totalPrice" />
+
+    <%-- 3) JS로 totalPriceHidden 에 쉼표 없는 정수값 세팅 --%>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         var raw = "${total}";
@@ -101,7 +104,11 @@
               <input type="text" name="cvv" id="cvv" class="form-control" placeholder="123" required>
             </div>
           </div>
-
+<%--카드 폼 체크--%>
+          <div class="form-check my-3">
+            <input type="checkbox" id="loadSavedCard" class="form-check-input">
+            <label for="loadSavedCard" class="form-check-label">저장된 결제정보 불러오기</label>
+          </div>
           <div class="form-check mt-3">
             <input type="checkbox" class="form-check-input" id="sameadr" name="sameadr" checked>
             <label class="form-check-label" for="sameadr">배송지와 결제지 동일</label>
@@ -154,5 +161,34 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/js/plugins.js"></script>
 <script src="/js/script.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const checkbox = document.getElementById("loadSavedCard");
+
+    checkbox.addEventListener("change", function () {
+      if (this.checked) {
+        fetch("/paymentinfo")
+          .then(response => {
+            if (!response.ok) throw new Error("HTTP error " + response.status);
+            return response.json();
+          })
+          .then(data => {
+            if (!data) return;
+
+            document.querySelector("input[name='cardname']").value   = data.cardName || '';
+            document.querySelector("input[name='cardnumber']").value = data.cardNumber || '';
+            document.querySelector("input[name='expmonth']").value   = data.expMonth || '';
+            document.querySelector("input[name='expyear']").value    = data.expYear || '';
+            document.querySelector("input[name='cvv']").value        = data.cvv || '';
+          })
+          .catch(err => {
+            alert("결제정보를 불러오지 못했습니다.");
+            console.error("결제정보 오류:", err);
+          });
+      }
+    });
+  });
+</script>
+
 </body>
 </html>

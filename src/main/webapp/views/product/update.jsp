@@ -32,6 +32,7 @@
       <input type="number" name="productPrice" class="form-control" value="${product.productPrice}" required/>
     </div>
 
+
     <div class="mb-3">
       <label class="form-label">카테고리 ID</label>
       <input type="number" name="cateId" class="form-control" value="${product.cateId}" required/>

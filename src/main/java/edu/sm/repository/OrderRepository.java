@@ -19,4 +19,3 @@ public interface OrderRepository {
 
     OrderHistory findByOrderId(@Param("orderId") int orderId);
 }
-

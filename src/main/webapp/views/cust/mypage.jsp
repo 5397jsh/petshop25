@@ -31,6 +31,7 @@
   <p><strong>이름:</strong> ${logincust.custName}</p>
   <p><strong>이메일:</strong> ${logincust.custMail}</p>
   <p><strong>전화번호:</strong> ${logincust.custPhone}</p>
+  <p><strong>배송지:</strong> ${logincust.custAddress}</p>
   <p><strong>가입일: <fmt:formatDate value="${logincust.custRegdate}" pattern="yyyy-MM-dd"/></strong></p>
 
 <%-- 수정, 탈퇴 버튼 --%>

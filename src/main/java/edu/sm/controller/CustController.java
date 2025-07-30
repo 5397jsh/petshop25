@@ -23,14 +23,6 @@ public class CustController {
         model.addAttribute("custList", custList);
         return "manage/main";
     }
-    @GetMapping("/manage/detail")
-    public String detail(@RequestParam("id") String id, Model model) throws Exception {
-        Cust cust = custService.get(id);
-        model.addAttribute("cust", cust);
-        return "manage/detail"; // manage/detail.jsp에서 회원 정보 출력
-    }
-
-
 
 
     @GetMapping("/delete")
