@@ -10,7 +10,6 @@ public class Cust {
     private String custMail;
     private String custName;
     private String custPhone;
-    private String custAddress;
     private Date custRegdate;
     private Date custUpdate;
 }
