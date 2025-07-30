@@ -185,7 +185,7 @@
 
             <div class="bootstrap-tabs product-tabs">
               <div class="tabs-header d-flex justify-content-between border-bottom my-5">
-                <h3>추천 상품</h3>
+                <h1>추천 상품</h1>
               </div>
 
               <div class="row">
