@@ -21,7 +21,10 @@
     <dt class="col-sm-3">주문일시</dt>
     <dd class="col-sm-9"><fmt:formatDate value="${base.regDate}" pattern="yyyy-MM-dd HH:mm"/></dd>
     <dt class="col-sm-3">수령인</dt><dd class="col-sm-9">${base.recipientName}</dd>
-    <dt class="col-sm-3">총 결제금액</dt><dd class="col-sm-9">${base.totalAmount}원</dd>
+    <dt class="col-sm-3">총 결제금액</dt>
+    <dd class="col-sm-9">
+      <fmt:formatNumber value="${base.totalAmount}" pattern="###,###"/>원
+    </dd>
   </dl>
 
   <table class="table mt-4 align-middle">
@@ -36,8 +39,12 @@
         <td><img src="${i.productImg}" style="width:60px;" alt=""/></td>
         <td>${i.productName}</td>
         <td>${i.quantity}</td>
-        <td>${i.unitPrice}원</td>
-        <td>${i.subtotal}원</td>
+        <td>
+          <fmt:formatNumber value="${i.unitPrice}" pattern="###,###"/>원
+        </td>
+        <td>
+          <fmt:formatNumber value="${i.subtotal}" pattern="###,###"/>원
+        </td>
       </tr>
     </c:forEach>
     <c:if test="${empty items}">

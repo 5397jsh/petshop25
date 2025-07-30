@@ -143,24 +143,37 @@ public class ProductController {
         reviewService.modify(edit);
         return "redirect:/product/detail?id=" + productId;
     }
-
-    // 리뷰 삭제
+    // 리뷰 삭제 처리
     @PostMapping("/detail/{productId}/review/{reviewId}/delete")
     public String deleteReview(
             @PathVariable int productId,
             @PathVariable int reviewId,
             @SessionAttribute(name = "logincust", required = false) Cust loginCust
     ) throws Exception {
+        // 1) 로그인 확인
         if (loginCust == null) {
             throw new IllegalStateException("로그인한 사용자만 삭제할 수 있습니다.");
         }
-        Review target = reviewService.get(reviewId);
-        if (!loginCust.getCustId().equals(target.getCustId())) {
-            throw new IllegalStateException("본인이 작성한 리뷰만 삭제할 수 있습니다.");
+
+        // 2) 작성자 본인 또는 관리자 확인
+        Review target = reviewService.select(reviewId);
+        String writerId = target.getCustId();
+        String loginId  = loginCust.getCustId();
+        boolean isOwner = loginId.equals(writerId);
+        boolean isAdmin = loginId.equals("admin");
+        if (! (isOwner || isAdmin) ) {
+            throw new IllegalStateException("본인이 작성했거나 관리자만 삭제할 수 있습니다.");
         }
+
+        // 3) 삭제
         reviewService.remove(reviewId);
+
+        // 4) 상세 페이지로 리다이렉트
         return "redirect:/product/detail?id=" + productId;
     }
+
+
+
 
     // 랜덤 추천
     @GetMapping("/recommended")

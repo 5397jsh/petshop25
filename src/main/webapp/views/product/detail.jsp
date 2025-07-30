@@ -107,38 +107,44 @@
     </c:if>
 
     <!-- 리뷰 리스트 -->
-    <c:forEach var="r" items="${reviews}">
-      <div class="review-box p-3 mb-3" data-review-id="${r.reviewId}">
-        <div class="d-flex align-items-center mb-2">
-          <strong class="me-2">${r.custId}</strong>
-          <span class="badge bg-warning text-dark me-3 review-rating">${r.rating}점</span>
-          <small class="text-muted">${fn:replace(r.commDate,'T',' ')}</small>
+<c:forEach var="r" items="${reviews}">
+  <div class="review-box p-3 mb-3" data-review-id="${r.reviewId}">
+    <div class="d-flex align-items-center mb-2">
+      <strong class="me-2">${r.custId}</strong>
+      <span class="badge bg-warning text-dark me-3 review-rating">${r.rating}점</span>
+      <small class="text-muted">${fn:replace(r.commDate,'T',' ')}</small>
 
-          <c:if test="${sessionScope.logincust.custId eq r.custId}">
-            <div class="ms-auto">
-              <button type="button" class="btn btn-sm btn-outline-secondary edit-btn">수정</button>
-              <form action="/product/detail/${product.productId}/review/${r.reviewId}/delete"
-                    method="post" class="d-inline" onsubmit="return confirm('정말 삭제하시겠습니까?');">
-                <button type="submit" class="btn btn-sm btn-danger">삭제</button>
-              </form>
-            </div>
-          </c:if>
+      <!-- 로그인한 사용자이면서 본인 작성자이거나, 관리자(admin)면 버튼 노출 -->
+      <c:if test="${not empty sessionScope.logincust
+                   and (sessionScope.logincust.custId eq r.custId
+                        or sessionScope.logincust.custId eq 'admin')}">
+        <div class="ms-auto">
+          <button type="button" class="btn btn-sm btn-outline-secondary edit-btn">수정</button>
+          <form action="<c:url value='/product/detail/${product.productId}/review/${r.reviewId}/delete'/>"
+                method="post" class="d-inline"
+                onsubmit="return confirm('정말 삭제하시겠습니까?');">
+            <button type="submit" class="btn btn-sm btn-danger">삭제</button>
+          </form>
         </div>
+      </c:if>
 
-        <!-- display 모드 -->
-        <div class="display-mode">
-          <p class="review-comment">${r.comment}</p>
-        </div>
-        <!-- edit 모드 -->
-        <div class="edit-mode d-none">
-          <textarea class="form-control mb-2 edit-comment" rows="3">${r.comment}</textarea>
-          <div class="text-end">
-            <button type="button" class="btn btn-sm btn-primary save-btn">저장</button>
-            <button type="button" class="btn btn-sm btn-secondary cancel-btn">취소</button>
-          </div>
-        </div>
+    </div>
+
+    <!-- display 모드 -->
+    <div class="display-mode">
+      <p class="review-comment">${r.comment}</p>
+    </div>
+    <!-- edit 모드 -->
+    <div class="edit-mode d-none">
+      <textarea class="form-control mb-2 edit-comment" rows="3">${r.comment}</textarea>
+      <div class="text-end">
+        <button type="button" class="btn btn-sm btn-primary save-btn">저장</button>
+        <button type="button" class="btn btn-sm btn-secondary cancel-btn">취소</button>
       </div>
-    </c:forEach>
+    </div>
+  </div>
+</c:forEach>
+
   </section>
 </main>
 
