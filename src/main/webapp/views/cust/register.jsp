@@ -58,11 +58,7 @@
              title="010-1234-5678 형식으로 입력해주세요."
              required>
     </div>
-    <div class="mb-3">
-      <label for="custAddress" class="form-label">배송지</label>
-      <input type="text" class="form-control" id="custAddress" name="custAddress"
-             placeholder="배송지 입력" value="${cust.custName}" required>
-    </div>
+
 
     <button type="submit" class="btn w-100" style="background-color: #ffc107; color: black;">회원가입</button>
   </form>
