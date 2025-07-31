@@ -43,7 +43,7 @@
 아래는 본 프로젝트에서 사용된 데이터베이스 테이블 구조입니다.  
 주요 테이블: `cust`, `product`, `category`, `cart`, `wishlist`, `order_product`, `order_detail`, `payment`, `payment_info` 등
 
-![ERD](imgs/readme/erd.png)
+<img src="imgs/readme/erd.png" alt="ERD" width="600"/>
 
 ---
 
