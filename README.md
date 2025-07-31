@@ -1,10 +1,15 @@
-# Spring boot 기반의 펫 쇼핑몰 시스템
+# 🐾 PetShop 쇼핑몰 프로젝트
 
-***
-## 📌개발 목적 및 배경
-기존의 중고거래의 문제점은 사기, 품질 문제, 개인의 안전등의 다양한 위험을 수반한 형태의 거래가 이루어 졌습니다.
-이러한 문제를 줄이고자 중고거래를 기업을 통하여 이루어지게 된다면 신뢰도 향상, 품질 개선, 안전성 향상등의 기존의 문제점을 해결하고
-더욱 활발하고 안전한 중고거래 문화가 정착하게 될것이며 신뢰할 수 있는 중고거래 시장을 만드는 것이 목표입니다.
+**Spring Boot + MyBatis + JSP 기반의 반려동물 쇼핑몰 웹 프로젝트**  
+회원가입부터 상품 구매, 결제까지 전 과정을 구현한 전자상거래 플랫폼
+
+## 📌 프로젝트 개요
+
+- 반려동물 용품을 판매하는 쇼핑몰 웹사이트
+- 회원은 상품을 검색하고, 장바구니/찜 기능을 사용하여 상품을 구매 가능
+- 관리자는 상품 등록/수정/삭제 및 주문 내역 관리 가능
+- Spring MVC 구조 기반의 서버 연동 + JSP 뷰 템플릿 사용
+
 
 ***
 ## 🧑‍💻팀원 및 역할
@@ -16,69 +21,56 @@
 ***
 **기간 :**  2025.06.23 ~ 2025.08.01
 ***
-## 프로젝트 계획도
-![Projectimg](imgs/readme/default.png)
 
-## ERD
-![ERD](imgs/readme/default.png)
 
-## 화면 흐름도
-![flowchart](imgs/readme/default.png)
+## 🧱 기술 스택
 
-***
-## 🛠 개발환경 및 개발도구
+| 영역 | 기술 |
+|------|------|
+| Language | Java 17 |
+| Web Framework | Spring Boot, Spring MVC |
+| View | JSP, JSTL, CSS, JS, Bootstrap |
+| ORM | MyBatis |
+| DB | MySQL |
+| Build Tool | Gradle |
+| Server | Tomcat |
+| Tool | IntelliJ IDEA, GitHub |
 
-협업도구: Github, ERD Cloud <br>
-개발도구: IntelliJ <br>
-언어: Java, JavaScript, HTML5, CSS, SQL <br>
-Database: MySQL <br>
-프레임워크: Spring Boot, My Batis, Bootstrap <br>
-***
-## ✅주요기능
-### 1. 메인 기능
-- 로그인 및 회원가입
-- 상품 정보 페이지
-  - 상품 상세정보 페이지
-- 결제
+---
 
-### 2. 사용자 기능
-- 마이페이지
-  - 장바구니
-  - 찜하기
-  - 사용자 정보 수정
-  - 주소록 관리
+## 🗂 주요 기능
 
-***
-# 메인 기능
-## 메인페이지
-![MainPage](imgs/readme/MainPage.png)
-- 우측 상단의 바를 통해서 회원가입 및 로그인 가능
+### 👤 회원 기능
+- 회원가입, 로그인, 로그아웃
+- 모달 회원가입 폼 구현
+- 회원정보 조회 및 수정
+- 주문 시 배송지 자동 입력 (DB 연동)
 
-![MainPage](imgs/readme/MainPageLogin.png)
-- 로그인 성공시 우측 상단에 이름과 로그아웃 기능 출력
-- 마이페이지, 장바구니, 찜, 상품 상세 페이지 이동 가능
+### 🛍 상품 기능
+- 상품 카테고리별 조회 (고양이/강아지, 사료/장난감 등)
+- 상품 상세 보기 및 수량 조절
+- 장바구니 추가, 찜 추가 기능
+- 관리자 전용 상품 관리 페이지
 
-## 회원가입
-![LoginPage](imgs/readme/LoginPage.png)
+### 🛒 장바구니/찜
+- 로그인된 사용자만 사용 가능
+- 수량 조절, 삭제, 총 합계 계산
+- 찜 목록 별도 관리 및 바로 구매 연결
 
-## 로그인
-![LoginPage](imgs/readme/LoginPage.png)
+### 📦 주문/결제
+- 장바구니 선택 → 결제 진행 → 주문 처리
+- `order_product`, `order_detail` 테이블 연동
+- 결제 정보 `payment_info`, `payment` 저장
+- 주문 완료 후 장바구니 비우기
 
-# 사용자 기능
-## 마이페이지
-![MyPage](imgs/readme/MyPage.png)
-- 좌측의 네이게이션 바를 통해 원하는 기능으로 이동
-- 이름, 비밀번호 변경
+### 🛠 관리자 기능
+- 관리자 계정 로그인 시 상품 등록/수정/삭제 가능
+- 회원 목록 및 주문 내역 조회
 
-## 주소록 관리
-![AddressPage](imgs/readme/AddressPage.png)
-- 주소록 생성, 수정, 삭제
+---
 
-## 장바구니
-![CartPage](imgs/readme/CartPage.png)
-- 
+## 🖥 프로젝트 실행 방법
 
-## 찜
-![FavPage](imgs/readme/FavPage.png)
-- 
-
+1. `MySQL`에 다음 테이블 스키마 및 샘플 데이터 삽입
+2. `application.properties`에서 DB 접속 정보 수정
+3. IntelliJ 또는 터미널에서 실행  
