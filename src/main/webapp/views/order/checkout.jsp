@@ -134,7 +134,10 @@
               <b><fmt:formatNumber value="${total}" type="number" />원</b>
             </span>
           </p>
-          <button type="submit" class="btn btn-warning w-100 mt-2">주문하기</button>
+          <button type="submit"
+            class="btn w-100 mt-2" style="background-color:#ffeb3b; border-color:#fdd835; color:#212529;">주문하기
+          </button>
+
         </div>
       </div>
     </div>

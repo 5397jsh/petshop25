@@ -58,7 +58,7 @@
                           <h3 class="display-4">고양이들을 위한 맛있는 사료 & 건강한 사료</h3>
                           <p>ROYAL CANIN 고양이 사료는 반려묘의 나이, 품종, 건강 상태 등을 고려하여 맞춤형 영양을 제공하는 사료입니다.
                           다양한 품종별, 연령별, 상황별 맞춤 사료를 제공합니다.</p>
-                          <a href="/cat/food" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">보러 가기</a>
+                          <a href="/cat/food" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">보러 가기 🍽️</a>
                         </div>
                         <div class="img-wrapper col-md-5">
                           <img src="images/cat-food-01.png" class="img-fluid">
@@ -73,7 +73,7 @@
                           <h3 class="banner-title">강아지들을 위한 맛있고 건강한 사료</h3>
                           <p>ROYAL CANIN 강아지 사료는 견종, 연령, 크기, 활동량 등 강아지의 특성에 맞춰 영양을 맞춤 설계한 사료입니다.
                           건식과 습식 제품으로 나뉘며, 건강 상태와 기호에 따라 다양한 종류가 있습니다</p>
-                          <a href="/dog/food" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 ">보러 가기</a>
+                          <a href="/dog/food" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">보러 가기</a>
                         </div>
                         <div class="img-wrapper col-md-5">
                           <img src="images/dog-food-2.png" class="img-fluid" style="height: 600px; object-fit: contain;">
@@ -87,7 +87,7 @@
                           <div class="categories mb-3">100% natural</div>
                           <h3 class="banner-title">귀여운 고양이에게 황홀한 놀이의 신세계를</h3>
                           <p>야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹</p>
-                          <a href="/cat/snack" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">보러 가기</a>
+                          <a href="/cat/snack" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">보러 가기</a>
                         </div>
                         <div class="img-wrapper col-md-5">
                           <img src="images/cat-toy-main.png" class="img-fluid" style="height: 700px; object-fit: contain;">
@@ -107,7 +107,7 @@
                   <div class="content-wrapper col-md-7">
                     <div class="categories sale mb-3 pb-3">귀여운 친구들</div>
                     <h3 class="banner-title">고양이 & 강아지</h3>
-                    <a href="/product" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">보러 가기</a>
+                    <a href="/product" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">보러 가기 👀</a>
                   </div>
 
                 </div>
@@ -120,7 +120,7 @@
                   <div class="content-wrapper col-md-7">
                     <div class="categories sale mb-3 pb-3">고양이들의 쉼터</div>
                     <h3 class="item-title"> 고양이 하우스 & 방석 </h3>
-                    <a href="/cat/house" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">보러 가기</a>
+                    <a href="/cat/house" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">보러 가기 🛏️</a>
                   </div>
 
                 </div>
@@ -149,7 +149,7 @@
                 <div class="categories text-primary fs-3 fw-bold">신상품</div>
                 <h3 class="banner-title">고양이 & 강아지</h3>
                 <p>부드러운 츄르 & 담백한 강아지용 닭가슴살.</p>
-                <a href="/product/new" class="btn btn-dark text-uppercase">보러가자멍</a>
+                <a href="/product/new" class="btn btn-dark text-uppercase">보러가자멍🐶</a>
 
               </div>
 
@@ -165,7 +165,7 @@
                 <div class="categories text-primary fs-3 fw-bold">베스트 상품</div>
                 <h3 class="banner-title">목재 캣타워</h3>
                 <p>튼튼한 목재 기둥과 고양이들이 좋아하는 특제 목재</p>
-                <a href="/product/best" class="btn btn-dark text-uppercase">보러가자냥</a>
+                <a href="/product/best" class="btn btn-dark text-uppercase">보러가자냥🐱</a>
 
               </div>
 
@@ -185,7 +185,7 @@
 
             <div class="bootstrap-tabs product-tabs">
               <div class="tabs-header d-flex justify-content-between border-bottom my-5">
-                <h3>추천 상품</h3>
+                <h1>추천 상품</h1>
               </div>
 
               <div class="row">
@@ -342,5 +342,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="/js/plugins.js"></script>
     <script src="/js/script.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const swiper = new Swiper('.main-swiper', {
+          loop: true,
+          autoplay: {
+            delay: 4000,
+            disableOnInteraction: false
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+          }
+        });
+      });
+    </script>
+
+
+
   </body>
 </html>

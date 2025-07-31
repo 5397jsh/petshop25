@@ -92,7 +92,9 @@
         <input type="hidden" name="custId"    value="${newReview.custId}" />
         <div class="mb-2">
           <label>별점:</label>
-          <select name="rating" required>
+          <select name="rating" required
+              oninvalid="this.setCustomValidity('별점을 골라주세냥 ^~^')"
+              oninput="this.setCustomValidity('')">
             <option value="">선택</option>
             <c:forEach begin="1" end="5" var="i">
               <option value="${i}">${i}점</option>
