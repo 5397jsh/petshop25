@@ -87,7 +87,7 @@
                           <div class="categories mb-3">100% natural</div>
                           <h3 class="banner-title">귀여운 고양이에게 황홀한 놀이의 신세계를</h3>
                           <p>야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹</p>
-                          <a href="/cat/snack" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">보러 가기</a>
+                          <a href="/cat/toy" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">보러 가기</a>
                         </div>
                         <div class="img-wrapper col-md-5">
                           <img src="images/cat-toy-main.png" class="img-fluid" style="height: 700px; object-fit: contain;">
