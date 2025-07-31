@@ -38,6 +38,18 @@
 
 ---
 
+## 🧾 ERD 다이어그램
+
+아래는 본 프로젝트에서 사용된 데이터베이스 테이블 구조입니다.  
+주요 테이블: `cust`, `product`, `category`, `cart`, `wishlist`, `order_product`, `order_detail`, `payment`, `payment_info` 등
+
+![ERD](imgs/readme/erd.png)
+
+---
+
+
+
+
 ## 🗂 주요 기능
 
 ### 👤 회원 기능
