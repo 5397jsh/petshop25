@@ -35,7 +35,7 @@
         </div>
         <div class="col-6 col-md-3 mb-3">
           <h6 class="fw-semibold mb-2">총 결제금액</h6>
-          <p class="fw-bold fs-5 mb-0">${base.totalAmount}원</p>
+          <p class="fw-bold fs-5 mb-0"><fmt:formatNumber value="${base.totalAmount}" pattern="###,###"/>원
         </div>
       </div>
     </div>
