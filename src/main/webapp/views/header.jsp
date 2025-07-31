@@ -29,8 +29,8 @@
 
         <!-- 고객센터 -->
         <div class="text-end">
-          <span class="fs-6 text-muted">고민상담</span>
-          <h5 class="mb-0">010-8920-3471</h5>
+          <span class="fs-6 text-muted">고객센터</span>
+          <h5 class="mb-0">02-XXXX-XXXX</h5>
         </div>
 
         <!-- 아이콘 -->
