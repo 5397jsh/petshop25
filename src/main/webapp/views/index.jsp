@@ -302,7 +302,7 @@
             <div class="col-md-10">
               <div class="card-body p-0">
                 <h5>실시간 상담</h5>
-                <p class="card-text">채팅/문의로 24시간 고객 지원 가능</p>
+                <p class="card-text">24시간 고객 지원 가능</p>
               </div>
             </div>
           </div>
