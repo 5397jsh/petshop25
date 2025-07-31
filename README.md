@@ -40,7 +40,7 @@
 
 ## 🧾 ERD 다이어그램
 
-<img src="imgs/readme/erd.png" alt="ERD" width="500"/>
+<img src="imgs/readme/erd.png" alt="ERD" width="600"/>
 
 ## 🗂 주요 기능
 
