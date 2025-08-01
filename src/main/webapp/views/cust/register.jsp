@@ -30,34 +30,52 @@
 
   <form action="/mainregisterimpl" method="post">
     <div class="mb-3">
-      <label for="custId" class="form-label">아이디</label>
-      <input type="text" class="form-control" id="custId" name="custId"
-             placeholder="아이디 입력" value="${cust.custId}" required>
-    </div>
-    <div class="mb-3">
-      <label for="custPwd" class="form-label">비밀번호</label>
-      <input type="password" class="form-control" id="custPwd" name="custPwd"
-             placeholder="비밀번호 입력" value="${cust.custPwd}" required>
-    </div>
-    <div class="mb-3">
-      <label for="custName" class="form-label">이름</label>
-      <input type="text" class="form-control" id="custName" name="custName"
-             placeholder="이름 입력" value="${cust.custName}" required>
-    </div>
-    <div class="mb-3">
-      <label for="custMail" class="form-label">이메일 주소</label>
-      <input type="email" class="form-control" id="custMail" name="custMail"
-             placeholder="이메일 입력" value="${cust.custMail}" required>
-    </div>
-    <div class="mb-3">
-      <label for="custPhone" class="form-label">휴대폰 번호</label>
-      <input type="text" class="form-control" id="custPhone" name="custPhone"
-             placeholder="예시) 010-1234-5678"
-             value="${cust.custPhone}"
-             pattern="^010-\d{4}-\d{4}$"
-             title="010-1234-5678 형식으로 입력해주세요."
-             required>
-    </div>
+              <label for="custId" class="form-label">아이디</label>
+              <input type="text" class="form-control" id="custId" name="custId"
+                     placeholder="아이디 입력" value="${cust.custId}"
+                     required minlength="1" maxlength="30"
+                     oninvalid="this.setCustomValidity('아이디는 1~30자 사이여야 합니다')"
+                     oninput="this.setCustomValidity('')">
+            </div>
+
+            <div class="mb-3">
+              <label for="custPwd" class="form-label">비밀번호</label>
+              <input type="password" class="form-control" id="custPwd" name="custPwd"
+                     placeholder="비밀번호 입력" value="${cust.custPwd}"
+                     required minlength="1" maxlength="20"
+                     oninvalid="this.setCustomValidity('비밀번호는 1~20자 사이여야 합니다')"
+                     oninput="this.setCustomValidity('')">
+            </div>
+
+            <div class="mb-3">
+              <label for="custName" class="form-label">이름</label>
+              <input type="text" class="form-control" id="custName" name="custName"
+                     placeholder="이름 입력" value="${cust.custName}"
+                     required maxlength="20"
+                     oninvalid="this.setCustomValidity('이름은 1~20자 이내여야 합니다')"
+                     oninput="this.setCustomValidity('')">
+            </div>
+
+            <div class="mb-3">
+              <label for="custMail" class="form-label">이메일 주소</label>
+              <input type="email" class="form-control" id="custMail" name="custMail"
+                     placeholder="이메일 입력" value="${cust.custMail}"
+                     required maxlength="50"
+                     oninvalid="this.setCustomValidity('유효한 이메일 형식으로 50자 이내로 입력해주세요')"
+                     oninput="this.setCustomValidity('')">
+            </div>
+
+            <div class="mb-3">
+              <label for="custPhone" class="form-label">휴대폰 번호</label>
+              <input type="text" class="form-control" id="custPhone" name="custPhone"
+                     placeholder="예시) 010-1234-5678"
+                     value="${cust.custPhone}"
+                     required maxlength="15"
+                     pattern="^010-\d{4}-\d{4}$"
+                     title="010-1234-5678 형식으로 입력해주세요."
+                     oninvalid="this.setCustomValidity('010-1234-5678 형식으로 입력해주세요')"
+                     oninput="this.setCustomValidity('')">
+            </div>
 
     <button type="submit" class="btn w-100" style="background-color: #ffc107; color: black;">회원가입</button>
   </form>
