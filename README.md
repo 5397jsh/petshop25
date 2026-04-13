@@ -88,6 +88,4 @@
 
 1. `MySQL`에 다음 테이블 스키마 및 샘플 데이터 삽입
 2. `application.properties`에서 DB 접속 정보 수정
-3. IntelliJ 또는 터미널에서 실행  
-- **사용언어 및 개발환경**: Java 17, Spring Boot 3.5.3, Spring MVC, JSP/JSTL, CSS, JavaScript, Bootstrap, MyBatis, MySQL, Gradle, Tomcat, IntelliJ IDEA, GitHub
-- **성과**: 상품/회원/주문 흐름과 관리자 기능을 실제 화면(JSP)과 서버 로직으로 연결해 쇼핑몰 핵심 시나리오를 완성하고, 결제정보 재사용 기능으로 주문 입력 편의성 개선
+3. IntelliJ 또는 터미널에서 실행 
